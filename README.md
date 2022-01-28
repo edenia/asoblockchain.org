@@ -1,2 +1,2 @@
-# https-asoblockchain.org-
+# asoblockchain.org
 Sitio Web Asociación Blockchain de Costa Rica
