@@ -43,10 +43,17 @@ const ContentItem: React.FC<ContentItemProps> = ({
   const classes = useStyles()
 
   return (
-    <Grid item md={3} xs={12}>
+    <Grid item md={4} xs={12}>
       <Grid container justifyContent='center'>
         <Grid item md={12} xs={12}>
-          <Box width='100%' textAlign='center' paddingX={4} pt={10} pb={2}>
+          <Box
+            width='100%'
+            textAlign='center'
+            className={classes.borderBox}
+            paddingX={4}
+            pt={6}
+            pb={2}
+          >
             <Box pb={4}>
               <Image src={icon} alt={t(title)} />
             </Box>
@@ -98,6 +105,11 @@ const InformingEducation: React.FC = () => {
           description={item.description}
         />
       ))}
+      <Grid item md={12}>
+        <Box textAlign='center' pt={9}>
+          <Typography variant='h1'>{t('committedFuture')}</Typography>
+        </Box>
+      </Grid>
     </Grid>
   )
 }

@@ -81,7 +81,9 @@ const lightThemeOptions: ThemeOptions = {
 
 export const extraColors = {
   primaryVariantOpacity: 'rgb(45, 61, 181, 0.3)',
-  secondaryVariantOpacity: 'rgb(237, 174, 109, 0.3)'
+  secondaryVariantOpacity: 'rgb(237, 174, 109, 0.3)',
+  boxBorderPrimary: '#dadbdd',
+  boxBorderSecondary: 'rgba(218, 219, 221, 0)'
 }
 
 export default {
