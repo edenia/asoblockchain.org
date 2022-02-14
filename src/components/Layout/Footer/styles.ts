@@ -2,49 +2,31 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const Styles = makeStyles(theme => ({
   root: {
-    padding: theme.spacing(3, 20),
+    padding: theme.spacing(8, 43),
     width: '100%',
-    backgroundColor: theme.palette.grey[600],
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.common.white,
     [theme.breakpoints.down('md')]: {
       padding: theme.spacing(3, 3)
     }
   },
-  legend: {
-    margin: theme.spacing(4, 0),
-    [theme.breakpoints.down('sm')]: {
-      textAlign: 'center'
-    }
+  formStyle: {
+    padding: theme.spacing(1),
+    borderRadius: '4px',
+    border: 'solid 1px rgba(255, 255, 255, 0.2)',
+    backgroundColor: 'rgba(255, 255, 255, 0.12)'
   },
-  aStyle: {
-    textDecoration: 'none',
-    color: theme.palette.common.white
+  floatBox: {
+    float: 'right'
   },
-  iconStyleMobile: {
-    [theme.breakpoints.down('sm')]: {
-      display: 'none'
-    }
-  },
-  iconStyleDesktop: {
-    margin: theme.spacing(3, 0),
-    [theme.breakpoints.up('md')]: {
-      display: 'none'
-    }
-  },
-  socialMediaStyle: {
-    marginTop: theme.spacing(2),
-    [theme.breakpoints.down('sm')]: {
-      textAlign: 'center'
-    }
-  },
-  paddingSocialMedia: {
-    paddingTop: theme.spacing(3),
-    color: theme.palette.common.white
-  },
-  socialIcon: {
-    fontSize: 60
-  },
-  whiteColor: {
-    color: theme.palette.common.white
+  bottonStyle: {
+    minWidth: 40,
+    width: 40,
+    borderRadius: 4,
+    padding: 0,
+    fontSize: '24px',
+    fontWeight: 'bold',
+    fontFamily: 'Ubuntu'
   }
 }))
 

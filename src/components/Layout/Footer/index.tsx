@@ -1,12 +1,11 @@
 import React from 'react'
 import { Typography, Box, Grid, Link } from '@material-ui/core'
-import {
-  YouTube as YouTubeIcon,
-  LinkedIn as LinkedInIcon
-} from '@material-ui/icons'
+import Image from 'next/image'
 import { useTranslation } from 'next-i18next'
+import { BaseButton } from 'components'
 
 import Styles from './styles'
+import asoblokchainLogo from '/public/logos/asoblokchain-white-logo.svg'
 
 type FooterProps = {
   isDarkTheme: boolean
@@ -15,52 +14,6 @@ type FooterProps = {
 
 const useStyles = Styles
 
-const firstTags = [
-  {
-    id: 0,
-    label: 'home',
-    link: '/',
-    target: '_self'
-  },
-  {
-    id: 3,
-    label: 'contact',
-    link: '/contact',
-    target: '_self'
-  }
-]
-
-const secondTags = [
-  {
-    id: 1,
-    label: 'support',
-    link: '/support',
-    target: '_blank'
-  }
-]
-
-type LabelProps = {
-  link: string
-  label: string
-  target: string
-  rel?: string
-}
-
-const Label: React.FC<LabelProps> = ({ link, label, target }) => {
-  const { t } = useTranslation()
-  const classes = useStyles()
-
-  return (
-    <Grid item md={12} xs={12}>
-      <Link href={link} className={classes.aStyle} target={target}>
-        <Typography variant='h4' className={classes.legend}>
-          {t(label)}
-        </Typography>
-      </Link>
-    </Grid>
-  )
-}
-
 const Footer: React.FC<FooterProps> = () => {
   const { t } = useTranslation()
   const classes = useStyles()
@@ -68,63 +21,74 @@ const Footer: React.FC<FooterProps> = () => {
   return (
     <>
       <Box className={classes.root}>
-        <Grid justifyContent='center' container>
-          <Grid item md={6} xs={12}>
-            {firstTags.map(label => {
-              return (
-                <Label
-                  key={label.id}
-                  link={label.link}
-                  label={label.label}
-                  target={label.target}
-                />
-              )
-            })}
-          </Grid>
-          <Grid item md={6} xs={12}>
-            {secondTags.map(label => {
-              return (
-                <Label
-                  key={label.id}
-                  link={label.link}
-                  label={label.label}
-                  target={label.target}
-                />
-              )
-            })}
-          </Grid>
-          <Grid
-            container
-            className={classes.socialMediaStyle}
-            justifyContent='flex-end'
-          >
-            <Grid
-              className={classes.paddingSocialMedia}
-              item
-              lg={12}
-              md={12}
-              xs={12}
-            >
-              <Link
-                href='https://www.linkedin.com/'
-                color='inherit'
-                target='_blank'
-                rel='noreferrer'
-              >
-                <LinkedInIcon className={classes.socialIcon} />
-              </Link>
-              <Link
-                href='https://youtube.com/'
-                color='inherit'
-                target='_blank'
-                rel='noreferrer'
-              >
-                <YouTubeIcon className={classes.socialIcon} />
-              </Link>
-              <Typography variant='body1' className={classes.whiteColor}>
-                {t('copyright')}
-              </Typography>
+        <Grid justifyContent='space-between' container>
+          <Grid item md={5} xs={12}>
+            <Grid container>
+              <Grid item md={12} xs={12}>
+                <Image src={asoblokchainLogo} alt='AsoBlockchain Logo' />
+                <Box pt={3}>
+                  <Typography variant='subtitle2'>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                    rutrum suscipit nibh sed ultricies. Suspendisse in consequat
+                    urna. Pellentesque mauris neque, efficitur ac egestas non,
+                    euismod vehicula turpis. Donec sed nisl tristique, sagittis
+                    nibh non, imperdiet magna.
+                  </Typography>
+                </Box>
+              </Grid>
             </Grid>
+          </Grid>
+          <Grid item md={5} xs={12}>
+            <Grid container>
+              <Grid item md={12} xs={12}>
+                <Box className={classes.floatBox}>
+                  <Typography variant='h3'>
+                    {t('subscribeNewsletter')}
+                  </Typography>
+                  <Box>
+                    <form>
+                      <input
+                        className={classes.formStyle}
+                        type='text'
+                        id='email'
+                        name='email'
+                        placeholder='Email'
+                      />
+                      <BaseButton color='primary' variant='contained'>
+                        Submit
+                      </BaseButton>
+                    </form>
+                  </Box>
+                  <Box>
+                    <Typography variant='subtitle2'>
+                      *Sollicitudin vitae dignissim elementum, cursus bibendum
+                      lacus.
+                    </Typography>
+                  </Box>
+                </Box>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item md={5} xs={12}>
+            <Typography variant='subtitle2'>
+              © Derechos reservados. Creado por Edenia Labs.
+            </Typography>
+          </Grid>
+          <Grid item md={5} xs={12}>
+            <Box display='flex' className={classes.floatBox}>
+              <Box display='flex'>
+                <Box margin='auto'>
+                  <Typography variant='subtitle2'>Subir al Inicio</Typography>
+                </Box>
+                <BaseButton
+                  className={classes.bottonStyle}
+                  color='primary'
+                  variant='contained'
+                >
+                  ^
+                </BaseButton>
+              </Box>
+            </Box>
           </Grid>
         </Grid>
       </Box>

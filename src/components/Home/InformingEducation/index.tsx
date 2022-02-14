@@ -4,6 +4,7 @@ import { useTranslation } from 'next-i18next'
 
 import video from '/public/images/gris-image.jpg'
 import icon from '/public/icons/like-icon.svg'
+import { PercentageChart } from 'components'
 
 import useStyles from './styles'
 
@@ -25,6 +26,33 @@ const contents = [
     icon: icon,
     title: 'edeniaLabs',
     description: 'edeniaLabsDes'
+  }
+]
+
+const percentageData = [
+  {
+    id: 0,
+    color: '#ffccff',
+    progress: 50,
+    label: 'data'
+  },
+  {
+    id: 1,
+    color: '#ccffcc',
+    progress: 80,
+    label: 'data'
+  },
+  {
+    id: 2,
+    color: '#ccccff',
+    progress: 90,
+    label: 'data'
+  },
+  {
+    id: 2,
+    color: '#ccccff',
+    progress: 94,
+    label: 'data'
   }
 ]
 
@@ -107,9 +135,15 @@ const InformingEducation: React.FC = () => {
       ))}
       <Grid item md={12}>
         <Box textAlign='center' pt={9}>
-          <Typography variant='h1'>{t('committedFuture')}</Typography>
+          <Typography variant='h1'>{t('interestingData')}</Typography>
         </Box>
       </Grid>
+      {percentageData.map(data => (
+        <Box key={data.id} textAlign='center' pt={8}>
+          <PercentageChart progress={data.progress} color={data.color} />
+          <Typography variant='body2'>{t(data.label)}</Typography>
+        </Box>
+      ))}
     </Grid>
   )
 }

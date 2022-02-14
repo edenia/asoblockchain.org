@@ -1,16 +1,27 @@
 import React from 'react'
-import CircularProgress, {
-  CircularProgressProps
-} from '@material-ui/core/CircularProgress'
-import Typography from '@material-ui/core/Typography'
-import Box from '@material-ui/core/Box'
+import { CircularProgress, Typography, Box } from '@material-ui/core'
 
-function CircularProgressWithLabel(
-  props: CircularProgressProps & { value: number }
-) {
+import useStyles from './styles'
+
+type PercentageChartProps = {
+  progress: number
+  color: string
+}
+
+const PercentageChart: React.FC<PercentageChartProps> = ({
+  progress,
+  color
+}) => {
+  const classes = useStyles()
+
   return (
     <Box position='relative' display='inline-flex'>
-      <CircularProgress variant='determinate' {...props} />
+      <CircularProgress
+        className={classes.progressBarColor}
+        style={{ color: color }}
+        variant='determinate'
+        value={progress}
+      />
       <Box
         top={0}
         left={0}
@@ -21,27 +32,12 @@ function CircularProgressWithLabel(
         alignItems='center'
         justifyContent='center'
       >
-        <Typography
-          variant='caption'
-          component='div'
-          color='textSecondary'
-        >{`${Math.round(props.value)}%`}</Typography>
+        <Typography variant='h2' component='div'>{`${Math.round(
+          progress
+        )}%`}</Typography>
       </Box>
     </Box>
   )
 }
 
-export default function CircularStatic() {
-  const [progress, setProgress] = React.useState(10)
-
-  React.useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress(prevProgress => (prevProgress >= 100 ? 0 : prevProgress + 10))
-    }, 800)
-    return () => {
-      clearInterval(timer)
-    }
-  }, [])
-
-  return <CircularProgressWithLabel value={progress} />
-}
+export default PercentageChart
