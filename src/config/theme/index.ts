@@ -58,8 +58,10 @@ const typography: ThemeOptions['typography'] = {
     fontWeight: 'bold'
   },
   subtitle2: {
-    fontSize: 14,
-    fontWeight: 'bold'
+    fontSize: 14
+  },
+  caption: {
+    fontSize: 12
   }
 }
 

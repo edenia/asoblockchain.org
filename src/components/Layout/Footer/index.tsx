@@ -1,5 +1,6 @@
 import React from 'react'
 import { Typography, Box, Grid, Link } from '@material-ui/core'
+import { ExpandLess } from '@material-ui/icons'
 import Image from 'next/image'
 import { useTranslation } from 'next-i18next'
 import { BaseButton } from 'components'
@@ -45,7 +46,7 @@ const Footer: React.FC<FooterProps> = () => {
                   <Typography variant='h3'>
                     {t('subscribeNewsletter')}
                   </Typography>
-                  <Box>
+                  <Box pt={1}>
                     <form>
                       <input
                         className={classes.formStyle}
@@ -55,12 +56,12 @@ const Footer: React.FC<FooterProps> = () => {
                         placeholder='Email'
                       />
                       <BaseButton color='primary' variant='contained'>
-                        Submit
+                        {t('submit')}
                       </BaseButton>
                     </form>
                   </Box>
-                  <Box>
-                    <Typography variant='subtitle2'>
+                  <Box pt={1}>
+                    <Typography variant='caption'>
                       *Sollicitudin vitae dignissim elementum, cursus bibendum
                       lacus.
                     </Typography>
@@ -70,22 +71,22 @@ const Footer: React.FC<FooterProps> = () => {
             </Grid>
           </Grid>
           <Grid item md={5} xs={12}>
-            <Typography variant='subtitle2'>
-              © Derechos reservados. Creado por Edenia Labs.
-            </Typography>
+            <Box pt={1}>
+              <Typography variant='caption'>{t('copyright')}</Typography>
+            </Box>
           </Grid>
           <Grid item md={5} xs={12}>
             <Box display='flex' className={classes.floatBox}>
               <Box display='flex'>
-                <Box margin='auto'>
-                  <Typography variant='subtitle2'>Subir al Inicio</Typography>
+                <Box margin='auto' pr={2}>
+                  <Typography variant='subtitle2'>{t('goUp')}</Typography>
                 </Box>
                 <BaseButton
                   className={classes.bottonStyle}
                   color='primary'
                   variant='contained'
                 >
-                  ^
+                  <ExpandLess />
                 </BaseButton>
               </Box>
             </Box>

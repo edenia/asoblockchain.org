@@ -22,6 +22,7 @@ const Styles = makeStyles(theme => ({
   bottonStyle: {
     minWidth: 40,
     width: 40,
+    height: 40,
     borderRadius: 4,
     padding: 0,
     fontSize: '24px',

@@ -1,7 +1,7 @@
 {
   "home": "Home",
   "contact": "Contact",
-  "copyright": "Copyright",
+  "copyright": "© All rights reserved. Created by Edenia Labs.",
   "support": "Support",
   "ourMission": "Our Mission",
   "members": "Members",
@@ -13,5 +13,8 @@
   "informingEducation": "INFORMATING AND EDUCATION",
   "committedFuture": "Asoblockchain from Costa Rica is committed to the future",
   "interestingData": "INTERESTING DATA",
-  "subscribeNewsletter": "Subscribe to the newsletter"
+  "subscribeNewsletter": "Subscribe to the newsletter",
+  "submit": "Submit",
+  "goUp": "Go up",
+  "pastEvents": "Past Events",
 }
