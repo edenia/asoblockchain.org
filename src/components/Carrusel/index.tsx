@@ -1,32 +1,36 @@
 import { SetStateAction, useState } from 'react'
-import { Grid, Box, Typography } from '@material-ui/core'
+import {
+  Grid,
+  Box,
+  Typography,
+  Card,
+  CardMedia,
+  CardContent
+} from '@material-ui/core'
 import { useTranslation } from 'next-i18next'
-import Image from 'next/image'
 import ItemsCarousel from 'react-items-carousel'
 import { ArrowForwardIos, ArrowBackIos } from '@material-ui/icons'
-
-import image from '/public/images/gris-image.jpg'
 
 import useStyles from './styles'
 
 const contents = [
   {
     id: 0,
-    image: image,
+    image: '/images/gris-image.jpg',
     title: 'smartEIR',
     subTitle: 'blockchainBased',
     link: 'https://smartgate.tech/es'
   },
   {
     id: 1,
-    image: image,
+    image: '/images/gris-image.jpg',
     title: 'evodexDefiSubtitle',
     subTitle: 'evodexDefiSubtitle',
     link: 'https://evodex.io/exchange'
   },
   {
     id: 2,
-    image: image,
+    image: '/images/gris-image.jpg',
     title: 'evodexDefiSubtitle',
     subTitle: 'evodexDefiSubtitle',
     link: 'https://www.protonchain.com/'
@@ -34,7 +38,7 @@ const contents = [
 ]
 
 type ContentItemProps = {
-  image: StaticImageData
+  image: string
   title: string
   subTitle: string
 }
@@ -45,27 +49,30 @@ const ContentItem: React.FC<ContentItemProps> = ({
   subTitle
 }) => {
   const { t } = useTranslation('common')
+  const url = 'http://localhost:3000'
   const classes = useStyles()
 
   return (
-    <Grid className={classes.itemsPadding} item md={12} xs={12}>
+    <Grid item className={classes.itemsPadding} xs={12} md={12}>
       <Box
-        marginX={4}
-        mb={5}
+        marginX={1}
         borderRadius={1}
         boxShadow='0 4px 4px -4px rgba(30, 33, 44, 0.03), 0 12px 10px -6px rgba(154, 156, 165, 0.04), 0 30px 24px -10px rgba(154, 156, 165, 0.05), 0 80px 80px -20px rgba(154, 156, 165, 0.08)'
       >
-        <Box height='300px' textAlign='center' display='flex' margin='auto'>
-          <Box display='flex' margin='auto'>
-            <Image className={classes.logoSizes} src={image} alt='Header' />
-          </Box>
-        </Box>
-        <Box pt={2} textAlign='center'>
-          <Typography className={classes.marginTitles} variant='h4'>
-            {t(title)}
-          </Typography>
-          <Typography variant='h5'>{t(subTitle)}</Typography>
-        </Box>
+        <Card className={classes.cardStyle} variant='outlined'>
+          <CardMedia
+            className={classes.cardImageStyle}
+            image={`${url}${image}`}
+          />
+          <CardContent>
+            <Typography variant='h4' align='center'>
+              {t(title)}
+            </Typography>
+            <Typography variant='subtitle2' align='center'>
+              {t(subTitle)}
+            </Typography>
+          </CardContent>
+        </Card>
       </Box>
     </Grid>
   )

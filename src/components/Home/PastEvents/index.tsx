@@ -16,7 +16,7 @@ const PastEvents: React.FC = () => {
       className={classes.boxPadding}
     >
       <Grid item md={12}>
-        <Box textAlign='center' pb={3}>
+        <Box textAlign='center'>
           <Typography variant='h1'>{t('PastEvents')}</Typography>
         </Box>
       </Grid>

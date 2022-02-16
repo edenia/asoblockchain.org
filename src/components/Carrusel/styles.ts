@@ -13,12 +13,22 @@ const Styles = makeStyles(theme => ({
     marginBottom: theme.spacing(2)
   },
   itemsPadding: {
-    marginTop: theme.spacing(10)
+    marginTop: theme.spacing(10),
+    background: theme.palette.common.white,
+    paddingBottom: theme.spacing(15)
   },
   logoSizes: {
     [theme.breakpoints.down('sm')]: {
       transform: 'scale(0.9)'
     }
+  },
+  cardImageStyle: {
+    objectFit: 'cover',
+    objectPosition: 'bottom',
+    height: '300px'
+  },
+  cardStyle: {
+    border: 'none !important'
   }
 }))
 

@@ -23,16 +23,18 @@ const Header: React.FC = () => {
         position='relative'
         zIndex={2}
         mt={mdDown ? 0 : 6}
-        // px={mdDown ? 2 : 10}
+        // px={mdDown ? 2 : 0}
         height={670}
       >
         <Grid container justifyContent='flex-end'>
           <Grid item md={12} xs={12}>
-            <Box marginY={8}>
+            <Box marginY={8} px={mdDown ? 2 : 0}>
               <Image src={asoblokchainLogo} alt='Asoblokchain Logo' />
             </Box>
             <Typography color='textPrimary' variant='h5' component='div'>
-              <Box marginY={8}>{t('homeHeaderSubtitleOne')}</Box>
+              <Box marginY={8} px={mdDown ? 2 : 0}>
+                {t('homeHeaderSubtitleOne')}
+              </Box>
             </Typography>
             <Box mb={8}>
               <BaseButton color='primary' variant='contained'>

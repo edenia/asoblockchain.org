@@ -117,7 +117,7 @@ const InformingEducation: React.FC = () => {
       </Grid>
       <Grid item md={12}>
         <Box textAlign='center' pb={8}>
-          <Typography variant='body1'>{t('committedFuture')}</Typography>
+          <Typography variant='h1'>{t('committedFuture')}</Typography>
         </Box>
       </Grid>
       <Grid item md={12}>
@@ -134,7 +134,7 @@ const InformingEducation: React.FC = () => {
         />
       ))}
       <Grid item md={12}>
-        <Box textAlign='center' pt={9}>
+        <Box textAlign='center' pt={10}>
           <Typography variant='h1'>{t('interestingData')}</Typography>
         </Box>
       </Grid>

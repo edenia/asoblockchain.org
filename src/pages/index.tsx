@@ -2,7 +2,13 @@ import type { NextPage, GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
 import { useTranslation } from 'next-i18next'
 
-import { Header, InformingEducation, PastEvents, News } from 'components'
+import {
+  Header,
+  InformingEducation,
+  PastEvents,
+  News,
+  SocialMedia
+} from 'components'
 import { routeUtils } from 'utils'
 import i18nUtils from 'utils/i18n'
 
@@ -16,6 +22,7 @@ const Home: NextPage = () => {
       <InformingEducation />
       <PastEvents />
       <News />
+      <SocialMedia />
     </>
   )
 }

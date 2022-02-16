@@ -11,13 +11,18 @@ const Styles = makeStyles(theme => ({
     borderRight: 'solid',
     borderImage: `radial-gradient(${extraColors.boxBorderPrimary}, ${extraColors.boxBorderSecondary}) 1`
   },
-  itemsPadding: {
-    marginTop: theme.spacing(10)
-  },
   logoSizes: {
     [theme.breakpoints.down('sm')]: {
       transform: 'scale(0.9)'
     }
+  },
+  cardImageStyle: {
+    objectFit: 'cover',
+    objectPosition: 'bottom',
+    height: '300px'
+  },
+  cardStyle: {
+    border: 'none !important'
   }
 }))
 
