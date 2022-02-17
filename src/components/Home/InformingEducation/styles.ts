@@ -4,7 +4,10 @@ import { extraColors } from 'config/theme'
 const Styles = makeStyles(theme => ({
   boxPadding: {
     padding: theme.spacing(14, 43, 20, 43),
-    backgroundColor: theme.palette.common.white
+    backgroundColor: theme.palette.common.white,
+    [theme.breakpoints.down('md')]: {
+      padding: theme.spacing(10, 3)
+    }
   },
   borderBox: {
     borderWidth: '2px',

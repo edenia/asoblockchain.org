@@ -3,7 +3,9 @@ import { Grid, Box, Typography } from '@material-ui/core'
 import { useTranslation } from 'next-i18next'
 
 import video from '/public/images/gris-image.jpg'
-import icon from '/public/icons/like-icon.svg'
+import brainIcon from '/public/icons/brain-icon.svg'
+import handIcon from '/public/icons/hand-icon.svg'
+import successIcon from '/public/icons/success-icon.svg'
 import { PercentageChart } from 'components'
 
 import useStyles from './styles'
@@ -11,19 +13,19 @@ import useStyles from './styles'
 const contents = [
   {
     id: 0,
-    icon: icon,
+    icon: brainIcon,
     title: 'EOSCR',
     description: 'EOSCRDes'
   },
   {
     id: 1,
-    icon: icon,
+    icon: handIcon,
     title: 'CRServers',
     description: 'CRServicesDes'
   },
   {
     id: 2,
-    icon: icon,
+    icon: successIcon,
     title: 'edeniaLabs',
     description: 'edeniaLabsDes'
   }
@@ -104,7 +106,7 @@ const InformingEducation: React.FC = () => {
       justifyContent='space-evenly'
       className={classes.boxPadding}
     >
-      <Grid item md={12}>
+      <Grid item md={12} xs={12}>
         <Box textAlign='center' pb={3}>
           <Typography variant='h1'>{t('informingEducation')}</Typography>
         </Box>
@@ -115,12 +117,12 @@ const InformingEducation: React.FC = () => {
           <Image src={video} width='800px' height='500px' />
         </Box>
       </Grid>
-      <Grid item md={12}>
+      <Grid item md={12} xs={12}>
         <Box textAlign='center' pb={8}>
           <Typography variant='h1'>{t('committedFuture')}</Typography>
         </Box>
       </Grid>
-      <Grid item md={12}>
+      <Grid item md={12} xs={12}>
         <Box textAlign='center' pb={8}>
           <Typography variant='body1'>{t('committedFuture')}</Typography>
         </Box>
@@ -133,15 +135,17 @@ const InformingEducation: React.FC = () => {
           description={item.description}
         />
       ))}
-      <Grid item md={12}>
+      <Grid item md={12} xs={12}>
         <Box textAlign='center' pt={10}>
           <Typography variant='h1'>{t('interestingData')}</Typography>
         </Box>
       </Grid>
       {percentageData.map(data => (
-        <Box key={data.id} textAlign='center' pt={8}>
+        <Box key={data.id} textAlign='center' pt={8} marginX={3}>
           <PercentageChart progress={data.progress} color={data.color} />
-          <Typography variant='body2'>{t(data.label)}</Typography>
+          <Box pt={2}>
+            <Typography variant='body2'>{t(data.label)}</Typography>
+          </Box>
         </Box>
       ))}
     </Grid>

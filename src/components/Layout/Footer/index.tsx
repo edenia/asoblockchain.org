@@ -5,18 +5,22 @@ import Image from 'next/image'
 import { useTranslation } from 'next-i18next'
 import { BaseButton } from 'components'
 
-import Styles from './styles'
 import asoblokchainLogo from '/public/logos/asoblokchain-white-logo.svg'
+import { useSizes } from 'hooks'
+
+import Styles from './styles'
 
 type FooterProps = {
   isDarkTheme: boolean
+  scrollTop?(): void
   toggleThemeType(): void
 }
 
 const useStyles = Styles
 
-const Footer: React.FC<FooterProps> = () => {
+const Footer: React.FC<FooterProps> = ({ scrollTop }) => {
   const { t } = useTranslation()
+  const { smDown } = useSizes()
   const classes = useStyles()
 
   return (
@@ -26,7 +30,9 @@ const Footer: React.FC<FooterProps> = () => {
           <Grid item md={5} xs={12}>
             <Grid container>
               <Grid item md={12} xs={12}>
-                <Image src={asoblokchainLogo} alt='AsoBlockchain Logo' />
+                <Box width='50%'>
+                  <Image src={asoblokchainLogo} alt='AsoBlockchain Logo' />
+                </Box>
                 <Box pt={3}>
                   <Typography variant='subtitle2'>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
@@ -46,20 +52,24 @@ const Footer: React.FC<FooterProps> = () => {
                   <Typography variant='h3'>
                     {t('subscribeNewsletter')}
                   </Typography>
-                  <Box pt={1}>
-                    <form>
-                      <input
-                        className={classes.formStyle}
-                        type='text'
-                        id='email'
-                        name='email'
-                        placeholder='Email'
-                      />
-                      <BaseButton color='primary' variant='contained'>
-                        {t('submit')}
-                      </BaseButton>
-                    </form>
-                  </Box>
+                  <form>
+                    <Box pt={smDown ? 2 : 5} display='flex'>
+                      <Box width='70%'>
+                        <input
+                          className={classes.formStyle}
+                          type='text'
+                          id='email'
+                          name='email'
+                          placeholder='Email'
+                        />
+                      </Box>
+                      <Box width='30%'>
+                        <BaseButton color='primary' variant='contained'>
+                          {t('submit')}
+                        </BaseButton>
+                      </Box>
+                    </Box>
+                  </form>
                   <Box pt={1}>
                     <Typography variant='caption'>
                       *Sollicitudin vitae dignissim elementum, cursus bibendum
@@ -70,19 +80,24 @@ const Footer: React.FC<FooterProps> = () => {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item md={5} xs={12}>
-            <Box pt={1}>
+          <Grid item md={5} xs={6}>
+            <Box pt={smDown ? 5 : 7}>
               <Typography variant='caption'>{t('copyright')}</Typography>
             </Box>
           </Grid>
-          <Grid item md={5} xs={12}>
-            <Box display='flex' className={classes.floatBox}>
+          <Grid item md={5} xs={6}>
+            <Box
+              display='flex'
+              pt={smDown ? 4 : 6}
+              className={classes.floatButton}
+            >
               <Box display='flex'>
                 <Box margin='auto' pr={2}>
                   <Typography variant='subtitle2'>{t('goUp')}</Typography>
                 </Box>
                 <BaseButton
                   className={classes.bottonStyle}
+                  onClick={scrollTop}
                   color='primary'
                   variant='contained'
                 >

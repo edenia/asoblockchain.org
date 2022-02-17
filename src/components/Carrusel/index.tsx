@@ -11,6 +11,8 @@ import { useTranslation } from 'next-i18next'
 import ItemsCarousel from 'react-items-carousel'
 import { ArrowForwardIos, ArrowBackIos } from '@material-ui/icons'
 
+import { useSizes } from 'hooks'
+
 import useStyles from './styles'
 
 const contents = [
@@ -80,9 +82,10 @@ const ContentItem: React.FC<ContentItemProps> = ({
 
 const Carrusel: React.FC = () => {
   const [active, setaAtive] = useState(0)
+  const { smDown } = useSizes()
 
   return (
-    <Grid item md={12} xs={11}>
+    <Grid item md={12} xs={12}>
       <ItemsCarousel
         infiniteLoop={true}
         gutter={0}
@@ -90,7 +93,7 @@ const Carrusel: React.FC = () => {
         chevronWidth={10}
         disableSwipe={false}
         alwaysShowChevrons={false}
-        numberOfCards={3}
+        numberOfCards={smDown ? 1 : 3}
         slidesToScroll={1}
         outsideChevron={true}
         showSlither={true}

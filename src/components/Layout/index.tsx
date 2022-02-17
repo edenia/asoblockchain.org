@@ -34,11 +34,19 @@ const Layout: React.FC<LayoutProps> = ({
     setLastScroll(currentScroll)
   }
 
+  const scrollTop = () => {
+    wrapper.current?.scrollTo(0, 0)
+  }
+
   return (
     <div ref={wrapper} className={classes.wrapperClass} onScroll={scrolling}>
       <Header show={showNavbar} />
       <Container>{children}</Container>
-      <Footer isDarkTheme={isDarkTheme} toggleThemeType={toggleThemeType} />
+      <Footer
+        isDarkTheme={isDarkTheme}
+        scrollTop={scrollTop}
+        toggleThemeType={toggleThemeType}
+      />
     </div>
   )
 }

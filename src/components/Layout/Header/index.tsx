@@ -70,173 +70,181 @@ const Header: React.FC<HeaderProps> = ({ show }) => {
 
   return (
     <>
-      <AppBar className={classes.appBar} color='transparent'>
-        <Toolbar
-          className={clsx(
-            classes.drawerPaper,
-            {
-              [classes.topBarMobileStyle]: !lgUp && show,
-              [classes.hideTopBar]: !lgUp && !show
-            },
-            classes.topBarStyle
-          )}
+      {show && (
+        <AppBar
+          className={clsx({ [classes.appBar]: show })}
+          color='transparent'
         >
-          <Box
-            display='flex'
-            flex={1}
-            flexDirection='row'
-            justifyContent='space-between'
-            alignItems='center'
-            className={classes.paddingHeader}
+          <Toolbar
+            className={clsx({
+              [classes.drawerPaper]: show,
+              [classes.topBarMobileStyle]: show,
+              [classes.hideTopBar]: !show,
+              [classes.topBarStyle]: show
+            })}
           >
-            <Link className={classes.logo} href='/'>
-              <Image
-                src={HeaderLogo}
-                alt={t('headerLogo')}
-                width={118}
-                height={45}
-                placeholder='blur'
-                priority
-              />
-            </Link>
-
-            {lgUp ? (
-              <Box display='flex'>
-                {mainRoutes.map(route => {
-                  return (
-                    <Link key={route.id} href={route.path}>
-                      <Typography
-                        className={classes.colorText}
-                        variant='body1'
-                        component='div'
-                      >
-                        <Box
-                          className={clsx('text', {
-                            ['linkActive']: asPath === route.path
-                          })}
-                          mx={5}
-                        >
-                          {t(route.name)}
-                        </Box>
-                      </Typography>
-                    </Link>
-                  )
-                })}
-                <Box display='flex' px={4}>
-                  <LangItem
-                    label='EN'
-                    handleClick={() => translateSite('en')}
-                    classN={
-                      router.locale === 'en'
-                        ? classes.langItemActive
-                        : classes.langItem
-                    }
-                  />
-                  <Typography
-                    variant='body1'
-                    className={clsx(classes.languageIndicator, classes.padding)}
-                  >
-                    |
-                  </Typography>
-                  <LangItem
-                    label='ES'
-                    handleClick={() => translateSite('es')}
-                    classN={
-                      router.locale === 'en'
-                        ? classes.langItem
-                        : classes.langItemActive
-                    }
-                  />
-                </Box>
-              </Box>
-            ) : (
-              show && (
+            <Box
+              display='flex'
+              flex={1}
+              flexDirection='row'
+              justifyContent='space-between'
+              alignItems='center'
+              className={classes.paddingHeader}
+            >
+              {lgUp ? (
                 <>
-                  <Box className={classes.btnDrawer}>
-                    <IconButton onClick={handlerDrawer}>
-                      <MenuIcon
-                        fontSize='large'
-                        className={classes.menuIconColor}
+                  <Link className={classes.logo} href='/'>
+                    <Image
+                      src={HeaderLogo}
+                      alt={t('headerLogo')}
+                      width={118}
+                      height={45}
+                      placeholder='blur'
+                      priority
+                    />
+                  </Link>
+
+                  <Box display='flex'>
+                    {mainRoutes.map(route => {
+                      return (
+                        <Link key={route.id} href={route.path}>
+                          <Typography
+                            className={classes.colorText}
+                            variant='body1'
+                            component='div'
+                          >
+                            <Box
+                              className={clsx('text', {
+                                ['linkActive']: asPath === route.path
+                              })}
+                              mx={5}
+                            >
+                              {t(route.name)}
+                            </Box>
+                          </Typography>
+                        </Link>
+                      )
+                    })}
+                    <Box display='flex' px={4}>
+                      <LangItem
+                        label='EN'
+                        handleClick={() => translateSite('en')}
+                        classN={
+                          router.locale === 'en'
+                            ? classes.langItemActive
+                            : classes.langItem
+                        }
                       />
-                    </IconButton>
-                  </Box>
-                  <Drawer
-                    className={classes.drawer}
-                    anchor={'right'}
-                    open={isOpen}
-                    onClose={handlerDrawer}
-                  >
-                    <Box className={classes.drawerContent}>
-                      <List>
-                        <Box className={classes.logoBox}>
-                          <Image
-                            src={HeaderLogo}
-                            alt={t('headerLogo')}
-                            width={118}
-                            height={50}
-                            placeholder='blur'
-                            priority
-                          />
-                        </Box>
-                        <Box className={classes.linkGruopBox}>
-                          {mainRoutes.slice(0, 2).map(route => (
-                            <Box key={route.id}>
-                              <CustomListItem
-                                href={route.path}
-                                target='_self'
-                                label={t(`${route.name}`)}
-                                iconName={route.name as keyof Icons}
-                                isSelected={asPath === route.path}
-                              />
-                            </Box>
-                          ))}
-                        </Box>
-                        <Box className={classes.linkGruopBox}>
-                          <Typography
-                            variant='body1'
-                            className={classes.linkGruopLabel}
-                          >
-                            {t('information')}
-                          </Typography>
-                          {mainRoutes.slice(2).map(route => (
-                            <Box key={route.id}>
-                              <CustomListItem
-                                href={route.path}
-                                target='_self'
-                                label={t(`${route.name}`)}
-                                iconName={route.name as keyof Icons}
-                                isSelected={asPath === route.path}
-                              />
-                            </Box>
-                          ))}
-                        </Box>
-                        <Box className={classes.linkGruopBox}>
-                          <Typography
-                            variant='body1'
-                            className={classes.linkGruopLabel}
-                          >
-                            {t('language')}
-                          </Typography>
-                          <CustomListItem
-                            onClick={() =>
-                              translateSite(
-                                t('idiom') === 'Español' ? 'es' : 'en'
-                              )
-                            }
-                            label={t('idiom')}
-                            iconName={'language'}
-                            isSelected={false}
-                          />
-                        </Box>
-                      </List>
+                      <Typography
+                        variant='body1'
+                        className={clsx(
+                          classes.languageIndicator,
+                          classes.padding
+                        )}
+                      >
+                        |
+                      </Typography>
+                      <LangItem
+                        label='ES'
+                        handleClick={() => translateSite('es')}
+                        classN={
+                          router.locale === 'en'
+                            ? classes.langItem
+                            : classes.langItemActive
+                        }
+                      />
                     </Box>
-                  </Drawer>
+                  </Box>
                 </>
-              )
-            )}
-          </Box>
-        </Toolbar>
-      </AppBar>
+              ) : (
+                show && (
+                  <>
+                    <Box className={classes.btnDrawer}>
+                      <IconButton onClick={handlerDrawer}>
+                        <MenuIcon
+                          fontSize='large'
+                          className={classes.menuIconColor}
+                        />
+                      </IconButton>
+                    </Box>
+                    <Drawer
+                      className={classes.drawer}
+                      anchor={'right'}
+                      open={isOpen}
+                      onClose={handlerDrawer}
+                    >
+                      <Box className={classes.drawerContent}>
+                        <List>
+                          <Box className={classes.logoBox}>
+                            <Image
+                              src={HeaderLogo}
+                              alt={t('headerLogo')}
+                              width={118}
+                              height={50}
+                              placeholder='blur'
+                              priority
+                            />
+                          </Box>
+                          <Box className={classes.linkGruopBox}>
+                            {mainRoutes.slice(0, 2).map(route => (
+                              <Box key={route.id}>
+                                <CustomListItem
+                                  href={route.path}
+                                  target='_self'
+                                  label={t(`${route.name}`)}
+                                  iconName={route.name as keyof Icons}
+                                  isSelected={asPath === route.path}
+                                />
+                              </Box>
+                            ))}
+                          </Box>
+                          <Box className={classes.linkGruopBox}>
+                            <Typography
+                              variant='body1'
+                              className={classes.linkGruopLabel}
+                            >
+                              {t('information')}
+                            </Typography>
+                            {mainRoutes.slice(2).map(route => (
+                              <Box key={route.id}>
+                                <CustomListItem
+                                  href={route.path}
+                                  target='_self'
+                                  label={t(`${route.name}`)}
+                                  iconName={route.name as keyof Icons}
+                                  isSelected={asPath === route.path}
+                                />
+                              </Box>
+                            ))}
+                          </Box>
+                          <Box className={classes.linkGruopBox}>
+                            <Typography
+                              variant='body1'
+                              className={classes.linkGruopLabel}
+                            >
+                              {t('language')}
+                            </Typography>
+                            <CustomListItem
+                              onClick={() =>
+                                translateSite(
+                                  t('idiom') === 'Español' ? 'es' : 'en'
+                                )
+                              }
+                              label={t('idiom')}
+                              iconName={'language'}
+                              isSelected={false}
+                            />
+                          </Box>
+                        </List>
+                      </Box>
+                    </Drawer>
+                  </>
+                )
+              )}
+            </Box>
+          </Toolbar>
+        </AppBar>
+      )}
     </>
   )
 }

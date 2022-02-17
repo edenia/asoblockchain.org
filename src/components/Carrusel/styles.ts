@@ -15,7 +15,10 @@ const Styles = makeStyles(theme => ({
   itemsPadding: {
     marginTop: theme.spacing(10),
     background: theme.palette.common.white,
-    paddingBottom: theme.spacing(15)
+    paddingBottom: theme.spacing(15),
+    [theme.breakpoints.down('sm')]: {
+      justifyContent: 'center'
+    }
   },
   logoSizes: {
     [theme.breakpoints.down('sm')]: {

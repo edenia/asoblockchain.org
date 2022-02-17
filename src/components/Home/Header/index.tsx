@@ -4,7 +4,7 @@ import { useTranslation } from 'next-i18next'
 
 import { useSizes } from 'hooks'
 import { BaseButton } from 'components'
-import bgImage from '/public/images/background-header-home.jpg'
+import bgImage from '/public/images/background-image.jpg'
 import asoblokchainLogo from '/public/logos/asoblokchain-white-logo.svg'
 import likeIcon from '/public/icons/like-icon.svg'
 
@@ -23,15 +23,14 @@ const Header: React.FC = () => {
         position='relative'
         zIndex={2}
         mt={mdDown ? 0 : 6}
-        // px={mdDown ? 2 : 0}
-        height={670}
+        height={680}
       >
         <Grid container justifyContent='flex-end'>
           <Grid item md={12} xs={12}>
             <Box marginY={8} px={mdDown ? 2 : 0}>
               <Image src={asoblokchainLogo} alt='Asoblokchain Logo' />
             </Box>
-            <Typography color='textPrimary' variant='h5' component='div'>
+            <Typography color='textSecondary' variant='h5' component='div'>
               <Box marginY={8} px={mdDown ? 2 : 0}>
                 {t('homeHeaderSubtitleOne')}
               </Box>

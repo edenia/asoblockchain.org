@@ -83,7 +83,7 @@ const News: React.FC = () => {
       justifyContent='space-evenly'
       className={classes.boxPadding}
     >
-      <Grid item md={12}>
+      <Grid item md={12} xs={12}>
         <Box textAlign='center' pb={7}>
           <Typography variant='h1'>{t('news')}</Typography>
         </Box>

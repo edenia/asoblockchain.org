@@ -10,17 +10,13 @@ const PastEvents: React.FC = () => {
   const classes = useStyles()
 
   return (
-    <Grid
-      container
-      justifyContent='space-evenly'
-      className={classes.boxPadding}
-    >
-      <Grid item md={12}>
+    <Grid container justifyContent='center' className={classes.boxPadding}>
+      <Grid item md={12} xs={12}>
         <Box textAlign='center'>
           <Typography variant='h1'>{t('PastEvents')}</Typography>
         </Box>
       </Grid>
-      <Grid item md={12}>
+      <Grid item md={12} xs={11}>
         <Carrusel />
       </Grid>
     </Grid>
