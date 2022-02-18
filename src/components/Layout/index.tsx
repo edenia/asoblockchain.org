@@ -1,7 +1,9 @@
 import { useRef, useState } from 'react'
+
 import Header from './Header'
 import Container from './Container'
 import Footer from './Footer'
+import { useSizes } from 'hooks'
 
 import Styles from './styles'
 
@@ -20,18 +22,17 @@ const Layout: React.FC<LayoutProps> = ({
 }) => {
   const classes = useStyles()
   const wrapper = useRef<HTMLInputElement>(null)
-  const [showNavbar, setShowNavbar] = useState(true)
-  const [lastScroll, setLastScroll] = useState(0)
+  const [showNavbar, setShowNavbar] = useState(false)
 
   const scrolling = () => {
+    if (typeof window === 'undefined') return
     const currentScroll = wrapper?.current?.scrollTop || 0
 
-    if (currentScroll > lastScroll) {
-      setShowNavbar(false)
-    } else {
+    if (currentScroll > window?.innerHeight) {
       setShowNavbar(true)
+    } else {
+      setShowNavbar(false)
     }
-    setLastScroll(currentScroll)
   }
 
   const scrollTop = () => {

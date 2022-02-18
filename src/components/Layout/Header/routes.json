@@ -2,7 +2,7 @@
   "mainRoutes": [
     {
       "id": 0,
-      "path": "/",
+      "path": "#our-mission",
       "name": "ourMission"
     },
     {
@@ -12,7 +12,7 @@
     },
     {
       "id": 2,
-      "path": "/",
+      "path": "#news",
       "name": "news"
     },
     {

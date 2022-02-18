@@ -79,13 +79,16 @@ const News: React.FC = () => {
 
   return (
     <Grid
+      id={'news'}
       container
       justifyContent='space-evenly'
       className={classes.boxPadding}
     >
       <Grid item md={12} xs={12}>
         <Box textAlign='center' pb={7}>
-          <Typography variant='h1'>{t('news')}</Typography>
+          <Typography variant='h1' className={classes.uppercaseText}>
+            {t('news')}
+          </Typography>
         </Box>
       </Grid>
       {news.map(news => (

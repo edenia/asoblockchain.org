@@ -22,8 +22,7 @@ const Header: React.FC = () => {
         alignItems='center'
         position='relative'
         zIndex={2}
-        mt={mdDown ? 0 : 6}
-        height={680}
+        height={typeof window !== 'undefined' ? window.innerHeight : 0}
       >
         <Grid container justifyContent='flex-end'>
           <Grid item md={12} xs={12}>

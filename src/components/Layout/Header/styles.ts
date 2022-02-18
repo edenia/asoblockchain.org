@@ -3,8 +3,13 @@ import { makeStyles } from '@material-ui/core/styles'
 const Styles = makeStyles(theme => ({
   drawerPaper: {
     width: '100%',
-    height: '100%',
-    padding: theme.spacing(0, 2)
+    height: '65px',
+    padding: theme.spacing(0, 2),
+    transition: 'height .9s ease-out'
+  },
+  hideDrawerPaper: {
+    height: 0,
+    transition: 'height .9s ease-out'
   },
   topBarStyle: {
     backgroundColor: theme.palette.primary.main,

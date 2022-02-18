@@ -1,5 +1,4 @@
 import { makeStyles } from '@material-ui/core/styles'
-import { extraColors } from 'config/theme'
 
 const Styles = makeStyles(theme => ({
   boxPadding: {
@@ -9,16 +8,6 @@ const Styles = makeStyles(theme => ({
       padding: theme.spacing(10, 3)
     }
   },
-  borderBox: {
-    borderWidth: '2px',
-    borderRight: 'solid',
-    borderImage: `radial-gradient(${extraColors.boxBorderPrimary}, ${extraColors.boxBorderSecondary}) 1`
-  },
-  logoSizes: {
-    [theme.breakpoints.down('sm')]: {
-      transform: 'scale(0.9)'
-    }
-  },
   cardImageStyle: {
     objectFit: 'cover',
     objectPosition: 'bottom',
@@ -26,6 +15,9 @@ const Styles = makeStyles(theme => ({
   },
   cardStyle: {
     border: 'none !important'
+  },
+  uppercaseText: {
+    textTransform: 'uppercase'
   }
 }))
 

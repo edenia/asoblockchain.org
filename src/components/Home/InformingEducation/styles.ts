@@ -13,6 +13,9 @@ const Styles = makeStyles(theme => ({
     borderWidth: '2px',
     borderRight: 'solid',
     borderImage: `radial-gradient(${extraColors.boxBorderPrimary}, ${extraColors.boxBorderSecondary}) 1`
+  },
+  uppercaseText: {
+    textTransform: 'uppercase'
   }
 }))
 

@@ -65,7 +65,7 @@ const Footer: React.FC<FooterProps> = ({ scrollTop }) => {
                       </Box>
                       <Box width='30%'>
                         <BaseButton color='primary' variant='contained'>
-                          {t('submit')}
+                          {t('subscribe')}
                         </BaseButton>
                       </Box>
                     </Box>

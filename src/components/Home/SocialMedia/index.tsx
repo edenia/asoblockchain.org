@@ -57,7 +57,7 @@ const SocialMedia: React.FC = () => {
     >
       <Grid item md={12} xs={12}>
         <Box textAlign='center' pb={7}>
-          <Typography variant='h2'>{t('SocialMedia')}</Typography>
+          <Typography variant='h2'>{t('socialMedia')}</Typography>
         </Box>
       </Grid>
       {socialMediaList.map(item => (

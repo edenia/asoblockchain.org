@@ -117,9 +117,11 @@ const InformingEducation: React.FC = () => {
           <Image src={video} width='800px' height='500px' />
         </Box>
       </Grid>
-      <Grid item md={12} xs={12}>
+      <Grid id='our-mission' item md={12} xs={12}>
         <Box textAlign='center' pb={8}>
-          <Typography variant='h1'>{t('committedFuture')}</Typography>
+          <Typography variant='h1' className={classes.uppercaseText}>
+            {t('ourMission')}
+          </Typography>
         </Box>
       </Grid>
       <Grid item md={12} xs={12}>

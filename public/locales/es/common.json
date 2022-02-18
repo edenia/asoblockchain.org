@@ -1,6 +1,21 @@
 {
   "home": "Inicio",
   "contact": "Contacto",
-  "copyright": "Copyright",
-  "support": "Soporte"
+  "copyright": "© Todos los derechos reservados. Creado por Edenia Labs.",
+  "homeHeaderSubtitleOne": "Cras ultrices leo vitae non viverra. Fringilla nisi quisque consequat, dignissim vitae proin ipsum sed. Pellentesque nec turpis purus eget pellentesque integer ipsum elementum felis.",
+  "ourMission": "Nuestra misión",
+  "members": "Miembros",
+  "news": "Noticias",
+  "headerText": "Cras ultrices leo vitae non viverra. Fringilla nisi quisque consequat, dignissim vitae proin ipsum sed. Pellentesque nec turpis purus eget pellentesque integer ipsum elementum felis.",
+  "joinAssociation": "Unirse a la Asociación",
+  "claim": "Reclama tu",
+  "freeNft": "NFT GRATIS!",
+  "informingEducation": "INFORMANDO Y EDUCANDO",
+  "committedFuture": "Asoblockchain de Costa Rica se compromete con el futuro",
+  "interestingData": "DATOS INTERESANTES",
+  "subscribeNewsletter": "Suscríbete al boletín",
+  "subscribe": "Suscribirse",
+  "goUp": "Subir al Inicio",
+  "pastEvents": "EVENTOS PASADOS",
+  "socialMedia": "SIGUANOS EN REDES SOCIALES"
 }

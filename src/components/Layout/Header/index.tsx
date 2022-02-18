@@ -25,10 +25,6 @@ import { default as routes } from './routes.json'
 
 const { mainRoutes } = routes
 
-type HeaderProps = {
-  show: boolean
-}
-
 type LangItemProps = {
   label: string
   handleClick?(): void
@@ -50,6 +46,10 @@ const LangItem: React.FC<LangItemProps> = ({ label, handleClick, classN }) => {
   )
 }
 
+type HeaderProps = {
+  show: boolean
+}
+
 const Header: React.FC<HeaderProps> = ({ show }) => {
   const classes = useStyles()
   const { lgUp } = useSizes()
@@ -69,29 +69,31 @@ const Header: React.FC<HeaderProps> = ({ show }) => {
   }
 
   return (
-    <>
-      {show && (
-        <AppBar
-          className={clsx({ [classes.appBar]: show })}
-          color='transparent'
+    <AppBar
+      className={clsx({ [classes.appBar]: lgUp && show })}
+      color='transparent'
+    >
+      <Toolbar
+        className={clsx(
+          {
+            [classes.drawerPaper]: lgUp && show,
+            [classes.hideDrawerPaper]: lgUp && !show,
+            [classes.topBarMobileStyle]: !lgUp && show,
+            [classes.hideTopBar]: !lgUp && !show
+          },
+          classes.topBarStyle
+        )}
+      >
+        <Box
+          display='flex'
+          flex={1}
+          flexDirection='row'
+          justifyContent='space-between'
+          alignItems='center'
+          className={classes.paddingHeader}
         >
-          <Toolbar
-            className={clsx({
-              [classes.drawerPaper]: show,
-              [classes.topBarMobileStyle]: show,
-              [classes.hideTopBar]: !show,
-              [classes.topBarStyle]: show
-            })}
-          >
-            <Box
-              display='flex'
-              flex={1}
-              flexDirection='row'
-              justifyContent='space-between'
-              alignItems='center'
-              className={classes.paddingHeader}
-            >
-              {lgUp ? (
+          {lgUp
+            ? show && (
                 <>
                   <Link className={classes.logo} href='/'>
                     <Image
@@ -156,96 +158,93 @@ const Header: React.FC<HeaderProps> = ({ show }) => {
                     </Box>
                   </Box>
                 </>
-              ) : (
-                show && (
-                  <>
-                    <Box className={classes.btnDrawer}>
-                      <IconButton onClick={handlerDrawer}>
-                        <MenuIcon
-                          fontSize='large'
-                          className={classes.menuIconColor}
-                        />
-                      </IconButton>
+              )
+            : show && (
+                <>
+                  <Box className={classes.btnDrawer}>
+                    <IconButton onClick={handlerDrawer}>
+                      <MenuIcon
+                        fontSize='large'
+                        className={classes.menuIconColor}
+                      />
+                    </IconButton>
+                  </Box>
+                  <Drawer
+                    className={classes.drawer}
+                    anchor={'right'}
+                    open={isOpen}
+                    onClose={handlerDrawer}
+                  >
+                    <Box className={classes.drawerContent}>
+                      <List>
+                        <Box className={classes.logoBox}>
+                          <Image
+                            src={HeaderLogo}
+                            alt={t('headerLogo')}
+                            width={118}
+                            height={50}
+                            placeholder='blur'
+                            priority
+                          />
+                        </Box>
+                        <Box className={classes.linkGruopBox}>
+                          {mainRoutes.slice(0, 2).map(route => (
+                            <Box key={route.id}>
+                              <CustomListItem
+                                href={route.path}
+                                target='_self'
+                                label={t(`${route.name}`)}
+                                iconName={route.name as keyof Icons}
+                                isSelected={asPath === route.path}
+                              />
+                            </Box>
+                          ))}
+                        </Box>
+                        <Box className={classes.linkGruopBox}>
+                          <Typography
+                            variant='body1'
+                            className={classes.linkGruopLabel}
+                          >
+                            {t('information')}
+                          </Typography>
+                          {mainRoutes.slice(2).map(route => (
+                            <Box key={route.id}>
+                              <CustomListItem
+                                href={route.path}
+                                target='_self'
+                                label={t(`${route.name}`)}
+                                iconName={route.name as keyof Icons}
+                                isSelected={asPath === route.path}
+                              />
+                            </Box>
+                          ))}
+                        </Box>
+                        <Box className={classes.linkGruopBox}>
+                          <Typography
+                            variant='body1'
+                            className={classes.linkGruopLabel}
+                          >
+                            {t('language')}
+                          </Typography>
+                          <CustomListItem
+                            onClick={() =>
+                              translateSite(
+                                t('idiom') === 'Español' ? 'es' : 'en'
+                              )
+                            }
+                            label={t('idiom')}
+                            iconName={'language'}
+                            isSelected={false}
+                          />
+                        </Box>
+                      </List>
                     </Box>
-                    <Drawer
-                      className={classes.drawer}
-                      anchor={'right'}
-                      open={isOpen}
-                      onClose={handlerDrawer}
-                    >
-                      <Box className={classes.drawerContent}>
-                        <List>
-                          <Box className={classes.logoBox}>
-                            <Image
-                              src={HeaderLogo}
-                              alt={t('headerLogo')}
-                              width={118}
-                              height={50}
-                              placeholder='blur'
-                              priority
-                            />
-                          </Box>
-                          <Box className={classes.linkGruopBox}>
-                            {mainRoutes.slice(0, 2).map(route => (
-                              <Box key={route.id}>
-                                <CustomListItem
-                                  href={route.path}
-                                  target='_self'
-                                  label={t(`${route.name}`)}
-                                  iconName={route.name as keyof Icons}
-                                  isSelected={asPath === route.path}
-                                />
-                              </Box>
-                            ))}
-                          </Box>
-                          <Box className={classes.linkGruopBox}>
-                            <Typography
-                              variant='body1'
-                              className={classes.linkGruopLabel}
-                            >
-                              {t('information')}
-                            </Typography>
-                            {mainRoutes.slice(2).map(route => (
-                              <Box key={route.id}>
-                                <CustomListItem
-                                  href={route.path}
-                                  target='_self'
-                                  label={t(`${route.name}`)}
-                                  iconName={route.name as keyof Icons}
-                                  isSelected={asPath === route.path}
-                                />
-                              </Box>
-                            ))}
-                          </Box>
-                          <Box className={classes.linkGruopBox}>
-                            <Typography
-                              variant='body1'
-                              className={classes.linkGruopLabel}
-                            >
-                              {t('language')}
-                            </Typography>
-                            <CustomListItem
-                              onClick={() =>
-                                translateSite(
-                                  t('idiom') === 'Español' ? 'es' : 'en'
-                                )
-                              }
-                              label={t('idiom')}
-                              iconName={'language'}
-                              isSelected={false}
-                            />
-                          </Box>
-                        </List>
-                      </Box>
-                    </Drawer>
-                  </>
-                )
+                  </Drawer>
+                </>
               )}
-            </Box>
-          </Toolbar>
-        </AppBar>
-      )}
-    </>
+        </Box>
+      </Toolbar>
+    </AppBar>
   )
 }
 
