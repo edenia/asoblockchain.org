@@ -1,70 +1,78 @@
 import Image from 'next/image'
 import { Grid, Box, Typography } from '@material-ui/core'
 import { useTranslation } from 'next-i18next'
+import clsx from 'clsx'
 
-import video from '/public/images/gris-image.jpg'
-import brainIcon from '/public/icons/brain-icon.svg'
-import handIcon from '/public/icons/hand-icon.svg'
+import video from '/public/images/video.png'
+import participationIcon from '/public/icons/participation-icon.svg'
+import representationIcon from '/public/icons/representation-icon.svg'
 import successIcon from '/public/icons/success-icon.svg'
 import { PercentageChart } from 'components'
+import { useSizes } from 'hooks'
 
 import useStyles from './styles'
 
 const contents = [
   {
     id: 0,
-    icon: brainIcon,
-    title: 'EOSCR',
-    description: 'EOSCRDes'
+    icon: representationIcon,
+    title: 'representation',
+    description: 'representationDes'
   },
   {
     id: 1,
-    icon: handIcon,
-    title: 'CRServers',
-    description: 'CRServicesDes'
+    icon: participationIcon,
+    title: 'participation',
+    description: 'participationDes'
   },
   {
     id: 2,
     icon: successIcon,
-    title: 'edeniaLabs',
-    description: 'edeniaLabsDes'
+    title: 'promotion',
+    description: 'promotionDes'
   }
 ]
 
 const percentageData = [
   {
     id: 0,
-    color: '#ffccff',
+    color: 1,
     progress: 50,
-    label: 'data'
+    label: 'data',
+    isPercentage: true
   },
   {
     id: 1,
-    color: '#ccffcc',
+    color: 2,
     progress: 80,
-    label: 'data'
+    label: 'memberCompanies',
+    isPercentage: false
   },
   {
     id: 2,
-    color: '#ccccff',
+    color: 3,
     progress: 90,
-    label: 'data'
+    label: 'individuals',
+    isPercentage: false
   },
   {
     id: 2,
-    color: '#ccccff',
+    color: 4,
     progress: 94,
-    label: 'data'
+    label: 'students',
+    isPercentage: false
   }
 ]
 
 type ContentItemProps = {
+  id: number
   icon: StaticImageData
   title: string
   description: string
 }
 
 const ContentItem: React.FC<ContentItemProps> = ({
+  id,
   icon,
   title,
   description
@@ -79,7 +87,7 @@ const ContentItem: React.FC<ContentItemProps> = ({
           <Box
             width='100%'
             textAlign='center'
-            className={classes.borderBox}
+            className={clsx({ [classes.borderBox]: id !== 2 })}
             paddingX={4}
             pt={6}
             pb={2}
@@ -87,7 +95,9 @@ const ContentItem: React.FC<ContentItemProps> = ({
             <Box pb={4}>
               <Image src={icon} alt={t(title)} />
             </Box>
-            <Typography variant='h4'>{t(title)}</Typography>
+            <Box pb={1}>
+              <Typography variant='h4'>{t(title)}</Typography>
+            </Box>
             <Typography variant='body2'>{t(description)}</Typography>
           </Box>
         </Grid>
@@ -98,6 +108,7 @@ const ContentItem: React.FC<ContentItemProps> = ({
 
 const InformingEducation: React.FC = () => {
   const { t } = useTranslation()
+  const { mdDown } = useSizes()
   const classes = useStyles()
 
   return (
@@ -107,31 +118,23 @@ const InformingEducation: React.FC = () => {
       className={classes.boxPadding}
     >
       <Grid item md={12} xs={12}>
-        <Box textAlign='center' pb={3}>
-          <Typography variant='h1'>{t('informingEducation')}</Typography>
+        <Box textAlign='center' pb={5}>
+          <Typography variant='h1'>{t('ourReasonBeing')}</Typography>
         </Box>
-        <Box textAlign='center' pb={8}>
+        <Box textAlign='center' pb={5}>
           <Typography variant='body1'>{t('committedFuture')}</Typography>
+        </Box>
+        <Box textAlign='center' pb={5} px={mdDown ? 0 : 10}>
+          <Typography variant='body1'>{t('ourReasonBeingDes')}</Typography>
         </Box>
         <Box textAlign='center' pb={8} width='100%'>
-          <Image src={video} width='800px' height='500px' />
-        </Box>
-      </Grid>
-      <Grid id='our-mission' item md={12} xs={12}>
-        <Box textAlign='center' pb={8}>
-          <Typography variant='h1' className={classes.uppercaseText}>
-            {t('ourMission')}
-          </Typography>
-        </Box>
-      </Grid>
-      <Grid item md={12} xs={12}>
-        <Box textAlign='center' pb={8}>
-          <Typography variant='body1'>{t('committedFuture')}</Typography>
+          <Image src={video} />
         </Box>
       </Grid>
       {contents.map(item => (
         <ContentItem
           key={item.id}
+          id={item.id}
           icon={item.icon}
           title={item.title}
           description={item.description}
@@ -144,7 +147,11 @@ const InformingEducation: React.FC = () => {
       </Grid>
       {percentageData.map(data => (
         <Box key={data.id} textAlign='center' pt={8} marginX={3}>
-          <PercentageChart progress={data.progress} color={data.color} />
+          <PercentageChart
+            progress={data.progress}
+            color={data.color}
+            isPercentage={data.isPercentage}
+          />
           <Box pt={2}>
             <Typography variant='body2'>{t(data.label)}</Typography>
           </Box>

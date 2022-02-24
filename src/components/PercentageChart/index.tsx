@@ -1,24 +1,45 @@
 import React from 'react'
 import { CircularProgress, Typography, Box } from '@material-ui/core'
 
+import { extraColors } from 'config/theme'
+
 import useStyles from './styles'
 
 type PercentageChartProps = {
   progress: number
-  color: string
+  color: number
+  isPercentage: boolean
 }
 
 const PercentageChart: React.FC<PercentageChartProps> = ({
   progress,
-  color
+  color,
+  isPercentage
 }) => {
   const classes = useStyles()
+
+  const SelectedColor = (color: number) => {
+    switch (color) {
+      case 1: {
+        return extraColors.percentageFirtsColor
+      }
+      case 2: {
+        return extraColors.percentageSecondColor
+      }
+      case 3: {
+        return extraColors.percentageThirdColor
+      }
+      default: {
+        return extraColors.percentageQuarterColor
+      }
+    }
+  }
 
   return (
     <Box position='relative' display='inline-flex'>
       <CircularProgress
         className={classes.progressBarColor}
-        style={{ color: color }}
+        style={{ color: SelectedColor(color) }}
         variant='determinate'
         value={progress}
       />
@@ -32,9 +53,9 @@ const PercentageChart: React.FC<PercentageChartProps> = ({
         alignItems='center'
         justifyContent='center'
       >
-        <Typography variant='h2' component='div'>{`${Math.round(
-          progress
-        )}%`}</Typography>
+        <Typography variant='h2' component='div'>{`${Math.round(progress)}${
+          isPercentage ? '%' : ''
+        }`}</Typography>
       </Box>
     </Box>
   )

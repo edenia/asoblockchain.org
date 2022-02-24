@@ -30,7 +30,7 @@ const Header: React.FC = () => {
               <Image src={asoblokchainLogo} alt='Asoblokchain Logo' />
             </Box>
             <Typography color='textSecondary' variant='h5' component='div'>
-              <Box marginY={8} px={mdDown ? 2 : 0}>
+              <Box marginY={8} px={mdDown ? 2 : 55}>
                 {t('homeHeaderSubtitleOne')}
               </Box>
             </Typography>

@@ -3,7 +3,7 @@ import { extraColors } from 'config/theme'
 
 const Styles = makeStyles(theme => ({
   boxPadding: {
-    padding: theme.spacing(10, 43, 10, 43),
+    padding: theme.spacing(10, 34, 10, 34),
     backgroundColor: theme.palette.common.white,
     [theme.breakpoints.down('md')]: {
       padding: theme.spacing(10, 3)

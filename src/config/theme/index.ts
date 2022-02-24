@@ -85,7 +85,11 @@ export const extraColors = {
   primaryVariantOpacity: 'rgb(45, 61, 181, 0.3)',
   secondaryVariantOpacity: 'rgb(237, 174, 109, 0.3)',
   boxBorderPrimary: '#dadbdd',
-  boxBorderSecondary: 'rgba(218, 219, 221, 0)'
+  boxBorderSecondary: 'rgba(218, 219, 221, 0)',
+  percentageFirtsColor: '#f89828',
+  percentageSecondColor: '#f52f6e',
+  percentageThirdColor: '#5a87fc',
+  percentageQuarterColor: '#03cea4'
 }
 
 export default {
