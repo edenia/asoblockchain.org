@@ -7,7 +7,8 @@ import {
   InformingEducation,
   PastEvents,
   News,
-  SocialMedia
+  SocialMedia,
+  JoinAssociation
 } from 'components'
 import { routeUtils } from 'utils'
 import i18nUtils from 'utils/i18n'
@@ -20,6 +21,7 @@ const Home: NextPage = () => {
       <NextSeo title={t('homeMetaTitle')} />
       <Header />
       <InformingEducation />
+      <JoinAssociation />
       <PastEvents />
       <News />
       <SocialMedia />
