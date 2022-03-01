@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography, Box, Grid, Link } from '@material-ui/core'
+import { Typography, Box, Grid } from '@material-ui/core'
 import { ExpandLess } from '@material-ui/icons'
 import Image from 'next/image'
 import { useTranslation } from 'next-i18next'

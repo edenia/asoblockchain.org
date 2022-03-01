@@ -3,7 +3,6 @@ import { useRef, useState } from 'react'
 import Header from './Header'
 import Container from './Container'
 import Footer from './Footer'
-import { useSizes } from 'hooks'
 
 import Styles from './styles'
 
