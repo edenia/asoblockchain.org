@@ -18,7 +18,7 @@ import { useTranslation } from 'next-i18next'
 import { CustomListItem } from 'components'
 import { useSizes } from 'hooks'
 import { Icons } from 'components/CustomListItem'
-import HeaderLogo from '/public/logos/header-logo.png'
+import HeaderLogo from '/public/logos/asoblockchain-logo.svg'
 
 import useStyles from './styles'
 import { default as routes } from './routes.json'
@@ -37,7 +37,7 @@ const LangItem: React.FC<LangItemProps> = ({ label, handleClick, classN }) => {
   return (
     <Box className={classes.langItemBox} onClick={handleClick}>
       <Typography
-        variant='body1'
+        variant='subtitle1'
         className={clsx(classN, classes.languageIndicator)}
       >
         {label}
@@ -96,26 +96,16 @@ const Header: React.FC<HeaderProps> = ({ show }) => {
             ? show && (
                 <>
                   <Link className={classes.logo} href='/'>
-                    <Image
-                      src={HeaderLogo}
-                      alt={t('headerLogo')}
-                      width={118}
-                      height={45}
-                      placeholder='blur'
-                      priority
-                    />
+                    <Image src={HeaderLogo} alt={t('headerLogo')} priority />
                   </Link>
 
                   <Box display='flex'>
                     {mainRoutes.map(route => {
                       return (
                         <Link key={route.id} href={route.path}>
-                          <Typography
-                            className={classes.colorText}
-                            variant='body1'
-                            component='div'
-                          >
+                          <Typography variant='subtitle1' component='div'>
                             <Box
+                              color='primary.dark'
                               className={clsx('text', {
                                 ['linkActive']: asPath === route.path
                               })}
@@ -181,9 +171,6 @@ const Header: React.FC<HeaderProps> = ({ show }) => {
                           <Image
                             src={HeaderLogo}
                             alt={t('headerLogo')}
-                            width={118}
-                            height={50}
-                            placeholder='blur'
                             priority
                           />
                         </Box>

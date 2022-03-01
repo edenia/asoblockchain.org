@@ -91,7 +91,7 @@ const Styles = makeStyles(theme => ({
     }
   },
   languageIndicator: {
-    color: theme.palette.common.white
+    color: theme.palette.primary.dark
   },
   padding: {
     padding: theme.spacing(0.5, 1)

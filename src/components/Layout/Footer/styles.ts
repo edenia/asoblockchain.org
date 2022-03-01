@@ -4,16 +4,18 @@ const Styles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(8, 43),
     width: '100%',
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.primary.dark,
     color: theme.palette.common.white,
     [theme.breakpoints.down('md')]: {
-      padding: theme.spacing(5, 3)
+      padding: theme.spacing(5, 2)
     }
   },
   formStyle: {
     padding: theme.spacing(1),
+    color: theme.palette.common.white,
     borderRadius: '4px',
     width: '100%',
+    height: '100%',
     border: 'solid 1px rgba(255, 255, 255, 0.2)',
     backgroundColor: 'rgba(255, 255, 255, 0.12)'
   },
@@ -36,6 +38,13 @@ const Styles = makeStyles(theme => ({
   },
   floatButton: {
     float: 'right'
+  },
+  button: {
+    borderRadius: '0 4px 4px 0',
+    padding: theme.spacing(1, 3),
+    fontSize: '16px',
+    fontWeight: 'bold',
+    fontFamily: 'Ubuntu'
   }
 }))
 

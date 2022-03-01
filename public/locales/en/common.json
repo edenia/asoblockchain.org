@@ -27,5 +27,12 @@
   "promotionDes": "We amplify our message, share our enthusiasm for blockchain technologies, and educate on their features and benefits.",
   "memberCompanies": "Member Companies",
   "individuals": "Individuals",
-  "students": "Students"
+  "students": "Students",
+  "joinAssociationDesc": "Our members demonstrate great commitment to building, investing in, and defending blockchain technology. Asoblockchain welcomes people or organizations that want to help us develop the blockchain ecosystem in Costa Rica. We have different types of membership.",
+  "organizationsCompanies": "Organizations and companies:",
+  "organizationsCompaniesDesc": "Representatives of large companies, non-profit organizations or government entities.",
+  "startups": "Startups:",
+  "startupsDesc": "Technology startups and other sectors with an interest in blockchain technology.",
+  "individualsTitle": "Individuals: ",
+  "individualsDesc": "Individuals who have a special interest in blockchain technology or who work in the sector."
 }

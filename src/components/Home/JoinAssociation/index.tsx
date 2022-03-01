@@ -2,6 +2,7 @@ import { Grid, Box, Typography } from '@material-ui/core'
 import { FiberManualRecord } from '@material-ui/icons'
 import { useTranslation } from 'next-i18next'
 
+import { BaseButton } from 'components'
 import { useSizes } from 'hooks'
 
 import useStyles from './styles'
@@ -9,20 +10,18 @@ import useStyles from './styles'
 const socialMediaList = [
   {
     id: 0,
-    title: 'gfgdfgdfg:',
-    content: 'gfd gg dfgdfg dfgdf gdf gdfgdfgdf gdf g dfg f dg d f g '
+    title: 'organizationsCompanies',
+    content: 'organizationsCompaniesDesc'
   },
   {
     id: 1,
-    title: 'gfgdfgdfg: ',
-    content:
-      'gfd gg dfgdfg dfgdsdsdsdd sds dsdsd df gdf gdfgdfgdf gdf g dfg f dg d f g '
+    title: 'startups',
+    content: 'startupsDesc'
   },
   {
     id: 2,
-    title: 'gfgdfgdfg: ',
-    content:
-      'gfd gg dfgdfg dfgdf d dsdsdsdsddsdsd d s dsdsdsgdf gdfgdfgdf gdf g dfg f dg d f g '
+    title: 'individualsTitle',
+    content: 'individualsDesc'
   }
 ]
 
@@ -33,29 +32,34 @@ const JoinAssociation: React.FC = () => {
 
   return (
     <Grid container justifyContent={'center'} className={classes.boxPadding}>
-      <Grid item md={8} xs={12}>
+      <Grid item md={9} xs={12}>
         <Box textAlign='center' pb={7}>
           <Typography variant='h1'>{t('socialMedia')}</Typography>
         </Box>
         <Box textAlign='center' pb={7}>
-          <Typography variant='body1'>{t('socialMedia')}</Typography>
+          <Typography variant='body1'>{t('joinAssociationDesc')}</Typography>
         </Box>
         {socialMediaList.map(item => (
-          <Box key={item.id} pb={2} display='flex'>
-            <FiberManualRecord
-              color='primary'
-              style={{ width: '10px', marginTop: '4px' }}
-            />
-            <Box paddingX={1}>
-              <Typography variant='subtitle1'>{item.title}</Typography>
+          <Box key={item.id} display='flex' pb={2}>
+            <Box pr={1}>
+              <FiberManualRecord
+                className={classes.pointStyle}
+                color='secondary'
+              />
             </Box>
-            <Box>
-              <Typography align='left' variant='body1'>
-                {item.content}
-              </Typography>
-            </Box>
+            <Typography align='left' variant='body1'>
+              <Typography variant='subtitle1' display='inline'>
+                {t(item.title)}
+              </Typography>{' '}
+              {t(item.content)}
+            </Typography>
           </Box>
         ))}
+        <Box mt={8}>
+          <BaseButton color='secondary' variant='contained'>
+            {t('joinAssociation')}
+          </BaseButton>
+        </Box>
       </Grid>
     </Grid>
   )

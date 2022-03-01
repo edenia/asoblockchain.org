@@ -54,7 +54,7 @@ const Footer: React.FC<FooterProps> = ({ scrollTop }) => {
                   </Typography>
                   <form>
                     <Box pt={smDown ? 2 : 5} display='flex'>
-                      <Box width='70%'>
+                      <Box width={smDown ? '60%' : '70%'}>
                         <input
                           className={classes.formStyle}
                           type='text'
@@ -63,8 +63,13 @@ const Footer: React.FC<FooterProps> = ({ scrollTop }) => {
                           placeholder='Email'
                         />
                       </Box>
-                      <Box width='30%'>
-                        <BaseButton color='primary' variant='contained'>
+                      <Box width={smDown ? '40%' : '30%'}>
+                        <BaseButton
+                          className={classes.button}
+                          color='secondary'
+                          fullWidth={smDown}
+                          variant='contained'
+                        >
                           {t('subscribe')}
                         </BaseButton>
                       </Box>
@@ -80,12 +85,12 @@ const Footer: React.FC<FooterProps> = ({ scrollTop }) => {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item md={5} xs={6}>
+          <Grid item md={5} xs={12}>
             <Box pt={smDown ? 5 : 7}>
               <Typography variant='caption'>{t('copyright')}</Typography>
             </Box>
           </Grid>
-          <Grid item md={5} xs={6}>
+          <Grid item md={5} xs={12}>
             <Box
               display='flex'
               pt={smDown ? 4 : 6}
@@ -98,7 +103,7 @@ const Footer: React.FC<FooterProps> = ({ scrollTop }) => {
                 <BaseButton
                   className={classes.bottonStyle}
                   onClick={scrollTop}
-                  color='primary'
+                  color='secondary'
                   variant='contained'
                 >
                   <ExpandLess />

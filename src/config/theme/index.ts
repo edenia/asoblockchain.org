@@ -6,12 +6,12 @@ import {
 
 const palette: ThemeOptions['palette'] = {
   primary: {
-    main: '#4c4d4e',
-    dark: '#28387C',
+    main: '#ffffff',
+    dark: '#1e212c',
     light: '#647DCC'
   },
   secondary: {
-    main: '#ffffff',
+    main: '#ff5a30',
     dark: '#C36D18',
     light: '#F09F4F',
     contrastText: '#ffffff'

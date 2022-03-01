@@ -35,7 +35,7 @@ const Header: React.FC = () => {
               </Box>
             </Typography>
             <Box mb={8}>
-              <BaseButton color='primary' variant='contained'>
+              <BaseButton color='secondary' variant='contained'>
                 {t('joinAssociation')}
               </BaseButton>
             </Box>
