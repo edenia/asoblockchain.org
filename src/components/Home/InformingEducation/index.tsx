@@ -113,6 +113,7 @@ const InformingEducation: React.FC = () => {
 
   return (
     <Grid
+      id='our-mission'
       container
       justifyContent='space-evenly'
       className={classes.boxPadding}

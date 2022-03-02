@@ -151,7 +151,22 @@ const Header: React.FC<HeaderProps> = ({ show }) => {
               )
             : show && (
                 <>
-                  <Box className={classes.btnDrawer}>
+                  <Box
+                    className={classes.btnDrawer}
+                    display='flex'
+                    width='100%'
+                    height={80}
+                    justifyContent='space-between'
+                  >
+                    <Box width={'50%'} padding={3}>
+                      <Link href='/'>
+                        <Image
+                          src={HeaderLogo}
+                          alt={t('headerLogo')}
+                          priority
+                        />
+                      </Link>
+                    </Box>
                     <IconButton onClick={handlerDrawer}>
                       <MenuIcon
                         fontSize='large'
