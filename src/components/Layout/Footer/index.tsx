@@ -34,13 +34,7 @@ const Footer: React.FC<FooterProps> = ({ scrollTop }) => {
                   <Image src={asoblokchainLogo} alt='AsoBlockchain Logo' />
                 </Box>
                 <Box pt={3}>
-                  <Typography variant='subtitle2'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                    rutrum suscipit nibh sed ultricies. Suspendisse in consequat
-                    urna. Pellentesque mauris neque, efficitur ac egestas non,
-                    euismod vehicula turpis. Donec sed nisl tristique, sagittis
-                    nibh non, imperdiet magna.
-                  </Typography>
+                  <Typography variant='subtitle2'>{t('footerText')}</Typography>
                 </Box>
               </Grid>
             </Grid>

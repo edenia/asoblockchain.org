@@ -97,7 +97,7 @@ const Styles = makeStyles(theme => ({
     padding: theme.spacing(0.5, 1)
   },
   menuIconColor: {
-    color: theme.palette.common.white
+    color: theme.palette.primary.dark
   }
 }))
 

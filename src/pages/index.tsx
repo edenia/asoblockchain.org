@@ -8,7 +8,8 @@ import {
   PastEvents,
   News,
   SocialMedia,
-  JoinAssociation
+  JoinAssociation,
+  AssociationMembers
 } from 'components'
 import { routeUtils } from 'utils'
 import i18nUtils from 'utils/i18n'
@@ -22,6 +23,7 @@ const Home: NextPage = () => {
       <Header />
       <InformingEducation />
       <JoinAssociation />
+      <AssociationMembers />
       <PastEvents />
       <News />
       <SocialMedia />
