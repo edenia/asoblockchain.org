@@ -95,7 +95,7 @@ const AssociationMembers: React.FC = () => {
       <Grid item md={12}>
         <Grid container>
           {imagesMembers.map((member, index) => (
-            <Grid key={index} item md={2}>
+            <Grid key={index} item md={2} xs={3}>
               <Box padding={1}>
                 <Image src={member.image} alt={member.alt} />
               </Box>
