@@ -8,9 +8,6 @@ const Styles = makeStyles(theme => ({
       padding: theme.spacing(10, 3)
     }
   },
-  uppercaseText: {
-    textTransform: 'uppercase'
-  },
   photoStyle: {
     borderRadius: '50%'
   }

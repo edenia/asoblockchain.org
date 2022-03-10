@@ -40,7 +40,7 @@ const Header: React.FC = () => {
               </BaseButton>
             </Box>
           </Grid>
-          <Grid item md={2}>
+          {/* <Grid item md={2}>
             <Box
               padding={1}
               bgcolor='common.black'
@@ -53,7 +53,7 @@ const Header: React.FC = () => {
                 {t('freeNft')}
               </Typography>
             </Box>
-          </Grid>
+          </Grid> */}
         </Grid>
       </Box>
     </Box>

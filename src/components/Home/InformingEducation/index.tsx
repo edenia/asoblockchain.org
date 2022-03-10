@@ -141,7 +141,7 @@ const InformingEducation: React.FC = () => {
           description={item.description}
         />
       ))}
-      <Grid item md={12} xs={12}>
+      {/* <Grid item md={12} xs={12}>
         <Box textAlign='center' pt={10}>
           <Typography variant='h1'>{t('interestingData')}</Typography>
         </Box>
@@ -157,7 +157,7 @@ const InformingEducation: React.FC = () => {
             <Typography variant='body2'>{t(data.label)}</Typography>
           </Box>
         </Box>
-      ))}
+      ))} */}
     </Grid>
   )
 }
