@@ -87,9 +87,7 @@ const AssociationMembers: React.FC = () => {
     >
       <Grid item md={12} xs={12}>
         <Box textAlign='center' pb={7}>
-          <Typography variant='h1' className={classes.uppercaseText}>
-            {t('news')}
-          </Typography>
+          <Typography variant='h1'>{t('associationMembers')}</Typography>
         </Box>
       </Grid>
       <Grid item md={12}>

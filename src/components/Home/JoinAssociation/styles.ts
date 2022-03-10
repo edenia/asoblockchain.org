@@ -4,7 +4,6 @@ const Styles = makeStyles(theme => ({
   boxPadding: {
     padding: theme.spacing(0, 34, 10, 34),
     backgroundColor: theme.palette.common.white,
-    textAlign: 'center',
     [theme.breakpoints.down('sm')]: {
       padding: theme.spacing(10, 3)
     }
