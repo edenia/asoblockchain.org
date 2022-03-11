@@ -6,6 +6,7 @@
   "ourMission": "Nuestra misión",
   "members": "Miembros",
   "news": "Noticias",
+  "newBlogs": "Noticias y blogposts",
   "headerText": "Cras ultrices leo vitae non viverra. Fringilla nisi quisque consequat, dignissim vitae proin ipsum sed. Pellentesque nec turpis purus eget pellentesque integer ipsum elementum felis.",
   "joinAssociation": "Unirse a la Asociación",
   "claim": "Reclama tu",
@@ -45,5 +46,15 @@
   "accessAsoblockchainChat": "Acceso al chat de Asoblockchain.",
   "accessOrganizationEventsDiscount": "Acceso a eventos de la organización con descuento.",
   "individualAccessAsoblockchainChat": "Acceso individual al chat de Asoblockchain.",
-  "accessEventsOrganizationSpecial": "Acceso a eventos de la organización con precio especial."
+  "accessEventsOrganizationSpecial": "Acceso a eventos de la organización con precio especial.",
+  "ticoblockchain2019": "Ticoblockchain 2019",
+  "ticoblockchain2019Des": "Primer congreso de blockchain en Costa Rica.",
+  "ticoblockchain2021": "Ticoblockchain 2021",
+  "ticoblockchain2021Des": "Seminarios gratuitos dirigidos a entidades financieras costarricenses.",
+  "titleFirtsNew": "Posición de la Asociación Blockchain de Costa Rica con respecto a la propuesta de impuestos a criptoactivos del Ministerio de Hacienda",
+  "titleSecondNew": "El panorama en el 2021 para blockchain y criptomonedas en Costa Rica",
+  "titleThreeNew": "AsoBlockchain y el futuro de Blockchain en Costa Rica",
+  "november2021": "Noviembre 11, 2021",
+  "febrero2021": " 7 febrero, 2021",
+  "enero2019": "8 enero, 2019"
 }

@@ -5,11 +5,11 @@ import { ServerStyleSheets } from '@material-ui/core/styles'
 class MyDocument extends Document {
   render(): JSX.Element {
     return (
-      <Html lang='en'>
+      <Html lang='es'>
         <Head>
           <link
             rel='stylesheet'
-            href='https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap'
+            href='https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap'
           />
 
           <link
