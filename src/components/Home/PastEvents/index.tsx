@@ -5,6 +5,21 @@ import Carrusel from '../../Carrusel'
 
 import useStyles from './styles'
 
+const contents = [
+  {
+    id: 0,
+    title: 'ticoblockchain2019',
+    subTitle: 'ticoblockchain2019Des',
+    link: 'https://medium.com/@gaboesquivel/ticoblockchain-2019-recap-39cf5112394f'
+  },
+  {
+    id: 1,
+    title: 'ticoblockchain2021',
+    subTitle: 'ticoblockchain2021Des',
+    link: 'https://ticoblockchain.cr/Landing'
+  }
+]
+
 const PastEvents: React.FC = () => {
   const { t } = useTranslation()
   const classes = useStyles()
@@ -17,7 +32,7 @@ const PastEvents: React.FC = () => {
         </Box>
       </Grid>
       <Grid item md={12} xs={11}>
-        <Carrusel />
+        <Carrusel contents={contents} />
       </Grid>
     </Grid>
   )
