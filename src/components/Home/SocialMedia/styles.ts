@@ -7,6 +7,9 @@ const Styles = makeStyles(theme => ({
     [theme.breakpoints.down('sm')]: {
       padding: theme.spacing(10, 3)
     }
+  },
+  iconStyle: {
+    width: 50
   }
 }))
 

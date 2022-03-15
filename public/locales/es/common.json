@@ -1,6 +1,8 @@
 {
   "home": "Inicio",
   "contact": "Contacto",
+  "homeMetaTitle": "Asociación de Blockchain de Costa Rica",
+  "homeMetaDescription": "Asoblockchain de Costa Rica se compromete con la innovación y el desarrollo de las tecnologías distribuidas para beneficio de la sociedad costarricense.",
   "copyright": "© Todos los derechos reservados. Creado por Edenia Labs.",
   "homeHeaderSubtitleOne": "Buscamos unir al ecosistema blockchain de Costa Rica para promover la confianza, transparencia, seguridad, e innovación de las tecnologías distribuidas en el país.",
   "ourMission": "Nuestra misión",
@@ -56,5 +58,6 @@
   "titleThreeNew": "AsoBlockchain y el futuro de Blockchain en Costa Rica",
   "november2021": "Noviembre 11, 2021",
   "febrero2021": " 7 febrero, 2021",
-  "enero2019": "8 enero, 2019"
+  "enero2019": "8 enero, 2019",
+  "newsletter": "Asoblockchain respeta su privacidad. Su información se mantendrá confidencial y puede darse de baja de estas comunicaciones en cualquier momento"
 }

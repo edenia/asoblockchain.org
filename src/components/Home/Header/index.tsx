@@ -1,9 +1,11 @@
 import { Box, Grid, Typography } from '@material-ui/core'
-import Image from 'next/image'
+
 import { useTranslation } from 'next-i18next'
+import { useState } from 'react'
+import Image from 'next/image'
 
 import { useSizes } from 'hooks'
-import { BaseButton } from 'components'
+import { BaseButton, BaseDialog, FormComponent } from 'components'
 import bgImage from '/public/images/background-image.jpg'
 import asoblokchainLogo from '/public/logos/asoblokchain-white-logo.svg'
 import likeIcon from '/public/icons/like-icon.svg'
@@ -11,6 +13,15 @@ import likeIcon from '/public/icons/like-icon.svg'
 const Header: React.FC = () => {
   const { t } = useTranslation('common')
   const { mdDown } = useSizes()
+  const [open, setOpen] = useState(false)
+
+  const handleOpen = () => {
+    setOpen(true)
+  }
+
+  const handleClose = () => {
+    setOpen(false)
+  }
 
   return (
     <Box position='relative' textAlign='center'>
@@ -35,11 +46,22 @@ const Header: React.FC = () => {
               </Box>
             </Typography>
             <Box mb={8}>
-              <BaseButton color='secondary' variant='contained'>
+              <BaseButton
+                onClick={handleOpen}
+                color='secondary'
+                variant='contained'
+              >
                 {t('joinAssociation')}
               </BaseButton>
             </Box>
           </Grid>
+          <BaseDialog
+            open={open}
+            title='Formulario de afiliación ASOBLOCKCHAIN'
+            handleClose={handleClose}
+            description='Agradecemos su interés por ser parte de esta iniciativa, favor completar la información que se solicita.'
+            content={<FormComponent />}
+          />
           {/* <Grid item md={2}>
             <Box
               padding={1}

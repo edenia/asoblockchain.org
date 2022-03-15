@@ -19,7 +19,10 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <NextSeo title={t('homeMetaTitle')} />
+      <NextSeo
+        title={t('homeMetaTitle')}
+        description={t('homeMetaDescription')}
+      />
       <Header />
       <InformingEducation />
       <JoinAssociation />
