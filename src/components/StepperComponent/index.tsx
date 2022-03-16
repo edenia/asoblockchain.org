@@ -1,8 +1,6 @@
 import React, { ReactNode } from 'react'
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles'
-import Button from '@material-ui/core/Button'
-import Typography from '@material-ui/core/Typography'
-import { number } from 'yup'
+import { Typography, Button } from '@material-ui/core'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -34,6 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 type StepperComponentProps = {
   getStepContent(activeStep: number): ReactNode
+  ButtonSend: ReactNode
   amountPages: number
   nextPage: number
 }
@@ -41,6 +40,7 @@ type StepperComponentProps = {
 const StepperComponent: React.FC<StepperComponentProps> = ({
   getStepContent,
   amountPages,
+  ButtonSend,
   nextPage
 }) => {
   const classes = useStyles()
@@ -74,14 +74,18 @@ const StepperComponent: React.FC<StepperComponentProps> = ({
               >
                 Back
               </Button>
-              <Button
-                disabled={nextPage === 0}
-                variant='contained'
-                color='primary'
-                onClick={handleNext}
-              >
-                {activeStep === amountPages - 1 ? 'Send' : 'Next'}
-              </Button>
+              {activeStep === 0 ? (
+                <Button
+                  disabled={nextPage === 0}
+                  variant='contained'
+                  color='primary'
+                  onClick={handleNext}
+                >
+                  Next
+                </Button>
+              ) : (
+                ButtonSend
+              )}
             </div>
           </div>
         )}

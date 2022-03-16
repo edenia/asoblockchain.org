@@ -1,13 +1,13 @@
 import * as yup from 'yup'
 
 export type MembershipType = {
-  membershipCategory: string
-  name: string
+  membershipCategory?: string
+  name?: string
   personalMembershipCategory?: string
   profession?: string
   reasonJoin?: string
-  telephone: string
-  email: string
+  telephone?: string
+  email?: string
   companyCategory?: string
   position?: string
 }
@@ -25,13 +25,13 @@ const defaultValues = {
 }
 
 const schema = yup.object().shape({
-  membershipCategory: yup.string().required('requiredField'),
-  name: yup.string().required('requiredField'),
+  membershipCategory: yup.string().notRequired(),
+  name: yup.string().notRequired(),
   personalMembershipCategory: yup.string().notRequired(),
   profession: yup.string().notRequired(),
   reasonJoin: yup.string().notRequired(),
-  telephone: yup.string().required('requiredField'),
-  email: yup.string().email('invalidEmail').required('requiredField'),
+  telephone: yup.string().notRequired(),
+  email: yup.string().email('invalidEmail').notRequired(),
   companyCategory: yup.string().notRequired(),
   position: yup.string().notRequired()
 })

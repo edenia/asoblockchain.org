@@ -1,5 +1,4 @@
 import { Box, Grid, Typography } from '@material-ui/core'
-
 import { useTranslation } from 'next-i18next'
 import { useState } from 'react'
 import Image from 'next/image'

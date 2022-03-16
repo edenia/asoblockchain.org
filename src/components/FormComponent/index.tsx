@@ -1,26 +1,24 @@
+import { GoogleFormProvider, useGoogleForm } from 'react-google-forms-hooks'
+import { Box, Typography, Grid, Button } from '@material-ui/core'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
-import { Box, Typography, Grid } from '@material-ui/core'
 import { useCallback, useState } from 'react'
 import { useTranslation } from 'next-i18next'
 import { Formik, Form, Field } from 'formik'
 import { useRouter } from 'next/router'
 
-import {
-  BaseSnackbar,
-  BaseTextField,
-  BaseButton,
-  StepperComponent
-} from 'components'
+import { BaseSnackbar, BaseTextField, StepperComponent } from 'components'
 // import { EventCategory, Header } from 'config/constants'
-import { analyticsUtils } from 'utils'
+import { googleFormUtils } from 'utils'
 import { useSizes, useFetch } from 'hooks'
 import { membershipSchema } from 'schemas'
+import form from '../../scripts/contact-form.json'
 
 import useStyles from './styles'
 
 const { defaultValues, schema } = membershipSchema
 
 const FormComponent: React.FC = () => {
+  const methods = useGoogleForm({ form })
   const { executeRecaptcha } = useGoogleReCaptcha()
   const [succeeded, setSucceeded] = useState(false)
   const { t } = useTranslation()
@@ -121,7 +119,7 @@ const FormComponent: React.FC = () => {
                 <Field
                   type='radio'
                   name='personalMembershipCategory'
-                  value='personalWhitVoiceVotingRight'
+                  value='Asociado con Derecho de Voz y Voto - Costo Anual: $150'
                 />
                 Asociado con Derecho de Voz y Voto - Costo Anual: $150
               </Typography>
@@ -129,7 +127,7 @@ const FormComponent: React.FC = () => {
                 <Field
                   type='radio'
                   name='personalMembershipCategory'
-                  value='personalAffiliate'
+                  value='Afiliado - Costo Anual: $50'
                 />
                 Afiliado - Costo Anual: $50
               </Typography>
@@ -329,106 +327,99 @@ const FormComponent: React.FC = () => {
   }
 
   return (
-    <Box position='relative' zIndex={2}>
-      <BaseSnackbar
-        snackbarProps={{
-          open: succeeded,
-          onClose: onCloseSnackBar
-        }}
-        alertProps={{
-          severity: 'success'
-        }}
-        message={t('sentSuccessfully')}
-      />
-
-      <BaseSnackbar
-        snackbarProps={{
-          open: !!error
-        }}
-        message={error ?? undefined}
-      />
-      <Box px={4}>
-        <Formik
-          enableReinitialize
-          initialValues={defaultValues}
-          validationSchema={schema}
-          onSubmit={async (
-            // { firstName, lastName, companyName, additionalComments, email },
-            formikHelpers
-          ) => {
-            try {
-              const reCaptchaToken = await executeRecaptcha?.('submit')
-              if (!reCaptchaToken) {
-                return
-              }
-
-              // const createTicketProps = {
-              //   firstName,
-              //   lastName,
-              //   companyName,
-              //   additionalComments,
-              //   email
-              // }
-
-              // const createTicketUrl = hubspotUtils.getContactFormUrlClient({
-              //   ...createTicketProps,
-              //   locale: router.locale || 'en'
-              // })
-
-              // await fetch(createTicketUrl, {
-              //   headers: {
-              //     [Header.RE_CAPTCHA_TOKEN]: reCaptchaToken
-              //   }
-              // })
-
-              // analyticsUtils.event('Contact', {
-              //   event_category: EventCategory.CONTACT_FORM,
-              //   event_label: 'Contact',
-              //   value: createTicketProps
-              // })
-
-              // formikHelpers.resetForm()
-            } catch (error) {
-              console.error(error)
-            }
+    <GoogleFormProvider {...methods}>
+      <Box position='relative' zIndex={2}>
+        <BaseSnackbar
+          snackbarProps={{
+            open: succeeded,
+            onClose: onCloseSnackBar
           }}
-        >
-          {({ errors, touched, values }) => (
-            <Form>
-              <Grid container spacing={2}>
-                <StepperComponent
-                  amountPages={3}
-                  getStepContent={getStepContent}
-                  nextPage={
-                    touched.membershipCategory
-                      ? values.membershipCategory !== 'Empresarial'
-                        ? 1
-                        : 2
-                      : 0
-                  }
-                />
-                {console.log({ values })}
+          alertProps={{
+            severity: 'success'
+          }}
+          message={t('sentSuccessfully')}
+        />
 
-                {/* <Grid item xs={12}>
-                  <Box pt={3}>
-                    <BaseButton
-                      variant='contained'
-                      type='submit'
-                      className={classes.bottonColor}
-                      disabled={loading}
-                      fullWidth={false}
-                      color='secondary'
-                    >
-                      {t('submit')}
-                    </BaseButton>
-                  </Box>
-                </Grid> */}
-              </Grid>
-            </Form>
-          )}
-        </Formik>
+        <BaseSnackbar
+          snackbarProps={{
+            open: !!error
+          }}
+          message={error ?? undefined}
+        />
+        <Box px={4}>
+          <Formik
+            enableReinitialize
+            initialValues={defaultValues}
+            validationSchema={schema}
+            onSubmit={async (
+              {
+                membershipCategory,
+                name,
+                personalMembershipCategory,
+                profession,
+                reasonJoin,
+                telephone,
+                email,
+                companyCategory,
+                position
+              },
+              formikHelpers
+            ) => {
+              try {
+                if (!(name && email && membershipCategory && telephone)) return
+
+                const membershipFormUrl =
+                  googleFormUtils.getMembershipFormUrlClient({
+                    membershipCategory,
+                    name,
+                    personalMembershipCategory,
+                    profession,
+                    reasonJoin,
+                    telephone,
+                    email,
+                    companyCategory,
+                    position
+                  })
+
+                await fetch(membershipFormUrl)
+
+                // formikHelpers.resetForm()
+              } catch (error) {
+                console.error(error)
+              }
+            }}
+          >
+            {({ errors, touched, values }) => (
+              <Form>
+                <Grid container spacing={2}>
+                  <StepperComponent
+                    amountPages={3}
+                    getStepContent={getStepContent}
+                    nextPage={
+                      touched.membershipCategory
+                        ? values.membershipCategory !== 'Empresarial'
+                          ? 1
+                          : 2
+                        : 0
+                    }
+                    ButtonSend={
+                      <Button
+                        variant='contained'
+                        color='primary'
+                        type='submit'
+                        disabled={loading}
+                      >
+                        Send
+                      </Button>
+                    }
+                  />
+                </Grid>
+              </Form>
+            )}
+          </Formik>
+        </Box>
       </Box>
-    </Box>
+    </GoogleFormProvider>
   )
 }
 
