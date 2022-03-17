@@ -5,7 +5,7 @@ import { Formik, Form, Field } from 'formik'
 import Image from 'next/image'
 
 import { BaseButton, BaseTextField, BaseSnackbar } from 'components'
-import bgImage from '/public/images/background-image.jpg'
+import bgImage from '/public/images/background-contact.jpg'
 import { useSizes, useFetch } from 'hooks'
 import { googleFormUtils } from 'utils'
 import { contactSchema } from 'schemas'
