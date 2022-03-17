@@ -1,30 +1,26 @@
-import { GoogleFormProvider, useGoogleForm } from 'react-google-forms-hooks'
-import { Box, Typography, Grid, Button } from '@material-ui/core'
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
+import { Box, Typography, Grid } from '@material-ui/core'
 import { useCallback, useState } from 'react'
 import { useTranslation } from 'next-i18next'
 import { Formik, Form, Field } from 'formik'
-import { useRouter } from 'next/router'
 
-import { BaseSnackbar, BaseTextField, StepperComponent } from 'components'
-// import { EventCategory, Header } from 'config/constants'
-import { googleFormUtils } from 'utils'
-import { useSizes, useFetch } from 'hooks'
 import { membershipSchema } from 'schemas'
-import form from '../../scripts/contact-form.json'
+import { googleFormUtils } from 'utils'
+import { useFetch } from 'hooks'
+import {
+  StepperComponent,
+  BaseTextField,
+  BaseSnackbar,
+  BaseButton
+} from 'components'
 
 import useStyles from './styles'
 
 const { defaultValues, schema } = membershipSchema
 
 const FormComponent: React.FC = () => {
-  const methods = useGoogleForm({ form })
-  const { executeRecaptcha } = useGoogleReCaptcha()
   const [succeeded, setSucceeded] = useState(false)
   const { t } = useTranslation()
-  const { mdDown } = useSizes()
   const classes = useStyles()
-  const router = useRouter()
 
   const { fetch, loading, error } = useFetch({
     onCompleted: () => {
@@ -42,18 +38,18 @@ const FormComponent: React.FC = () => {
     []
   )
 
-  function getStepContent(stepIndex: number) {
+  const getStepContent = (stepIndex: number, touched: any, errors: any) => {
     switch (stepIndex) {
       case 0:
         return (
           <Grid item xs={12} sm={12}>
-            <Box pt={4} pb={2}>
-              <Typography variant='body1'>
+            <Box pt={4} pb={1}>
+              <Typography variant='subtitle1'>
                 Categoría de Afiliación/Membresía: *
               </Typography>
             </Box>
             <Box role='group' aria-labelledby='my-radio-group'>
-              <Typography variant='body2'>
+              <Typography variant='subtitle2'>
                 <Field
                   type='radio'
                   name='membershipCategory'
@@ -61,7 +57,7 @@ const FormComponent: React.FC = () => {
                 />
                 Empresarial
               </Typography>
-              <Typography variant='body2'>
+              <Typography variant='subtitle2'>
                 <Field
                   type='radio'
                   name='membershipCategory'
@@ -75,16 +71,16 @@ const FormComponent: React.FC = () => {
       case 1:
         return (
           <Grid item xs={12} sm={12}>
-            <Box pt={4} pb={2}>
+            <Box pt={4}>
               <Typography variant='h6'>Registro Persona Fisica</Typography>
             </Box>
-            <Box pt={2} pb={2}>
+            <Box pt={1} pb={1}>
               <Typography variant='caption' display='block'>
                 Este registro es personal. Porfavor seleccione su categoría de
                 afiliación.
               </Typography>
               <Typography variant='caption' display='block'>
-                Asociado:
+                <Box fontWeight='bold'>Asociado:</Box>
               </Typography>
               <Typography variant='caption' display='block'>
                 - Se brinda acceso a eventos de la organización a precio de
@@ -99,7 +95,7 @@ const FormComponent: React.FC = () => {
                 - Networking entre empresarios.
               </Typography>
               <Typography variant='caption' display='block'>
-                Afiliado:
+                <Box fontWeight='bold'>Afiliado:</Box>
               </Typography>
               <Typography variant='caption' display='block'>
                 - Se brinda acceso a eventos de la organización a precio de
@@ -109,13 +105,13 @@ const FormComponent: React.FC = () => {
                 - Acceso individual al chat de Asoblockchain CR en whats app.
               </Typography>
             </Box>
-            <Box pt={4} pb={2}>
-              <Typography variant='body1'>
+            <Box pt={4} pb={1}>
+              <Typography variant='subtitle1'>
                 Seleccione su categoría de afiliación *
               </Typography>
             </Box>
             <Box role='group' aria-labelledby='my-radio-group'>
-              <Typography variant='body2'>
+              <Typography variant='subtitle2'>
                 <Field
                   type='radio'
                   name='personalMembershipCategory'
@@ -123,7 +119,7 @@ const FormComponent: React.FC = () => {
                 />
                 Asociado con Derecho de Voz y Voto - Costo Anual: $150
               </Typography>
-              <Typography variant='body2'>
+              <Typography variant='subtitle2'>
                 <Field
                   type='radio'
                   name='personalMembershipCategory'
@@ -133,32 +129,36 @@ const FormComponent: React.FC = () => {
               </Typography>
             </Box>
             <Box pt={4}>
-              <Typography variant='body1'>Nombre completo *</Typography>
+              <Typography variant='subtitle1'>Nombre completo *</Typography>
               <Field
                 id='name'
                 name='name'
                 className={classes.borderField}
                 as={BaseTextField}
                 label={t('name')}
-                // error={!!(touched.lastName && errors.lastName)}
-                // helperText={touched.lastName && t(errors.lastName || '')}
+                error={!!(touched.name && errors.name)}
+                helperText={touched.name && t(errors.name || '')}
               />
             </Box>
             <Box pt={4}>
-              <Typography>Profesión u Ocupación *</Typography>
+              <Typography variant='subtitle1'>
+                Profesión u Ocupación *
+              </Typography>
               <Field
                 id='profession'
                 name='profession'
                 className={classes.borderField}
                 as={BaseTextField}
                 label={t('profession')}
-                // error={!!(touched.lastName && errors.lastName)}
-                // helperText={touched.lastName && t(errors.lastName || '')}
+                error={!!(touched.profession && errors.profession)}
+                helperText={touched.profession && t(errors.profession || '')}
               />
             </Box>
             <Box pt={4}>
-              <Typography variant='body1'>Motivo para Asociarse *</Typography>
-              <Typography variant='body2'>
+              <Typography variant='subtitle1'>
+                Motivo para Asociarse *
+              </Typography>
+              <Typography variant='subtitle2'>
                 Por favor bríndenos mas detalles sobre su interés en la
                 Asociación y la industria Blockchain / Crypto. Si se dedica a la
                 industria por favor brinde detalles y sitio web (para
@@ -171,32 +171,32 @@ const FormComponent: React.FC = () => {
                 className={classes.borderField}
                 as={BaseTextField}
                 label={t('reasonJoin')}
-                // error={!!(touched.lastName && errors.lastName)}
-                // helperText={touched.lastName && t(errors.lastName || '')}
+                error={!!(touched.reasonJoin && errors.reasonJoin)}
+                helperText={touched.reasonJoin && t(errors.reasonJoin || '')}
               />
             </Box>
             <Box pt={4}>
-              <Typography variant='body1'>Teléfono *</Typography>
+              <Typography variant='subtitle1'>Teléfono *</Typography>
               <Field
                 id='telephone'
                 name='telephone'
                 className={classes.borderField}
                 as={BaseTextField}
                 label={t('telephone')}
-                // error={!!(touched.lastName && errors.lastName)}
-                // helperText={touched.lastName && t(errors.lastName || '')}
+                error={!!(touched.telephone && errors.telephone)}
+                helperText={touched.telephone && t(errors.telephone || '')}
               />
             </Box>
             <Box pt={4}>
-              <Typography variant='body1'>Correo electrónico *</Typography>
+              <Typography variant='subtitle1'>Correo electrónico</Typography>
               <Field
                 id='email'
                 name='email'
                 className={classes.borderField}
                 as={BaseTextField}
                 label={t('email')}
-                // error={!!(touched.lastName && errors.lastName)}
-                // helperText={touched.lastName && t(errors.lastName || '')}
+                error={!!(touched.email && errors.email)}
+                helperText={touched.email && t(errors.email || '')}
               />
             </Box>
           </Grid>
@@ -204,15 +204,15 @@ const FormComponent: React.FC = () => {
       default:
         return (
           <Grid item xs={12} sm={12}>
-            <Box pt={4} pb={2}>
+            <Box pt={4}>
               <Typography variant='h6'>Registro Persona Jurídica</Typography>
             </Box>
-            <Box pt={2} pb={2}>
+            <Box pt={1} pb={1}>
               <Typography variant='caption' display='block'>
                 Este registro es para empresas u organizaciones.
               </Typography>
               <Typography variant='caption' display='block'>
-                Beneficios:
+                <Box fontWeight='bold'>Beneficios:</Box>
               </Typography>
               <Typography variant='caption' display='block'>
                 - Se brinda acceso a eventos de la organización, vos y voto en
@@ -241,14 +241,14 @@ const FormComponent: React.FC = () => {
                 CR en whats app.
               </Typography>
             </Box>
-            <Box pt={4} pb={2}>
-              <Typography variant='body1'>
+            <Box pt={4} pb={1}>
+              <Typography variant='subtitle1'>
                 Seleccione su categoría de Empresa. La membresía de empresa es
                 de Asociado con Derecho a Voz y Voto.
               </Typography>
             </Box>
             <Box role='group' aria-labelledby='my-radio-group'>
-              <Typography variant='body2'>
+              <Typography variant='subtitle2'>
                 <Field
                   type='radio'
                   name='companyCategory'
@@ -256,7 +256,7 @@ const FormComponent: React.FC = () => {
                 />
                 Empresa de 1 a 15 empleados - US$400.00 anual
               </Typography>
-              <Typography variant='body2'>
+              <Typography variant='subtitle2'>
                 <Field
                   type='radio'
                   name='companyCategory'
@@ -264,7 +264,7 @@ const FormComponent: React.FC = () => {
                 />
                 Empresa de 16 a 30 empleados - US$600.00 anual
               </Typography>
-              <Typography variant='body2'>
+              <Typography variant='subtitle2'>
                 <Field
                   type='radio'
                   name='companyCategory'
@@ -274,51 +274,51 @@ const FormComponent: React.FC = () => {
               </Typography>
             </Box>
             <Box pt={4}>
-              <Typography variant='body1'>Persona de contacto *</Typography>
+              <Typography variant='subtitle1'>Persona de contacto *</Typography>
               <Field
                 id='name'
                 name='name'
                 className={classes.borderField}
                 as={BaseTextField}
                 label={t('name')}
-                // error={!!(touched.lastName && errors.lastName)}
-                // helperText={touched.lastName && t(errors.lastName || '')}
+                error={!!(touched.name && errors.name)}
+                helperText={touched.name && t(errors.name || '')}
               />
             </Box>
             <Box pt={4}>
-              <Typography variant='body1'>Cargo / Puesto *</Typography>
+              <Typography variant='subtitle1'>Cargo / Puesto *</Typography>
               <Field
                 id='position'
                 name='position'
                 className={classes.borderField}
                 as={BaseTextField}
                 label={t('position')}
-                // error={!!(touched.lastName && errors.lastName)}
-                // helperText={touched.lastName && t(errors.lastName || '')}
+                error={!!(touched.position && errors.position)}
+                helperText={touched.position && t(errors.position || '')}
               />
             </Box>
             <Box pt={4}>
-              <Typography variant='body1'>Teléfono *</Typography>
+              <Typography variant='subtitle1'>Teléfono *</Typography>
               <Field
                 id='telephone'
                 name='telephone'
                 className={classes.borderField}
                 as={BaseTextField}
                 label={t('telephone')}
-                // error={!!(touched.lastName && errors.lastName)}
-                // helperText={touched.lastName && t(errors.lastName || '')}
+                error={!!(touched.telephone && errors.telephone)}
+                helperText={touched.telephone && t(errors.telephone || '')}
               />
             </Box>
             <Box pt={4}>
-              <Typography variant='body1'>Correo electrónico *</Typography>
+              <Typography variant='subtitle1'>Correo electrónico *</Typography>
               <Field
                 id='email'
                 name='email'
                 className={classes.borderField}
                 as={BaseTextField}
                 label={t('email')}
-                // error={!!(touched.lastName && errors.lastName)}
-                // helperText={touched.lastName && t(errors.lastName || '')}
+                error={!!(touched.email && errors.email)}
+                helperText={touched.email && t(errors.email || '')}
               />
             </Box>
           </Grid>
@@ -326,100 +326,129 @@ const FormComponent: React.FC = () => {
     }
   }
 
+  const enableSendButton = (touched: any, values: any, errors: any) => {
+    if (!touched.membershipCategory) return true
+
+    if (values.membershipCategory !== 'Empresarial')
+      if (
+        values.name !== '' &&
+        values.profession !== '' &&
+        values.reasonJoin !== '' &&
+        values.telephone !== '' &&
+        values.email !== '' &&
+        !errors.email
+      )
+        return false
+      else return true
+    else {
+      if (
+        values.name !== '' &&
+        values.position !== '' &&
+        values.telephone !== '' &&
+        values.email !== '' &&
+        !errors.email
+      )
+        return false
+      else return true
+    }
+  }
+
   return (
-    <GoogleFormProvider {...methods}>
-      <Box position='relative' zIndex={2}>
-        <BaseSnackbar
-          snackbarProps={{
-            open: succeeded,
-            onClose: onCloseSnackBar
+    <Box position='relative' zIndex={2}>
+      <BaseSnackbar
+        snackbarProps={{
+          open: succeeded,
+          onClose: onCloseSnackBar
+        }}
+        alertProps={{
+          severity: 'success'
+        }}
+        message={t('sentSuccessfully')}
+      />
+
+      <BaseSnackbar
+        snackbarProps={{
+          open: !!error
+        }}
+        message={error ?? undefined}
+      />
+      <Box px={4}>
+        <Formik
+          enableReinitialize
+          initialValues={defaultValues}
+          validationSchema={schema}
+          onSubmit={async (
+            {
+              membershipCategory,
+              name,
+              personalMembershipCategory,
+              profession,
+              reasonJoin,
+              telephone,
+              email,
+              companyCategory,
+              position
+            },
+            formikHelpers
+          ) => {
+            try {
+              if (!(name && email && membershipCategory && telephone)) return
+
+              const membershipFormUrl =
+                googleFormUtils.getMembershipFormUrlClient({
+                  membershipCategory,
+                  name,
+                  personalMembershipCategory,
+                  profession,
+                  reasonJoin,
+                  telephone,
+                  email,
+                  companyCategory,
+                  position
+                })
+
+              await fetch(membershipFormUrl)
+
+              formikHelpers.resetForm()
+            } catch (error) {
+              console.error(error)
+            }
           }}
-          alertProps={{
-            severity: 'success'
-          }}
-          message={t('sentSuccessfully')}
-        />
-
-        <BaseSnackbar
-          snackbarProps={{
-            open: !!error
-          }}
-          message={error ?? undefined}
-        />
-        <Box px={4}>
-          <Formik
-            enableReinitialize
-            initialValues={defaultValues}
-            validationSchema={schema}
-            onSubmit={async (
-              {
-                membershipCategory,
-                name,
-                personalMembershipCategory,
-                profession,
-                reasonJoin,
-                telephone,
-                email,
-                companyCategory,
-                position
-              },
-              formikHelpers
-            ) => {
-              try {
-                if (!(name && email && membershipCategory && telephone)) return
-
-                const membershipFormUrl =
-                  googleFormUtils.getMembershipFormUrlClient({
-                    membershipCategory,
-                    name,
-                    personalMembershipCategory,
-                    profession,
-                    reasonJoin,
-                    telephone,
-                    email,
-                    companyCategory,
-                    position
-                  })
-
-                await fetch(membershipFormUrl)
-
-                // formikHelpers.resetForm()
-              } catch (error) {
-                console.error(error)
-              }
-            }}
-          >
-            {({ errors, touched, values }) => (
-              <Form>
-                <Grid container spacing={2}>
-                  <StepperComponent
-                    amountPages={3}
-                    getStepContent={getStepContent}
-                    nextPage={
-                      touched.membershipCategory
-                        ? values.membershipCategory !== 'Empresarial'
-                          ? 1
-                          : 2
-                        : 0
-                    }
-                    ButtonSend={
-                      <Button
-                        variant='contained'
-                        color='primary'
-                        type='submit'
-                        disabled={loading}
-                      >
-                        Send
-                      </Button>
-                    }
-                  />
-                </Grid>
-              </Form>
-            )}
-          </Formik>
-        </Box>
+        >
+          {({ errors, touched, values }) => (
+            <Form>
+              <Grid container spacing={2}>
+                <StepperComponent
+                  errors={errors}
+                  touched={touched}
+                  amountPages={3}
+                  getStepContent={getStepContent}
+                  nextPage={
+                    touched.membershipCategory
+                      ? values.membershipCategory !== 'Empresarial'
+                        ? 1
+                        : 2
+                      : 0
+                  }
+                  ButtonSend={
+                    <BaseButton
+                      color='secondary'
+                      variant='contained'
+                      type='submit'
+                      disabled={
+                        loading || enableSendButton(touched, values, errors)
+                      }
+                    >
+                      Send
+                    </BaseButton>
+                  }
+                />
+              </Grid>
+            </Form>
+          )}
+        </Formik>
       </Box>
-    </GoogleFormProvider>
+    </Box>
   )
 }
 

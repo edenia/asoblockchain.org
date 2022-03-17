@@ -4,6 +4,7 @@ import { useTranslation } from 'next-i18next'
 import { useState } from 'react'
 
 import { BaseButton, BaseDialog, FormComponent } from 'components'
+import { useSizes } from 'hooks'
 
 import useStyles from './styles'
 
@@ -46,6 +47,7 @@ const membershipsList = [
 const JoinAssociation: React.FC = () => {
   const [open, setOpen] = useState(false)
   const { t } = useTranslation()
+  const { xsDown } = useSizes()
   const classes = useStyles()
 
   const handleOpen = () => {
@@ -105,6 +107,7 @@ const JoinAssociation: React.FC = () => {
         </Box>
         <BaseDialog
           open={open}
+          fullScreen={xsDown}
           title='Formulario de afiliación ASOBLOCKCHAIN'
           handleClose={handleClose}
           description='Agradecemos su interés por ser parte de esta iniciativa, favor completar la información que se solicita.'

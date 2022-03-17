@@ -3,15 +3,15 @@ import { useTranslation } from 'next-i18next'
 import { useState } from 'react'
 import Image from 'next/image'
 
-import { useSizes } from 'hooks'
+import asoblokchainLogo from '/public/logos/asoblokchain-white-logo.svg'
 import { BaseButton, BaseDialog, FormComponent } from 'components'
 import bgImage from '/public/images/background-image.jpg'
-import asoblokchainLogo from '/public/logos/asoblokchain-white-logo.svg'
 import likeIcon from '/public/icons/like-icon.svg'
+import { useSizes } from 'hooks'
 
 const Header: React.FC = () => {
   const { t } = useTranslation('common')
-  const { mdDown } = useSizes()
+  const { mdDown, xsDown } = useSizes()
   const [open, setOpen] = useState(false)
 
   const handleOpen = () => {
@@ -59,6 +59,7 @@ const Header: React.FC = () => {
             title='Formulario de afiliación ASOBLOCKCHAIN'
             handleClose={handleClose}
             description='Agradecemos su interés por ser parte de esta iniciativa, favor completar la información que se solicita.'
+            fullScreen={xsDown}
             content={<FormComponent />}
           />
           {/* <Grid item md={2}>

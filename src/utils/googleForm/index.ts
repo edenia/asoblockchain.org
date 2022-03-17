@@ -23,6 +23,22 @@ const getMembershipFormUrlClient = ({
 }: getMembershipFormUrlClientProps): string =>
   `/api/membership-form/?membershipCategory=${membershipCategory}&name=${name}&personalMembershipCategory=${personalMembershipCategory}&profession=${profession}&email=${email}&reasonJoin=${reasonJoin}&telephone=${telephone}&companyCategory=${companyCategory}&position=${position}`
 
+type getContactFormUrlClientProps = {
+  telephone: string
+  message: string
+  email: string
+  name: string
+}
+
+const getContactFormUrlClient = ({
+  telephone,
+  message,
+  email,
+  name
+}: getContactFormUrlClientProps): string =>
+  `/api/contact-form/?&name=${name}&email=${email}&telephone=${telephone}&message=${message}`
+
 export default {
-  getMembershipFormUrlClient
+  getMembershipFormUrlClient,
+  getContactFormUrlClient
 }

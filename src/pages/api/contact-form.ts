@@ -17,22 +17,15 @@ const createTicket = async (
   try {
     const query = req?.query
 
-    const membershipCategory = routeUtils.getAsString(query?.membershipCategory)
     const name = routeUtils.getAsString(query?.name)
-    const personalMembershipCategory = routeUtils.getAsString(
-      query?.personalMembershipCategory
-    )
-    const profession = routeUtils.getAsString(query?.profession)
-    const reasonJoin = routeUtils.getAsString(query?.reasonJoin)
     const telephone = routeUtils.getAsString(query?.telephone)
     const email = routeUtils.getAsString(query?.email)
-    const companyCategory = routeUtils.getAsString(query?.companyCategory)
-    const position = routeUtils.getAsString(query?.position)
+    const message = routeUtils.getAsString(query?.message)
 
-    const entryText = `entry.904123975=${membershipCategory}&entry.568611833=${companyCategory}&entry.359165225=${name}&entry.1834504625=${position}&entry.1103985887=${telephone}&entry.935974330=${email}&entry.136081518=${personalMembershipCategory}&entry.1731221126=${name}&entry.888535422=${profession}&entry.1095448539=${reasonJoin}`
+    const entryText = `entry.2005620554=${name}&entry.1166974658=${telephone}&entry.1045781291=${email}&entry.839337160=${message}`
 
     const fetchedResult = await fetch(
-      `${GOOGLE_FORMS_URL}/e/1FAIpQLSekqLCXiM1S5tCGDVOoXA_I86scU0c0TKepiMUhUWFfyib_fQ/formResponse?&${entryText}&submit=Submit`,
+      `${GOOGLE_FORMS_URL}/e/1FAIpQLSfA5DmJDsntw1p93oJ75vExm5qvXniLCen84kMCH3CGC8zy6A/formResponse?&${entryText}&submit=Submit`,
       {
         method: 'POST',
         headers: {

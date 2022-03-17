@@ -1,53 +1,32 @@
-import React, { ReactNode } from 'react'
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles'
-import { Typography, Button } from '@material-ui/core'
+import { Typography, Box } from '@material-ui/core'
+import React, { ReactNode, useState } from 'react'
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      width: '100%'
-    },
-    backButton: {
-      marginRight: theme.spacing(1)
-    },
-    instructions: {
-      marginTop: theme.spacing(1),
-      marginBottom: theme.spacing(1)
-    }
-  })
-)
+import { BaseButton } from 'components'
 
-// function getStepContent(stepIndex: number) {
-//   switch (stepIndex) {
-//     case 0:
-//       return 'Select campaign settings...'
-//     case 1:
-//       return 'What is an ad group anyways?'
-//     case 2:
-//       return 'This is the bit I really care about!'
-//     default:
-//       return 'Unknown stepIndex'
-//   }
-// }
+import useStyles from './styles'
 
 type StepperComponentProps = {
-  getStepContent(activeStep: number): ReactNode
+  getStepContent(activeStep: number, touched: any, errors: any): ReactNode
   ButtonSend: ReactNode
   amountPages: number
   nextPage: number
+  touched: any
+  errors: any
 }
 
 const StepperComponent: React.FC<StepperComponentProps> = ({
   getStepContent,
   amountPages,
   ButtonSend,
-  nextPage
+  nextPage,
+  touched,
+  errors
 }) => {
+  const [activeStep, setActiveStep] = useState(0)
   const classes = useStyles()
-  const [activeStep, setActiveStep] = React.useState(0)
 
   const handleNext = () => {
-    setActiveStep(nextPage)
+    if (nextPage !== 0) setActiveStep(nextPage)
   }
 
   const handleBack = () => {
@@ -55,42 +34,43 @@ const StepperComponent: React.FC<StepperComponentProps> = ({
   }
 
   return (
-    <div className={classes.root}>
-      <div>
+    <Box className={classes.root}>
+      <Box>
         {activeStep === amountPages ? (
-          <div>
+          <Box>
             <Typography className={classes.instructions}>
               All steps completed
             </Typography>
-          </div>
+          </Box>
         ) : (
-          <div>
-            {getStepContent(activeStep)}
-            <div>
-              <Button
+          <Box>
+            {getStepContent(activeStep, touched, errors)}
+            <Box pt={4} pb={2}>
+              <BaseButton
                 disabled={activeStep === 0}
                 onClick={handleBack}
+                color='secondary'
+                variant='outlined'
                 className={classes.backButton}
               >
                 Back
-              </Button>
+              </BaseButton>
               {activeStep === 0 ? (
-                <Button
-                  disabled={nextPage === 0}
+                <BaseButton
+                  color='secondary'
                   variant='contained'
-                  color='primary'
                   onClick={handleNext}
                 >
                   Next
-                </Button>
+                </BaseButton>
               ) : (
                 ButtonSend
               )}
-            </div>
-          </div>
+            </Box>
+          </Box>
         )}
-      </div>
-    </div>
+      </Box>
+    </Box>
   )
 }
 

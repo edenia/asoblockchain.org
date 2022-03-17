@@ -25,15 +25,15 @@ const defaultValues = {
 }
 
 const schema = yup.object().shape({
-  membershipCategory: yup.string().notRequired(),
-  name: yup.string().notRequired(),
-  personalMembershipCategory: yup.string().notRequired(),
-  profession: yup.string().notRequired(),
-  reasonJoin: yup.string().notRequired(),
-  telephone: yup.string().notRequired(),
-  email: yup.string().email('invalidEmail').notRequired(),
-  companyCategory: yup.string().notRequired(),
-  position: yup.string().notRequired()
+  membershipCategory: yup.string().required('requiredField'),
+  name: yup.string().required('requiredField'),
+  personalMembershipCategory: yup.string().required('requiredField'),
+  profession: yup.string().required('requiredField'),
+  reasonJoin: yup.string().required('requiredField'),
+  telephone: yup.number().required('requiredField'),
+  email: yup.string().email('invalidEmail').required('requiredField'),
+  companyCategory: yup.string().required('requiredField'),
+  position: yup.string().required('requiredField')
 })
 
 export default {
