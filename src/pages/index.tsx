@@ -3,13 +3,14 @@ import { NextSeo } from 'next-seo'
 import { useTranslation } from 'next-i18next'
 
 import {
-  Header,
   InformingEducation,
-  PastEvents,
-  News,
-  SocialMedia,
+  AssociationMembers,
   JoinAssociation,
-  AssociationMembers
+  SocialMedia,
+  PastEvents,
+  ContactUs,
+  Header,
+  News
 } from 'components'
 import { routeUtils } from 'utils'
 import i18nUtils from 'utils/i18n'
@@ -19,7 +20,10 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <NextSeo title={t('homeMetaTitle')} />
+      <NextSeo
+        title={t('homeMetaTitle')}
+        description={t('homeMetaDescription')}
+      />
       <Header />
       <InformingEducation />
       <JoinAssociation />
@@ -27,6 +31,7 @@ const Home: NextPage = () => {
       <PastEvents />
       <News />
       <SocialMedia />
+      <ContactUs />
     </>
   )
 }

@@ -1,6 +1,8 @@
 {
   "home": "Home",
   "contact": "Contact",
+  "homeMetaTitle": "Blockchain Association of Costa Rica",
+  "homeMetaDescription": "Asoblockchain of Costa Rica is committed to innovation and development of distributed technologies for the benefit of Costa Rican society.",
   "copyright": "© All rights reserved. Created by Edenia Labs.",
   "homeHeaderSubtitleOne": "We seek to unite the blockchain ecosystem of Costa Rica to promote trust, transparency, security, and innovation of distributed technologies in the country.",
   "ourMission": "Our Mission",
@@ -56,5 +58,23 @@
   "titleThreeNew": "AsoBlockchain and the future of Blockchain in Costa Rica",
   "november2021": "November 11, 2021",
   "febrero2021": " 7 February, 2021",
-  "enero2019": "8 January 2019"
+  "enero2019": "8 January 2019",
+  "newsletter": "Asoblockchain respects your privacy. Your information will be kept confidential and you can unsubscribe from these communications at any time.",
+  "contactUsNow": "CONTACT US NOW",
+  "sentSuccessfully": "Thank you for contacting Edenia. We will reply to you as soon as possible",
+  "name": "Name",
+  "telephone": "Telephone",
+  "email": "Email",
+  "message": "Message",
+  "submit": "Submit",
+  "business": "Business",
+  "personal": "Personal",
+  "AffiliationCategory": "Affiliation/Membership Category:",
+  "naturalPersonRegistration": "Natural Person Registration",
+  "recordPersonal": "This record is personal. Please select your membership category.",
+  "associated": "Associated:",
+  "associatedFirstPoint": "- Access to events of the organization is provided at a discount price, you and vote in decision-making.",
+  "associatedSecondPoint": "- Access to information about opportunities in the BLOCKCHAIN area in Costa Rica. Advice to take advantage of opportunities in the BLOCKCHAIN area.",
+  "affiliate": "Affiliate:",
+  "affiliateFirstPoint": "- Access to events of the organization is provided at a discount price, with you (but without a vote in decision-making)"
 }

@@ -1,8 +1,10 @@
-import { Grid, Box, Typography } from '@material-ui/core'
 import { FiberManualRecord, RadioButtonUnchecked } from '@material-ui/icons'
+import { Grid, Box, Typography } from '@material-ui/core'
 import { useTranslation } from 'next-i18next'
+import { useState } from 'react'
 
-import { BaseButton } from 'components'
+import { BaseButton, BaseDialog, FormComponent } from 'components'
+import { useSizes } from 'hooks'
 
 import useStyles from './styles'
 
@@ -43,8 +45,18 @@ const membershipsList = [
 ]
 
 const JoinAssociation: React.FC = () => {
+  const [open, setOpen] = useState(false)
   const { t } = useTranslation()
+  const { xsDown } = useSizes()
   const classes = useStyles()
+
+  const handleOpen = () => {
+    setOpen(true)
+  }
+
+  const handleClose = () => {
+    setOpen(false)
+  }
 
   return (
     <Grid container justifyContent={'center'} className={classes.boxPadding}>
@@ -85,10 +97,22 @@ const JoinAssociation: React.FC = () => {
           </Box>
         ))}
         <Box textAlign='center' mt={8}>
-          <BaseButton color='secondary' variant='contained'>
+          <BaseButton
+            color='secondary'
+            onClick={handleOpen}
+            variant='contained'
+          >
             {t('joinAssociation')}
           </BaseButton>
         </Box>
+        <BaseDialog
+          open={open}
+          fullScreen={xsDown}
+          title='Formulario de afiliación ASOBLOCKCHAIN'
+          handleClose={handleClose}
+          description='Agradecemos su interés por ser parte de esta iniciativa, favor completar la información que se solicita.'
+          content={<FormComponent />}
+        />
       </Grid>
     </Grid>
   )

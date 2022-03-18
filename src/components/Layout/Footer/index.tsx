@@ -70,10 +70,7 @@ const Footer: React.FC<FooterProps> = ({ scrollTop }) => {
                     </Box>
                   </form>
                   <Box pt={1}>
-                    <Typography variant='caption'>
-                      *Sollicitudin vitae dignissim elementum, cursus bibendum
-                      lacus.
-                    </Typography>
+                    <Typography variant='caption'>{t('newsletter')}</Typography>
                   </Box>
                 </Box>
               </Grid>
