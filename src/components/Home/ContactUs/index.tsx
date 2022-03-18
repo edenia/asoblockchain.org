@@ -105,7 +105,9 @@ const ContactUs: React.FC = () => {
                     <Grid container>
                       <Grid item xs={12} md={12}>
                         <Box pt={2}>
-                          <Typography variant='subtitle1'>Nombre</Typography>
+                          <Typography variant='subtitle1'>
+                            {t('name')}
+                          </Typography>
                         </Box>
                         <Field
                           id='name'
@@ -119,7 +121,9 @@ const ContactUs: React.FC = () => {
                       </Grid>
                       <Grid item xs={12} md={12}>
                         <Box pt={2}>
-                          <Typography variant='subtitle1'>Teléfono</Typography>
+                          <Typography variant='subtitle1'>
+                            {t('telephone')}
+                          </Typography>
                         </Box>
                         <Field
                           id='telephone'
@@ -136,7 +140,7 @@ const ContactUs: React.FC = () => {
                       <Grid item xs={12} md={12}>
                         <Box pt={2}>
                           <Typography variant='subtitle1'>
-                            Correo electrónico
+                            {t('email')}
                           </Typography>
                         </Box>
                         <Field
@@ -151,7 +155,9 @@ const ContactUs: React.FC = () => {
                       </Grid>
                       <Grid item xs={12} md={12}>
                         <Box pt={2}>
-                          <Typography variant='subtitle1'>Mensaje</Typography>
+                          <Typography variant='subtitle1'>
+                            {t('message')}
+                          </Typography>
                         </Box>
                         <Field
                           id='message'

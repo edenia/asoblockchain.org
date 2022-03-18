@@ -61,5 +61,14 @@
   "enero2019": "8 enero, 2019",
   "newsletter": "Asoblockchain respeta su privacidad. Su información se mantendrá confidencial y puede darse de baja de estas comunicaciones en cualquier momento",
   "contactUsNow": "CONTACTENOS AHORA",
-  "sentSuccessfully": "Gracias por contactar a Edenia. Le responderemos lo antes posible"
+  "sentSuccessfully": "Gracias por contactar a Edenia. Le responderemos lo antes posible",
+  "name": "Nombre",
+  "telephone": "Teléfono",
+  "email": "Correo electrónico",
+  "message": "Mensaje",
+  "submit": "Enviar",
+  "business": "Empresarial",
+  "personal": "Personal",
+  "AffiliationCategory": "Categoría de Afiliación/Membresía:",
+  "naturalPersonRegistration": "Registro Persona Física"
 }

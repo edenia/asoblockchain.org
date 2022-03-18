@@ -61,5 +61,14 @@
   "enero2019": "8 January 2019",
   "newsletter": "Asoblockchain respects your privacy. Your information will be kept confidential and you can unsubscribe from these communications at any time.",
   "contactUsNow": "CONTACT US NOW",
-  "sentSuccessfully": "Thank you for contacting Edenia. We will reply to you as soon as possible"
+  "sentSuccessfully": "Thank you for contacting Edenia. We will reply to you as soon as possible",
+  "name": "Name",
+  "telephone": "Telephone",
+  "email": "Email",
+  "message": "Message",
+  "submit": "Submit",
+  "business": "Business",
+  "personal": "Personal",
+  "AffiliationCategory": "Affiliation/Membership Category:",
+  "naturalPersonRegistration": "Natural Person Registration"
 }

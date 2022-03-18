@@ -45,7 +45,7 @@ const FormComponent: React.FC = () => {
           <Grid item xs={12} sm={12}>
             <Box pt={4} pb={1}>
               <Typography variant='subtitle1'>
-                Categoría de Afiliación/Membresía: *
+                {t('AffiliationCategory')}
               </Typography>
             </Box>
             <Box role='group' aria-labelledby='my-radio-group'>
@@ -55,7 +55,7 @@ const FormComponent: React.FC = () => {
                   name='membershipCategory'
                   value='Empresarial'
                 />
-                Empresarial
+                {t('business')}
               </Typography>
               <Typography variant='subtitle2'>
                 <Field
@@ -63,7 +63,7 @@ const FormComponent: React.FC = () => {
                   name='membershipCategory'
                   value='Personal'
                 />
-                Personal
+                {t('personal')}
               </Typography>
             </Box>
           </Grid>
@@ -72,7 +72,9 @@ const FormComponent: React.FC = () => {
         return (
           <Grid item xs={12} sm={12}>
             <Box pt={4}>
-              <Typography variant='h6'>Registro Persona Fisica</Typography>
+              <Typography variant='h6'>
+                {t('naturalPersonRegistration')}
+              </Typography>
             </Box>
             <Box pt={1} pb={1}>
               <Typography variant='caption' display='block'>
@@ -129,7 +131,7 @@ const FormComponent: React.FC = () => {
               </Typography>
             </Box>
             <Box pt={4}>
-              <Typography variant='subtitle1'>Nombre completo *</Typography>
+              <Typography variant='subtitle1'>{t('name')}</Typography>
               <Field
                 id='name'
                 name='name'
@@ -176,7 +178,7 @@ const FormComponent: React.FC = () => {
               />
             </Box>
             <Box pt={4}>
-              <Typography variant='subtitle1'>Teléfono *</Typography>
+              <Typography variant='subtitle1'>{t('telephone')}</Typography>
               <Field
                 id='telephone'
                 name='telephone'
@@ -188,7 +190,7 @@ const FormComponent: React.FC = () => {
               />
             </Box>
             <Box pt={4}>
-              <Typography variant='subtitle1'>Correo electrónico</Typography>
+              <Typography variant='subtitle1'>{t('email')}</Typography>
               <Field
                 id='email'
                 name='email'
@@ -298,7 +300,7 @@ const FormComponent: React.FC = () => {
               />
             </Box>
             <Box pt={4}>
-              <Typography variant='subtitle1'>Teléfono *</Typography>
+              <Typography variant='subtitle1'>{t('telephone')}</Typography>
               <Field
                 id='telephone'
                 name='telephone'
@@ -310,7 +312,7 @@ const FormComponent: React.FC = () => {
               />
             </Box>
             <Box pt={4}>
-              <Typography variant='subtitle1'>Correo electrónico *</Typography>
+              <Typography variant='subtitle1'>{t('email')}</Typography>
               <Field
                 id='email'
                 name='email'
@@ -439,7 +441,7 @@ const FormComponent: React.FC = () => {
                         loading || enableSendButton(touched, values, errors)
                       }
                     >
-                      Send
+                      {t('submit')}
                     </BaseButton>
                   }
                 />
