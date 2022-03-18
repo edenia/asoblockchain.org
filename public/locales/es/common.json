@@ -70,5 +70,11 @@
   "business": "Empresarial",
   "personal": "Personal",
   "AffiliationCategory": "Categoría de Afiliación/Membresía:",
-  "naturalPersonRegistration": "Registro Persona Física"
+  "naturalPersonRegistration": "Registro Persona Física",
+  "recordPersonal": "Este registro es personal. Porfavor seleccione su categoría de afiliación.",
+  "associated": "Asociado:",
+  "associatedFirstPoint": "- Se brinda acceso a eventos de la organización a precio de descuento, vos y voto en la toma de decisiones.",
+  "associatedSecondPoint": " -Acceso a información sobre oportunidades en el área de BLOCKCHAIN en Costa Rica. Asesoría para aprovechar oportunidades en el área BLOCKCHAIN.",
+  "affiliate": "Afiliado:",
+  "affiliateFirstPoint": "- Se brinda acceso a eventos de la organización a precio de descuento, con vos (pero sin voto en la toma de decisiones)"
 }

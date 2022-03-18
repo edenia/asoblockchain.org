@@ -78,33 +78,31 @@ const FormComponent: React.FC = () => {
             </Box>
             <Box pt={1} pb={1}>
               <Typography variant='caption' display='block'>
-                Este registro es personal. Porfavor seleccione su categoría de
-                afiliación.
+                {t('recordPersonal')}
               </Typography>
               <Typography variant='caption' display='block'>
-                <Box fontWeight='bold'>Asociado:</Box>
+                <Box fontWeight='bold'>{t('associated')}</Box>
               </Typography>
               <Typography variant='caption' display='block'>
-                - Se brinda acceso a eventos de la organización a precio de
-                descuento, vos y voto en la toma de decisiones.
+                {t('associatedFirstPoint')}
               </Typography>
               <Typography variant='caption' display='block'>
-                -Acceso a información sobre oportunidades en el área de
-                BLOCKCHAIN en Costa Rica. Asesoría para aprovechar oportunidades
-                en el área BLOCKCHAIN.
+                {t('associatedSecondPoint')}
               </Typography>
               <Typography variant='caption' display='block'>
-                - Networking entre empresarios.
+                -{t('networkingBetweenBusinessmen')}
               </Typography>
               <Typography variant='caption' display='block'>
-                <Box fontWeight='bold'>Afiliado:</Box>
+                -{t('individualAccessAsoblockchainChat')}
               </Typography>
               <Typography variant='caption' display='block'>
-                - Se brinda acceso a eventos de la organización a precio de
-                descuento, con vos (pero sin voto en la toma de decisiones)
+                <Box fontWeight='bold'>{t('affiliate')}</Box>
               </Typography>
               <Typography variant='caption' display='block'>
-                - Acceso individual al chat de Asoblockchain CR en whats app.
+                {t('affiliateFirstPoint')}
+              </Typography>
+              <Typography variant='caption' display='block'>
+                -{t('individualAccessAsoblockchainChat')}
               </Typography>
             </Box>
             <Box pt={4} pb={1}>
@@ -222,16 +220,15 @@ const FormComponent: React.FC = () => {
               </Typography>
               <Typography variant='caption' display='block'>
                 - Acceso a información sobre oportunidades en el área de
-                BLOCKCHAIN en Costa Rica.
+                BLOCKCHAIN en Costa Rica.Asesoría para aprovechar oportunidades en el área BLOCKCHAIN.
               </Typography>
               <Typography variant='caption' display='block'>
-                - Asesoría para aprovechar oportunidades en el área BLOCKCHAIN.
+                -{t('networkingBetweenBusinessmen')}
               </Typography>
               <Typography variant='caption' display='block'>
-                - Networking entre empresarios.
-              </Typography>
-              <Typography variant='caption' display='block'>
-                - Principalmente con el sector público.
+                - Anuncios con costo especial en la página web de ASOBLOCKCHAIN.
+                Apoyo y asesoría en relaciones intersectoriales, principalmente
+                con el sector público.
               </Typography>
               <Typography variant='caption' display='block'>
                 - Descuento de un 15% en actividades organizadas por

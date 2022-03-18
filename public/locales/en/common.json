@@ -70,5 +70,11 @@
   "business": "Business",
   "personal": "Personal",
   "AffiliationCategory": "Affiliation/Membership Category:",
-  "naturalPersonRegistration": "Natural Person Registration"
+  "naturalPersonRegistration": "Natural Person Registration",
+  "recordPersonal": "This record is personal. Please select your membership category.",
+  "associated": "Associated:",
+  "associatedFirstPoint": "- Access to events of the organization is provided at a discount price, you and vote in decision-making.",
+  "associatedSecondPoint": "- Access to information about opportunities in the BLOCKCHAIN area in Costa Rica. Advice to take advantage of opportunities in the BLOCKCHAIN area.",
+  "affiliate": "Affiliate:",
+  "affiliateFirstPoint": "- Access to events of the organization is provided at a discount price, with you (but without a vote in decision-making)"
 }
