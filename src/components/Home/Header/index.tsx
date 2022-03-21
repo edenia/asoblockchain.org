@@ -6,7 +6,7 @@ import Image from 'next/image'
 import asoblokchainLogo from '/public/logos/asoblokchain-white-logo.svg'
 import { BaseButton, BaseDialog, FormComponent } from 'components'
 import bgImage from '/public/images/background-image.jpg'
-import likeIcon from '/public/icons/like-icon.svg'
+// import likeIcon from '/public/icons/like-icon.svg'
 import { useSizes } from 'hooks'
 
 const Header: React.FC = () => {
@@ -56,9 +56,9 @@ const Header: React.FC = () => {
           </Grid>
           <BaseDialog
             open={open}
-            title='Formulario de afiliación ASOBLOCKCHAIN'
+            title={t('ASOBLOCKCHAINAffiliationForm')}
             handleClose={handleClose}
-            description='Agradecemos su interés por ser parte de esta iniciativa, favor completar la información que se solicita.'
+            description={t('appreciateInterestBeingPartInitiative')}
             fullScreen={xsDown}
             content={<FormComponent />}
           />

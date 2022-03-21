@@ -108,9 +108,9 @@ const JoinAssociation: React.FC = () => {
         <BaseDialog
           open={open}
           fullScreen={xsDown}
-          title='Formulario de afiliación ASOBLOCKCHAIN'
+          title={t('ASOBLOCKCHAINAffiliationForm')}
           handleClose={handleClose}
-          description='Agradecemos su interés por ser parte de esta iniciativa, favor completar la información que se solicita.'
+          description={t('appreciateInterestBeingPartInitiative')}
           content={<FormComponent />}
         />
       </Grid>
