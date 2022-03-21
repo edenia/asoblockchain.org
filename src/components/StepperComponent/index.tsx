@@ -1,5 +1,6 @@
 import { Typography, Box } from '@material-ui/core'
 import React, { ReactNode, useState } from 'react'
+import { useTranslation } from 'next-i18next'
 
 import { BaseButton } from 'components'
 
@@ -23,6 +24,7 @@ const StepperComponent: React.FC<StepperComponentProps> = ({
   errors
 }) => {
   const [activeStep, setActiveStep] = useState(0)
+  const { t } = useTranslation()
   const classes = useStyles()
 
   const handleNext = () => {
@@ -53,7 +55,7 @@ const StepperComponent: React.FC<StepperComponentProps> = ({
                 variant='outlined'
                 className={classes.backButton}
               >
-                Back
+                {t('back')}
               </BaseButton>
               {activeStep === 0 ? (
                 <BaseButton
@@ -61,7 +63,7 @@ const StepperComponent: React.FC<StepperComponentProps> = ({
                   variant='contained'
                   onClick={handleNext}
                 >
-                  Next
+                  {t('next')}
                 </BaseButton>
               ) : (
                 ButtonSend

@@ -107,7 +107,7 @@ const FormComponent: React.FC = () => {
             </Box>
             <Box pt={4} pb={1}>
               <Typography variant='subtitle1'>
-                Seleccione su categoría de afiliación *
+                {t('selectMembershipCategory')}
               </Typography>
             </Box>
             <Box role='group' aria-labelledby='my-radio-group'>
@@ -117,7 +117,7 @@ const FormComponent: React.FC = () => {
                   name='personalMembershipCategory'
                   value='Asociado con Derecho de Voz y Voto - Costo Anual: $150'
                 />
-                Asociado con Derecho de Voz y Voto - Costo Anual: $150
+                {t('associateVoiceVotingRights')}
               </Typography>
               <Typography variant='subtitle2'>
                 <Field
@@ -125,7 +125,7 @@ const FormComponent: React.FC = () => {
                   name='personalMembershipCategory'
                   value='Afiliado - Costo Anual: $50'
                 />
-                Afiliado - Costo Anual: $50
+                {t('affiliateAnnualCost')}
               </Typography>
             </Box>
             <Box pt={4}>
@@ -142,29 +142,21 @@ const FormComponent: React.FC = () => {
             </Box>
             <Box pt={4}>
               <Typography variant='subtitle1'>
-                Profesión u Ocupación *
+                {t('professionOccupation')}
               </Typography>
               <Field
                 id='profession'
                 name='profession'
                 className={classes.borderField}
                 as={BaseTextField}
-                label={t('profession')}
+                label={t('professionOccupation')}
                 error={!!(touched.profession && errors.profession)}
                 helperText={touched.profession && t(errors.profession || '')}
               />
             </Box>
             <Box pt={4}>
-              <Typography variant='subtitle1'>
-                Motivo para Asociarse *
-              </Typography>
-              <Typography variant='subtitle2'>
-                Por favor bríndenos mas detalles sobre su interés en la
-                Asociación y la industria Blockchain / Crypto. Si se dedica a la
-                industria por favor brinde detalles y sitio web (para
-                autorización de membresía). Si solo tiene interés sobre la
-                industria por favor indíquelo.
-              </Typography>
+              <Typography variant='subtitle1'>{t('reasonJoin')}</Typography>
+              <Typography variant='subtitle2'>{t('reasonJoinDes')}</Typography>
               <Field
                 id='reasonJoin'
                 name='reasonJoin'
@@ -205,45 +197,39 @@ const FormComponent: React.FC = () => {
         return (
           <Grid item xs={12} sm={12}>
             <Box pt={4}>
-              <Typography variant='h6'>Registro Persona Jurídica</Typography>
+              <Typography variant='h6'>
+                {t('legalEntityRegistration')}
+              </Typography>
             </Box>
             <Box pt={1} pb={1}>
               <Typography variant='caption' display='block'>
-                Este registro es para empresas u organizaciones.
+                {t('registryCompaniesOrganizations')}
               </Typography>
               <Typography variant='caption' display='block'>
-                <Box fontWeight='bold'>Beneficios:</Box>
+                <Box fontWeight='bold'>{t('profits')}</Box>
               </Typography>
               <Typography variant='caption' display='block'>
-                - Se brinda acceso a eventos de la organización, vos y voto en
-                la toma de decisiones.
+                - {t('accessEventsOrganizationVoiceVote')}
               </Typography>
               <Typography variant='caption' display='block'>
-                - Acceso a información sobre oportunidades en el área de
-                BLOCKCHAIN en Costa Rica.Asesoría para aprovechar oportunidades en el área BLOCKCHAIN.
+                - {t('accessInformationAboutOpportunitiesBLOCKCHAIN')}
               </Typography>
               <Typography variant='caption' display='block'>
                 -{t('networkingBetweenBusinessmen')}
               </Typography>
               <Typography variant='caption' display='block'>
-                - Anuncios con costo especial en la página web de ASOBLOCKCHAIN.
-                Apoyo y asesoría en relaciones intersectoriales, principalmente
-                con el sector público.
+                - {t('specialCostASOBLOCKCHAINWebsite')}
               </Typography>
               <Typography variant='caption' display='block'>
-                - Descuento de un 15% en actividades organizadas por
-                ASOBLOCKCHAIN y un 7.5% de descuento para familiares de primer
-                grado de consanguinidad.
+                - {t('discountActivitiesOrganizedASOBLOCKCHAIN')}
               </Typography>
               <Typography variant='caption' display='block'>
-                - Acceso para 5 personas de la empresa al chat de Asoblockchain
-                CR en whats app.
+                - {t('accessPeopleCompanyAsoblockchainChat')}
               </Typography>
             </Box>
             <Box pt={4} pb={1}>
               <Typography variant='subtitle1'>
-                Seleccione su categoría de Empresa. La membresía de empresa es
-                de Asociado con Derecho a Voz y Voto.
+                {t('selectCompanyCategory')}
               </Typography>
             </Box>
             <Box role='group' aria-labelledby='my-radio-group'>
@@ -253,7 +239,7 @@ const FormComponent: React.FC = () => {
                   name='companyCategory'
                   value='Empresa de 1 a 15 empleados - US$400.00 anual'
                 />
-                Empresa de 1 a 15 empleados - US$400.00 anual
+                {t('companyEmployeesPerYear')}
               </Typography>
               <Typography variant='subtitle2'>
                 <Field
@@ -261,7 +247,7 @@ const FormComponent: React.FC = () => {
                   name='companyCategory'
                   value='Empresa de 16 a 30 empleados - US$600.00 anual'
                 />
-                Empresa de 16 a 30 empleados - US$600.00 anual
+                {t('company16to30EmployeesPerYear')}
               </Typography>
               <Typography variant='subtitle2'>
                 <Field
@@ -269,11 +255,11 @@ const FormComponent: React.FC = () => {
                   name='companyCategory'
                   value='Empresa de 31+ empleados - US$1.200.00 anual'
                 />
-                Empresa de 31+ empleados - US$1.200.00 anual
+                {t('company31+EmployeesPerYear')}
               </Typography>
             </Box>
             <Box pt={4}>
-              <Typography variant='subtitle1'>Persona de contacto *</Typography>
+              <Typography variant='subtitle1'>{t('contactPerson')}</Typography>
               <Field
                 id='name'
                 name='name'
@@ -285,13 +271,13 @@ const FormComponent: React.FC = () => {
               />
             </Box>
             <Box pt={4}>
-              <Typography variant='subtitle1'>Cargo / Puesto *</Typography>
+              <Typography variant='subtitle1'>{t('titlePosition')}</Typography>
               <Field
                 id='position'
                 name='position'
                 className={classes.borderField}
                 as={BaseTextField}
-                label={t('position')}
+                label={t('titlePosition')}
                 error={!!(touched.position && errors.position)}
                 helperText={touched.position && t(errors.position || '')}
               />

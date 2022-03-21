@@ -7,7 +7,7 @@ import video from '/public/images/video.png'
 import participationIcon from '/public/icons/participation-icon.svg'
 import representationIcon from '/public/icons/representation-icon.svg'
 import successIcon from '/public/icons/success-icon.svg'
-import { PercentageChart } from 'components'
+// import { PercentageChart } from 'components'
 import { useSizes } from 'hooks'
 
 import useStyles from './styles'
@@ -33,36 +33,36 @@ const contents = [
   }
 ]
 
-const percentageData = [
-  {
-    id: 0,
-    color: 1,
-    progress: 50,
-    label: 'data',
-    isPercentage: true
-  },
-  {
-    id: 1,
-    color: 2,
-    progress: 80,
-    label: 'memberCompanies',
-    isPercentage: false
-  },
-  {
-    id: 2,
-    color: 3,
-    progress: 90,
-    label: 'individuals',
-    isPercentage: false
-  },
-  {
-    id: 2,
-    color: 4,
-    progress: 94,
-    label: 'students',
-    isPercentage: false
-  }
-]
+// const percentageData = [
+//   {
+//     id: 0,
+//     color: 1,
+//     progress: 50,
+//     label: 'data',
+//     isPercentage: true
+//   },
+//   {
+//     id: 1,
+//     color: 2,
+//     progress: 80,
+//     label: 'memberCompanies',
+//     isPercentage: false
+//   },
+//   {
+//     id: 2,
+//     color: 3,
+//     progress: 90,
+//     label: 'individuals',
+//     isPercentage: false
+//   },
+//   {
+//     id: 2,
+//     color: 4,
+//     progress: 94,
+//     label: 'students',
+//     isPercentage: false
+//   }
+// ]
 
 type ContentItemProps = {
   id: number

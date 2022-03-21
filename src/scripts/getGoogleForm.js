@@ -12,7 +12,7 @@ const saveJsonToFile = (filename, json) => {
 
 const run = async () => {
   const result = await googleFormsToJson(
-    'https://docs.google.com/forms/d/e/1FAIpQLSfA5DmJDsntw1p93oJ75vExm5qvXniLCen84kMCH3CGC8zy6A/viewform'
+    'https://docs.google.com/forms/d/e/1FAIpQLSftGcrRtFBBb9v-fdnqBC-Le7sl2NmbntXHLFmnze7_4orNkA/viewform'
   )
   saveJsonToFile('contact-form.json', result)
 }

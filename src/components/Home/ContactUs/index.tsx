@@ -37,7 +37,7 @@ const ContactUs: React.FC = () => {
   )
 
   return (
-    <Box position='relative'>
+    <Box position='relative' id='contact'>
       <Box zIndex={1}>
         <Image src={bgImage} alt='ContactUs' layout='fill' objectFit='cover' />
       </Box>
