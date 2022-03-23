@@ -4,6 +4,7 @@ import { useTranslation } from 'next-i18next'
 
 import {
   InformingEducation,
+  AssociationMembers,
   JoinAssociation,
   SocialMedia,
   PastEvents,
@@ -26,7 +27,7 @@ const Home: NextPage = () => {
       <Header />
       <InformingEducation />
       <JoinAssociation />
-      {/* <AssociationMembers /> */}
+      <AssociationMembers />
       <PastEvents />
       <News />
       <SocialMedia />
