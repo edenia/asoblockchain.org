@@ -6,11 +6,6 @@
       "name": "ourMission"
     },
     {
-      "id": 1,
-      "path": "#members",
-      "name": "members"
-    },
-    {
       "id": 2,
       "path": "#news",
       "name": "news"
