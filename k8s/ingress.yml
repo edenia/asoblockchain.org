@@ -10,7 +10,7 @@ spec:
     match: Host(`asoblockchain.org`)
     services:
     - kind: Service
-      name: edenia
+      name: asoblockchain
       port: 3000
 ---
 apiVersion: traefik.containo.us/v1alpha1
@@ -25,7 +25,7 @@ spec:
     match: Host(`asoblockchain.org`)
     services:
     - kind: Service
-      name: edenia
+      name: asoblockchain
       port: 3000
   tls:
     secretName: tls-secret
