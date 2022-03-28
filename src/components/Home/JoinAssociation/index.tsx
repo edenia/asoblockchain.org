@@ -30,7 +30,7 @@ const membershipsList = [
       'accessOrganizationEvents',
       'accessInformationAboutBlockchain',
       'networkingBetweenBusinessmen',
-      'individualAccessAsoblockchainChat'
+      'accessAsoblockchainChat'
     ]
   },
   {
@@ -62,7 +62,7 @@ const JoinAssociation: React.FC = () => {
     <Grid container justifyContent={'center'} className={classes.boxPadding}>
       <Grid item md={9} xs={12}>
         <Box textAlign='center' pb={7}>
-          <Typography variant='h1'>{t('joinTheAssociation')}</Typography>
+          <Typography variant='h1'>{t('becomeMember')}</Typography>
         </Box>
         <Box textAlign='center' pb={7}>
           <Typography variant='body1'>{t('joinAssociationDesc')}</Typography>

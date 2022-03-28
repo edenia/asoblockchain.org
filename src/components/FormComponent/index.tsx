@@ -93,7 +93,7 @@ const FormComponent: React.FC = () => {
                 -{t('networkingBetweenBusinessmen')}
               </Typography>
               <Typography variant='caption' display='block'>
-                -{t('individualAccessAsoblockchainChat')}
+                -{t('accessAsoblockchainChat')}
               </Typography>
               <Typography variant='caption' display='block'>
                 <Box fontWeight='bold'>{t('affiliate')}</Box>

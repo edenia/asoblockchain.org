@@ -3,7 +3,7 @@
   "contact": "Contacto",
   "homeMetaTitle": "Asociación de Blockchain de Costa Rica",
   "homeMetaDescription": "Asoblockchain de Costa Rica se compromete con la innovación y el desarrollo de las tecnologías distribuidas para beneficio de la sociedad costarricense.",
-  "copyright": "© Todos los derechos reservados. Creado por Edenia Labs.",
+  "copyright": "© Todos los derechos reservados. Creado por",
   "homeHeaderSubtitleOne": "Buscamos unir al ecosistema blockchain de Costa Rica para promover la confianza, transparencia, seguridad, e innovación de las tecnologías distribuidas en el país.",
   "ourMission": "Nuestra misión",
   "members": "Miembros",
@@ -33,6 +33,7 @@
   "memberCompanies": "Empresas Miembros",
   "individuals": "Individuos",
   "students": "Estudiantes",
+  "becomeMember": "ÚNASE A LA ASOCIACIÓN",
   "joinAssociationDesc": "Nuestros miembros demuestran gran compromiso en construir, invertir y defender la tecnología de blockchain. Asoblockchain da la bienvenida a personas u organizaciones que quieran ayudarnos a desarrollar el ecosistema blockchain en Costa Rica. Tenemos distintas modalidades de membresía.",
   "organizationsCompanies": "Organizaciones y empresas:",
   "rightVoiceVote": "Con Derecho a Vos y Voto",
@@ -102,5 +103,8 @@
   "ASOBLOCKCHAINAffiliationForm": "Formulario de afiliación ASOBLOCKCHAIN",
   "appreciateInterestBeingPartInitiative": "Agradecemos su interés por ser parte de esta iniciativa, favor completar la información que se solicita.",
   "requiredField": "Campos requeridos",
-  "invalidEmail": "Email incorrecto"
+  "invalidEmail": "Email incorrecto",
+  "idiom": "English",
+  "information": "Información",
+  "language": "Lenguaje"
 }
