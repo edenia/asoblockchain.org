@@ -1,10 +1,11 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
-import { Typography, Box, Grid } from '@material-ui/core'
-import { ExpandLess } from '@material-ui/icons'
 import Image from 'next/image'
 import { useTranslation } from 'next-i18next'
-import { BaseButton } from 'components'
+import { ExpandLess } from '@material-ui/icons'
+import { Typography, Box, Grid, Link } from '@material-ui/core'
 
+import { BaseButton } from 'components'
 import asoblokchainLogo from '/public/logos/asoblokchain-white-logo.svg'
 import { useSizes } from 'hooks'
 
@@ -77,8 +78,20 @@ const Footer: React.FC<FooterProps> = ({ scrollTop }) => {
             </Grid>
           </Grid>
           <Grid item md={5} xs={12}>
-            <Box pt={smDown ? 5 : 7}>
-              <Typography variant='caption'>{t('copyright')}</Typography>
+            <Box display='grid' pt={smDown ? 5 : 7}>
+              <Link href='https://edenia.com/es'>
+                <img
+                  width='20%'
+                  src='https://raw.githubusercontent.com/edenia/edenia.com/main/public/logos/logo-edenia-punto-verde.png?token=GHSAT0AAAAAABOUWD54MEB4SC5CQWRCEMX6YSLMVLQ'
+                />
+              </Link>
+              <Typography variant='caption'>
+                {t('copyright')}{' '}
+                <Link href='https://edenia.com/es' underline='always'>
+                  Edenia
+                </Link>
+                .
+              </Typography>
             </Box>
           </Grid>
           <Grid item md={5} xs={12}>
