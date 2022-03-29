@@ -25,7 +25,7 @@ const createTicket = async (
     const entryText = `entry.2005620554=${name}&entry.1166974658=${telephone}&entry.1045781291=${email}&entry.839337160=${message}`
 
     const fetchedResult = await fetch(
-      `${GOOGLE_FORMS_URL}/e/1FAIpQLSftGcrRtFBBb9v-fdnqBC-Le7sl2NmbntXHLFmnze7_4orNkA/formResponse?&${entryText}&submit=Submit`,
+      `${GOOGLE_FORMS_URL}/e/1FAIpQLSfA5DmJDsntw1p93oJ75vExm5qvXniLCen84kMCH3CGC8zy6A/formResponse?&${entryText}&submit=Submit`,
       {
         method: 'POST',
         headers: {
@@ -37,7 +37,7 @@ const createTicket = async (
     if (fetchedResult?.status === 200) {
       res.status(200).json({
         message:
-          'Gracias por contactar a Asoblockchain. Le responderemos lo antes posible'
+          'Gracias por contactar a Edenia. Le responderemos lo antes posible'
       })
     } else {
       res.status(500).json({ message: 'failed to contact form data' })
