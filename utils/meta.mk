@@ -3,8 +3,8 @@
 VERSION ?= $(shell git ls-files -s nginx.conf k8s public src package.json yarn.lock Dockerfile | git hash-object --stdin)
 
 IMAGE_NAME=website
-IMAGE_ID=$(shell docker images --format '{{.ID}}' --filter reference='docker.pkg.github.com/asoblockchain/asoblockchain.com*latest')
-DOCKER_REGISTRY=docker.pkg.github.com/asoblockchain/asoblockchain.com
+IMAGE_ID=$(shell docker images --format '{{.ID}}' --filter reference='ghcr.io/edenia/asoblockchain.org*latest')
+DOCKER_REGISTRY=ghcr.io/edenia/asoblockchain.org
 
 MAKE_ENV += DOCKER_REGISTRY VERSION IMAGE_NAME
 
