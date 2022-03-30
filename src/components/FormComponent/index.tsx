@@ -14,13 +14,19 @@ import {
 } from 'components'
 
 import useStyles from './styles'
+import { number } from 'yup'
 
 const { defaultValues, schema } = membershipSchema
 
 const FormComponent: React.FC = () => {
   const [succeeded, setSucceeded] = useState(false)
+  const [activeStep, setActiveStep] = useState(0)
   const { t } = useTranslation()
   const classes = useStyles()
+
+  const handleNext = (nextPage: number) => {
+    if (nextPage !== 0) setActiveStep(nextPage)
+  }
 
   const { fetch, loading, error } = useFetch({
     onCompleted: () => {
@@ -407,15 +413,27 @@ const FormComponent: React.FC = () => {
                   errors={errors}
                   touched={touched}
                   amountPages={3}
+                  setActiveStep={setActiveStep}
+                  activeStep={activeStep}
                   getStepContent={getStepContent}
-                  nextPage={
-                    touched.membershipCategory
-                      ? values.membershipCategory !== 'Empresarial'
-                        ? 1
-                        : 2
-                      : 0
+                  nextButton={
+                    <BaseButton
+                      color='secondary'
+                      variant='contained'
+                      onClick={() =>
+                        handleNext(
+                          touched.membershipCategory
+                            ? values.membershipCategory !== 'Empresarial'
+                              ? 1
+                              : 2
+                            : 0
+                        )
+                      }
+                    >
+                      {t('next')}
+                    </BaseButton>
                   }
-                  ButtonSend={
+                  buttonSend={
                     <BaseButton
                       color='secondary'
                       variant='contained'
