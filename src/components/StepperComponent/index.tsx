@@ -1,5 +1,5 @@
 import { Typography, Box } from '@material-ui/core'
-import React, { ReactNode, useState } from 'react'
+import React, { ReactNode } from 'react'
 import { useTranslation } from 'next-i18next'
 
 import { BaseButton } from 'components'
@@ -8,28 +8,27 @@ import useStyles from './styles'
 
 type StepperComponentProps = {
   getStepContent(activeStep: number, touched: any, errors: any): ReactNode
-  ButtonSend: ReactNode
+  setActiveStep(activeStep: number): void
+  buttonSend: ReactNode
+  nextButton: ReactNode
   amountPages: number
-  nextPage: number
+  activeStep: number
   touched: any
   errors: any
 }
 
 const StepperComponent: React.FC<StepperComponentProps> = ({
   getStepContent,
+  setActiveStep,
   amountPages,
-  ButtonSend,
-  nextPage,
+  activeStep,
+  buttonSend,
+  nextButton,
   touched,
   errors
 }) => {
-  const [activeStep, setActiveStep] = useState(0)
   const { t } = useTranslation()
   const classes = useStyles()
-
-  const handleNext = () => {
-    if (nextPage !== 0) setActiveStep(nextPage)
-  }
 
   const handleBack = () => {
     setActiveStep(0)
@@ -57,17 +56,7 @@ const StepperComponent: React.FC<StepperComponentProps> = ({
               >
                 {t('back')}
               </BaseButton>
-              {activeStep === 0 ? (
-                <BaseButton
-                  color='secondary'
-                  variant='contained'
-                  onClick={handleNext}
-                >
-                  {t('next')}
-                </BaseButton>
-              ) : (
-                ButtonSend
-              )}
+              {activeStep === 0 ? nextButton : buttonSend}
             </Box>
           </Box>
         )}

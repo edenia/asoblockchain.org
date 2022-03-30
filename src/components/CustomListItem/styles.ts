@@ -24,7 +24,7 @@ const Styles = makeStyles(theme => ({
   },
   primaryListItemText: {
     fontWeight: 'bold',
-    color: theme.palette.common.white
+    color: theme.palette.common.black
   }
 }))
 

@@ -45,7 +45,7 @@ const Styles = makeStyles(theme => ({
   },
   logo: {
     paddingTop: theme.spacing(1),
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
       display: 'none'
     }
   },
@@ -70,7 +70,7 @@ const Styles = makeStyles(theme => ({
     margin: theme.spacing(0),
     padding: theme.spacing(0),
     marginLeft: theme.spacing(3),
-    color: theme.palette.common.white
+    color: theme.palette.common.black
   },
   drawer: {
     '& .MuiDrawer-paper': {

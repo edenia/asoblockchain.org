@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: asoblockchain
+  name: asoblockchain
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: asoblockchain
+  template:
+    metadata:
+      labels:
+        app: asoblockchain
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - image: ${DOCKER_REGISTRY}/${IMAGE_NAME}:${VERSION}
+          name: asoblockchain
+          ports:
+            - containerPort: 80
+              name: http
+          resources:
+            requests:
+              cpu: 150m
+            limits:
+              cpu: "1"
+          env:
+            - name: APP_NAME
+              value: asoblockchain
+      dnsConfig:
+        nameservers:
+        - 10.43.0.10
+        searches:
+        - asoblockchain.svc.cluster.local
+        - svc.cluster.local
+        - cluster.local
+      dnsPolicy: None
