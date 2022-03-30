@@ -14,7 +14,6 @@ import {
 } from 'components'
 
 import useStyles from './styles'
-import { number } from 'yup'
 
 const { defaultValues, schema } = membershipSchema
 
@@ -317,8 +316,8 @@ const FormComponent: React.FC = () => {
     }
   }
 
-  const enableSendButton = (touched: any, values: any, errors: any) => {
-    if (!touched.membershipCategory) return true
+  const enableSendButton = (values: any, errors: any) => {
+    if (values.membershipCategory === '') return true
 
     if (values.membershipCategory !== 'Empresarial')
       if (
@@ -422,7 +421,7 @@ const FormComponent: React.FC = () => {
                       variant='contained'
                       onClick={() =>
                         handleNext(
-                          touched.membershipCategory
+                          values.membershipCategory !== ''
                             ? values.membershipCategory !== 'Empresarial'
                               ? 1
                               : 2
@@ -438,9 +437,7 @@ const FormComponent: React.FC = () => {
                       color='secondary'
                       variant='contained'
                       type='submit'
-                      disabled={
-                        loading || enableSendButton(touched, values, errors)
-                      }
+                      disabled={loading || enableSendButton(values, errors)}
                     >
                       {t('submit')}
                     </BaseButton>

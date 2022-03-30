@@ -1,5 +1,5 @@
 import { Typography, Box } from '@material-ui/core'
-import React, { ReactNode, useState } from 'react'
+import React, { ReactNode } from 'react'
 import { useTranslation } from 'next-i18next'
 
 import { BaseButton } from 'components'
