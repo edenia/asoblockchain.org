@@ -1,29 +1,19 @@
 import { Link, ListItem, ListItemIcon, ListItemText } from '@material-ui/core'
-import Image from 'next/image'
-
-import contact from '/public/icons/contact-icon.png'
-import home from '/public/icons/home-icon.png'
-import language from '/public/icons/language-icon.png'
+import {
+  Apps,
+  Highlight,
+  Translate,
+  ContactMail,
+  ChromeReaderMode
+} from '@material-ui/icons'
 
 import useStyles from './styles'
-
-export type Icons = {
-  home: StaticImageData
-  contact: StaticImageData
-  language: StaticImageData
-}
-
-const icons: Icons = {
-  home,
-  contact,
-  language
-}
 
 type CustomListItemProps = {
   label: string
   href?: string
   target?: string
-  iconName: keyof Icons
+  iconName: string
   isSelected: boolean
   onClick?(): void
 }
@@ -37,6 +27,21 @@ const CustomListItem: React.FC<CustomListItemProps> = ({
   onClick
 }) => {
   const classes = useStyles()
+
+  const getIcon = icon => {
+    switch (icon) {
+      case 'ourMission':
+        return <Highlight />
+      case 'news':
+        return <ChromeReaderMode />
+      case 'contact':
+        return <ContactMail />
+      case 'language':
+        return <Translate />
+      default:
+        return <Apps />
+    }
+  }
 
   return (
     <Link
@@ -59,7 +64,7 @@ const CustomListItem: React.FC<CustomListItemProps> = ({
           }}
           className={classes.genericListItemIconStyle}
         >
-          <Image src={icons?.[iconName]} alt={label} placeholder='blur' />
+          {getIcon(iconName)}
         </ListItemIcon>
         <ListItemText
           classes={{

@@ -17,7 +17,6 @@ import { useTranslation } from 'next-i18next'
 
 import { CustomListItem } from 'components'
 import { useSizes } from 'hooks'
-import { Icons } from 'components/CustomListItem'
 import HeaderLogo from '/public/logos/asoblockchain-logo.svg'
 
 import useStyles from './styles'
@@ -52,7 +51,7 @@ type HeaderProps = {
 
 const Header: React.FC<HeaderProps> = ({ show }) => {
   const classes = useStyles()
-  const { lgUp } = useSizes()
+  const { mdUp } = useSizes()
   const router = useRouter()
   const { t } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
@@ -70,16 +69,16 @@ const Header: React.FC<HeaderProps> = ({ show }) => {
 
   return (
     <AppBar
-      className={clsx({ [classes.appBar]: lgUp && show })}
+      className={clsx({ [classes.appBar]: mdUp && show })}
       color='transparent'
     >
       <Toolbar
         className={clsx(
           {
-            [classes.drawerPaper]: lgUp && show,
-            [classes.hideDrawerPaper]: lgUp && !show,
-            [classes.topBarMobileStyle]: !lgUp && show,
-            [classes.hideTopBar]: !lgUp && !show
+            [classes.drawerPaper]: mdUp && show,
+            [classes.hideDrawerPaper]: mdUp && !show,
+            [classes.topBarMobileStyle]: !mdUp && show,
+            [classes.hideTopBar]: !mdUp && !show
           },
           classes.topBarStyle
         )}
@@ -92,13 +91,12 @@ const Header: React.FC<HeaderProps> = ({ show }) => {
           alignItems='center'
           className={classes.paddingHeader}
         >
-          {lgUp
+          {mdUp
             ? show && (
                 <>
                   <Link className={classes.logo} href='/'>
                     <Image src={HeaderLogo} alt={t('headerLogo')} priority />
                   </Link>
-
                   <Box display='flex'>
                     {mainRoutes.map(route => {
                       return (
@@ -193,10 +191,11 @@ const Header: React.FC<HeaderProps> = ({ show }) => {
                           {mainRoutes.slice(0, 2).map(route => (
                             <Box key={route.id}>
                               <CustomListItem
+                                onClick={() => handlerDrawer()}
                                 href={route.path}
                                 target='_self'
-                                label={t(`${route.name}`)}
-                                iconName={route.name as keyof Icons}
+                                label={t(route.name)}
+                                iconName={route.name}
                                 isSelected={asPath === route.path}
                               />
                             </Box>
@@ -212,10 +211,11 @@ const Header: React.FC<HeaderProps> = ({ show }) => {
                           {mainRoutes.slice(2).map(route => (
                             <Box key={route.id}>
                               <CustomListItem
+                                onClick={() => handlerDrawer()}
                                 href={route.path}
                                 target='_self'
-                                label={t(`${route.name}`)}
-                                iconName={route.name as keyof Icons}
+                                label={t(route.name)}
+                                iconName={route.name}
                                 isSelected={asPath === route.path}
                               />
                             </Box>
