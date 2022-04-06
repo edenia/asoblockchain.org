@@ -89,13 +89,13 @@
   "profits": "Beneficios:",
   "accessEventsOrganizationVoiceVote": "Se brinda acceso a eventos de la organización, voz y voto en la toma de decisiones.",
   "accessInformationAboutOpportunitiesBLOCKCHAIN": "Acceso a información sobre oportunidades en el área de BLOCKCHAIN en Costa Rica.Asesoría para aprovechar oportunidades en el área BLOCKCHAIN.",
-  "specialCostASOBLOCKCHAINWebsite": "Ads with special cost on the ASOBLOCKCHAIN ​​website. Support and advice on intersectoral relations, mainly with the public sector.",
+  "specialCostASOBLOCKCHAINWebsite": "Anuncios con costo especial en el sitio web de ASOBLOCKCHAIN. Apoyo y asesoramiento en las relaciones intersectoriales, principalmente con el sector público.",
   "discountActivitiesOrganizedASOBLOCKCHAIN": "Descuento de un 15% en actividades organizadas por ASOBLOCKCHAIN y un 7.5% de descuento para familiares de primer grado de consanguinidad.",
   "accessPeopleCompanyAsoblockchainChat": "Acceso para 5 personas de la empresa al chat de Asoblockchain CR en whats app.",
   "selectCompanyCategory": "Seleccione su categoría de Empresa. La membresía de empresa es de Asociado con Derecho a Voz y Voto.",
-  "companyEmployeesPerYear": "Empresa de 1 a 15 empleados - US$400.00 anual",
-  "company16to30EmployeesPerYear": "Company with 16 to 30 employees - US$600.00 per year",
-  "company31+EmployeesPerYear": "Company of 31+ employees - US$1,200.00 per year",
+  "companyEmployeesPerYear": "Empresa de 1 a 15 empleados - USD$400.00 anual",
+  "company16to30EmployeesPerYear": "Empresa de 16 a 30 empleados - USD$600.00 anual",
+  "company31+EmployeesPerYear": "Empresa de 31+ empleados - USD$1,200.00 anual",
   "contactPerson": "Persona de contacto",
   "titlePosition": "Cargo / Puesto",
   "back": "Atrás",
@@ -106,5 +106,6 @@
   "invalidEmail": "Email incorrecto",
   "idiom": "English",
   "information": "Información",
-  "language": "Lenguaje"
+  "language": "Lenguaje",
+  "pay": "Pagar"
 }

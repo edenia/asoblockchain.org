@@ -23,7 +23,7 @@ const Header: React.FC = () => {
   }
 
   return (
-    <Box position='relative' textAlign='center'>
+    <Box position='relative' textAlign='center' zIndex={0}>
       <Box zIndex={1}>
         <Image src={bgImage} alt='Header' layout='fill' objectFit='cover' />
       </Box>
