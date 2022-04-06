@@ -16,11 +16,13 @@ import {
 } from 'components'
 import { routeUtils } from 'utils'
 import i18nUtils from 'utils/i18n'
+import { useSizes } from 'hooks'
 
 import useStyles from './styles'
 
 const Home: NextPage = () => {
   const classes = useStyles()
+  const { xsDown } = useSizes()
   const { t } = useTranslation('common')
 
   return (
@@ -34,14 +36,14 @@ const Home: NextPage = () => {
         href='https://btcnode2.crservers.com/apps/47egazbG6mVHUypcAfMVV67gQSQp/pos'
       >
         <Fab
-          variant='extended'
+          variant={xsDown ? 'circular' : 'extended'}
           size='medium'
           color='secondary'
           aria-label='add'
           className={classes.fabButtonPosition}
         >
           <AttachMoneyIcon />
-          {t('pay')}
+          {!xsDown && t('pay')}
         </Fab>
       </Link>
       <Header />

@@ -8,7 +8,10 @@ const Styles = makeStyles(theme => ({
     position: 'absolute',
     fontFamily: 'Ubuntu',
     fontSize: '16px',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    [theme.breakpoints.down('sm')]: {
+      right: theme.spacing(0.5)
+    }
   }
 }))
 
