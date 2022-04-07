@@ -1,4 +1,5 @@
 export { default as BaseButton } from './BaseButton'
+export { default as FabComponent } from './FabComponent'
 export { default as BaseSnackbar } from './BaseSnackbar'
 export { default as BaseTextField } from './BaseTextField'
 export { default as Layout } from './Layout'
