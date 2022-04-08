@@ -82,7 +82,7 @@ const Footer: React.FC<FooterProps> = ({ scrollTop }) => {
               <Link href='https://edenia.com/es'>
                 <img
                   width='20%'
-                  src='https://raw.githubusercontent.com/edenia/edenia.com/main/public/logos/logo-edenia-punto-verde.png?token=GHSAT0AAAAAABOUWD54MEB4SC5CQWRCEMX6YSLMVLQ'
+                  src='https://edenia.com/es/logos/logo-edenia-punto-verde.png'
                 />
               </Link>
               <Typography variant='caption'>
