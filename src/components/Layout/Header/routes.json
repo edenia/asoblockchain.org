@@ -7,11 +7,16 @@
     },
     {
       "id": 2,
+      "path": "#members",
+      "name": "members"
+    },
+    {
+      "id": 3,
       "path": "#news",
       "name": "news"
     },
     {
-      "id": 3,
+      "id": 4,
       "path": "#contact",
       "name": "contact"
     }
