@@ -17,7 +17,7 @@ const socialMediaList = [
     id: 1,
     icon: <Twitter color='action' style={{ fontSize: '50px' }} />,
     altText: 'Twitter icon',
-    link: 'https://twitter.com/BlockchainCR'
+    link: 'https://mobile.twitter.com/AsoBlockchainCR'
   }
 ]
 

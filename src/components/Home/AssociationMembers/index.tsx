@@ -2,7 +2,6 @@ import { Grid, Box, Link, Typography } from '@material-ui/core'
 import { useTranslation } from 'next-i18next'
 import Image from 'next/image'
 
-import image from '/public/images/gris-image.jpg'
 import joseMPhoto from '/public/images/members/jose-miguel.png'
 import federicoPhoto from '/public/images/members/federico.png'
 import nicolasPhoto from '/public/images/members/nicolas.png'

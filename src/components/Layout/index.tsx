@@ -26,7 +26,7 @@ const Layout: React.FC<LayoutProps> = ({
   const scrolling = () => {
     if (typeof window === 'undefined') return
     const currentScroll = wrapper?.current?.scrollTop || 0
-    if (currentScroll > window?.innerHeight / 3.5) {
+    if (currentScroll > window?.innerHeight / 3.6) {
       setShowNavbar(true)
     } else {
       setShowNavbar(false)
