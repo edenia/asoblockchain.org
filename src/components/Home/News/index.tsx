@@ -15,6 +15,14 @@ import useStyles from './styles'
 const news = [
   {
     id: 0,
+    image: 'https://miro.medium.com/max/1400/1*b3ORe08C48TAMhRlDh9h5Q.jpeg',
+    title: 'titleFourthNew',
+    date: 'mar2022',
+    description: 'Blog Web3 Costa Rica',
+    link: 'https://medium.com/blockchaincr/nueva-junta-directiva-asociaci%C3%B3n-blockchain-costa-rica-81ec2d58c217'
+  },
+  {
+    id: 1,
     image: 'https://miro.medium.com/max/1400/1*alIndkGkemLgBlqNR2iD0Q.jpeg',
     title: 'titleFirtsNew',
     date: 'november2021',
@@ -22,7 +30,7 @@ const news = [
     link: 'https://medium.com/blockchaincr/posici%C3%B3n-de-la-asociaci%C3%B3n-blockchain-de-costa-rica-con-respecto-a-la-propuesta-de-impuestos-a-4d4e90c74858'
   },
   {
-    id: 1,
+    id: 2,
     image:
       'https://www.elfinancierocr.com/resizer/eHDO1eHD3mBn6FT0AsTe4V1h428=/1440x0/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/gruponacion/EHZVL2UIDNHCDGS2PW4HYPMYS4.jpg',
     title: 'titleSecondNew',
@@ -31,7 +39,7 @@ const news = [
     link: 'https://www.elfinancierocr.com/opinion/el-panorama-en-el-2021-para-blockchain-y/QBQUKZL6EVCQ5FHJ4BVRSNXJME/story/'
   },
   {
-    id: 2,
+    id: 3,
     image:
       'https://www.larepublica.net/storage/images/authors/walter_header.jpg',
     title: 'titleThreeNew',
