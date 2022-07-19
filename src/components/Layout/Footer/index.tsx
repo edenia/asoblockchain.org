@@ -44,10 +44,10 @@ const Footer: React.FC<FooterProps> = ({ scrollTop }) => {
             <Grid container>
               <Grid item md={12} xs={12}>
                 <Box className={classes.floatBox}>
-                  <Typography variant='h3'>
+                  {/* <Typography variant='h3'>
                     {t('subscribeNewsletter')}
-                  </Typography>
-                  <form>
+                  </Typography> */}
+                  {/* <form>
                     <Box pt={smDown ? 2 : 5} display='flex'>
                       <Box width={smDown ? '60%' : '70%'}>
                         <input
@@ -69,10 +69,10 @@ const Footer: React.FC<FooterProps> = ({ scrollTop }) => {
                         </BaseButton>
                       </Box>
                     </Box>
-                  </form>
-                  <Box pt={1}>
+                  </form> */}
+                  {/* <Box pt={1}>
                     <Typography variant='caption'>{t('newsletter')}</Typography>
-                  </Box>
+                  </Box> */}
                 </Box>
               </Grid>
             </Grid>
