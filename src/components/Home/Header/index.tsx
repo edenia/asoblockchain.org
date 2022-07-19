@@ -44,8 +44,20 @@ const Header: React.FC = () => {
                 {t('homeHeaderSubtitleOne')}
               </Box>
             </Typography>
-            <Box display="flex" mb={15} justifyContent="center" alignItems="center" width="100">
-              <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" id="custom-substack-embed"></Box>
+            <Box
+              display='flex'
+              mb={15}
+              justifyContent='center'
+              alignItems='center'
+              width='100'
+            >
+              <Box
+                display='flex'
+                flexDirection='column'
+                alignItems='center'
+                justifyContent='center'
+                id='custom-substack-embed'
+              ></Box>
             </Box>
             <Box mb={8}>
               <BaseButton

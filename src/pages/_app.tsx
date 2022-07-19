@@ -15,7 +15,7 @@ import { themeConfig, seoConfig, analyticsConfig, i18nConfig } from 'config'
 import { Locale } from 'config/i18n'
 import { analyticsUtils } from 'utils'
 import { Layout } from 'components'
-import "./styles.css"
+import './styles.css'
 
 const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
   Component,
@@ -72,6 +72,7 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
         }}
       />
       <Script
+        id='newsletter-script'
         dangerouslySetInnerHTML={{
           __html: `
             window.CustomSubstackWidget = {
@@ -83,7 +84,7 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
           `
         }}
       />
-      <Script src="https://substackapi.com/widget.js" async></Script>
+      <Script src='https://substackapi.com/widget.js' async></Script>
 
       <Head>
         <link rel='icon' href='/favicon.ico' />
