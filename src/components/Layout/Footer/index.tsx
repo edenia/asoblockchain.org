@@ -44,35 +44,6 @@ const Footer: React.FC<FooterProps> = ({ scrollTop }) => {
             <Grid container>
               <Grid item md={12} xs={12}>
                 <Box className={classes.floatBox}>
-                  {/* <Typography variant='h3'>
-                    {t('subscribeNewsletter')}
-                  </Typography> */}
-                  {/* <form>
-                    <Box pt={smDown ? 2 : 5} display='flex'>
-                      <Box width={smDown ? '60%' : '70%'}>
-                        <input
-                          className={classes.formStyle}
-                          type='text'
-                          id='email'
-                          name='email'
-                          placeholder='Email'
-                        />
-                      </Box>
-                      <Box width={smDown ? '40%' : '30%'}>
-                        <BaseButton
-                          className={classes.button}
-                          color='secondary'
-                          fullWidth={smDown}
-                          variant='contained'
-                        >
-                          {t('subscribe')}
-                        </BaseButton>
-                      </Box>
-                    </Box>
-                  </form> */}
-                  {/* <Box pt={1}>
-                    <Typography variant='caption'>{t('newsletter')}</Typography>
-                  </Box> */}
                 </Box>
               </Grid>
             </Grid>
