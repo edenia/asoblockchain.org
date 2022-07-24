@@ -44,6 +44,7 @@ const Footer: React.FC<FooterProps> = ({ scrollTop }) => {
             <Grid container>
               <Grid item md={12} xs={12}>
                 <Box className={classes.floatBox}>
+                  {" "}
                 </Box>
               </Grid>
             </Grid>
