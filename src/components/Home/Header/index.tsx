@@ -6,7 +6,6 @@ import Image from 'next/image'
 import asoblokchainLogo from '/public/logos/asoblokchain-white-logo.svg'
 import { BaseButton, BaseDialog, FormComponent } from 'components'
 import bgImage from '/public/images/background-image.jpg'
-// import likeIcon from '/public/icons/like-icon.svg'
 import { useSizes } from 'hooks'
 
 const Header: React.FC = () => {
@@ -44,6 +43,21 @@ const Header: React.FC = () => {
                 {t('homeHeaderSubtitleOne')}
               </Box>
             </Typography>
+            <Box
+              display='flex'
+              mb={15}
+              justifyContent='center'
+              alignItems='center'
+              width='100'
+            >
+              <Box
+                display='flex'
+                flexDirection='column'
+                alignItems='center'
+                justifyContent='center'
+                id='custom-substack-embed'
+              ></Box>
+            </Box>
             <Box mb={8}>
               <BaseButton
                 onClick={handleOpen}
@@ -62,20 +76,6 @@ const Header: React.FC = () => {
             fullScreen={xsDown}
             content={<FormComponent />}
           />
-          {/* <Grid item md={2}>
-            <Box
-              padding={1}
-              bgcolor='common.black'
-              display='flex'
-              justifyContent='space-around'
-            >
-              <Image src={likeIcon} alt='Like icon' />
-              <Typography color='textSecondary' align='right' variant='h5'>
-                {t('claim')} <br />
-                {t('freeNft')}
-              </Typography>
-            </Box>
-          </Grid> */}
         </Grid>
       </Box>
     </Box>
