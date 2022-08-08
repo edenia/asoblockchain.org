@@ -46,6 +46,14 @@ const news = [
     date: 'enero2019',
     description: 'La República',
     link: 'https://www.larepublica.net/noticia/asoblockchain-y-el-futuro-de-blockchain-en-costa-rica'
+  },
+  {
+    id: 4,
+    image: 'https://miro.medium.com/max/700/1*EnMmpBe0yY7uCVOXvRQv9w.png',
+    title: 'titleFifthNew',
+    date: 'april2022',
+    description: 'Blog Web3 Costa Rica',
+    link: 'https://medium.com/blockchaincr/razones-para-prevenir-a-crcoin-como-una-inversi%C3%B3n-b883a6df131b'
   }
 ]
 
@@ -75,7 +83,7 @@ const ContentItem: React.FC<ContentItemProps> = ({
         borderRadius={1}
         boxShadow='0 4px 4px -4px rgba(30, 33, 44, 0.03), 0 12px 10px -6px rgba(154, 156, 165, 0.04), 0 30px 24px -10px rgba(154, 156, 165, 0.05), 0 80px 80px -20px rgba(154, 156, 165, 0.08)'
       >
-        <Link href={link}>
+        <Link href={link} target='_blank' rel='noopener'>
           <Card className={classes.cardStyle} variant='outlined'>
             <CardMedia className={classes.cardImageStyle} image={image} />
             <CardContent>
