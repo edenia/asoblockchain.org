@@ -19,11 +19,23 @@ type FooterProps = {
 
 const useStyles = Styles
 
+const docs = [
+  {
+    id: 0,
+    download: '/files/terms.pdf',
+    title: 'firstDocument'
+  },
+  {
+    id: 1,
+    download: '/files/crypto.pdf',
+    title: 'secondDocument'
+  }
+]
+
 const Footer: React.FC<FooterProps> = ({ scrollTop }) => {
   const { t } = useTranslation()
   const { smDown } = useSizes()
   const classes = useStyles()
-
   return (
     <>
       <Box className={classes.root}>
@@ -42,8 +54,21 @@ const Footer: React.FC<FooterProps> = ({ scrollTop }) => {
           </Grid>
           <Grid item md={5} xs={12}>
             <Grid container>
-              <Grid item md={12} xs={12}>
-                <Box className={classes.floatBox}> </Box>
+              <Grid item md={12} xs={12} className={classes.docs}>
+                <div>
+                  <Typography variant='h4'>{t('footerDocsTitle')}</Typography>
+                </div>
+                <div className={classes.links}>
+                  {docs.map(doc => (
+                    <div key={doc.id}>
+                      <Link href={doc.download} download={t(doc.title)}>
+                        <Typography variant='subtitle2'>
+                          {t(doc.title)}
+                        </Typography>
+                      </Link>
+                    </div>
+                  ))}
+                </div>
               </Grid>
             </Grid>
           </Grid>

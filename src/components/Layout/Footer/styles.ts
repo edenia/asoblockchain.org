@@ -45,6 +45,15 @@ const Styles = makeStyles(theme => ({
     fontSize: '16px',
     fontWeight: 'bold',
     fontFamily: 'Ubuntu'
+  },
+  docs: {
+    display: 'flex',
+    alignItems: 'flex-end',
+    flexDirection: 'column'
+  },
+  links: {
+    paddingTop: theme.spacing(3),
+    textAlign: 'end'
   }
 }))
 
