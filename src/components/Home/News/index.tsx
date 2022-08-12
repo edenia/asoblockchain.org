@@ -31,6 +31,14 @@ const news = [
   },
   {
     id: 2,
+    image: 'https://miro.medium.com/max/700/1*EnMmpBe0yY7uCVOXvRQv9w.png',
+    title: 'titleFifthNew',
+    date: 'april2022',
+    description: 'Blog Web3 Costa Rica',
+    link: 'https://medium.com/blockchaincr/razones-para-prevenir-a-crcoin-como-una-inversi%C3%B3n-b883a6df131b'
+  },
+  {
+    id: 3,
     image:
       'https://www.elfinancierocr.com/resizer/eHDO1eHD3mBn6FT0AsTe4V1h428=/1440x0/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/gruponacion/EHZVL2UIDNHCDGS2PW4HYPMYS4.jpg',
     title: 'titleSecondNew',
@@ -39,21 +47,13 @@ const news = [
     link: 'https://www.elfinancierocr.com/opinion/el-panorama-en-el-2021-para-blockchain-y/QBQUKZL6EVCQ5FHJ4BVRSNXJME/story/'
   },
   {
-    id: 3,
+    id: 4,
     image:
       'https://www.larepublica.net/storage/images/authors/walter_header.jpg',
     title: 'titleThreeNew',
     date: 'enero2019',
     description: 'La República',
     link: 'https://www.larepublica.net/noticia/asoblockchain-y-el-futuro-de-blockchain-en-costa-rica'
-  },
-  {
-    id: 4,
-    image: 'https://miro.medium.com/max/700/1*EnMmpBe0yY7uCVOXvRQv9w.png',
-    title: 'titleFifthNew',
-    date: 'april2022',
-    description: 'Blog Web3 Costa Rica',
-    link: 'https://medium.com/blockchaincr/razones-para-prevenir-a-crcoin-como-una-inversi%C3%B3n-b883a6df131b'
   }
 ]
 
