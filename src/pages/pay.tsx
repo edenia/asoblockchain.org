@@ -46,7 +46,6 @@ const Pay: NextPage = () => {
 
     const orderResult = await rawResult.json()
     setOrder(orderResult)
-    console.log(orderResult)
     setIsCreatingOrder(false)
   }
 
