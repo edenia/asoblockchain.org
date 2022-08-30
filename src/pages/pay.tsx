@@ -1,7 +1,18 @@
 import { NextPage } from 'next'
-import { Box, Button, TextField, Typography } from '@material-ui/core'
+import {
+  Box,
+  Button,
+  Card,
+  Divider,
+  List,
+  ListItem,
+  TextField,
+  Typography
+} from '@material-ui/core'
 import { useState } from 'react'
 import { useSizes } from 'hooks'
+import { plans } from 'data/plans.data'
+import ShowMoreModal from 'components/ShowMoreModal'
 
 type OrderResult = {
   status: string
@@ -26,21 +37,23 @@ const Pay: NextPage = () => {
   const [email, setEmail] = useState<string>()
   const [isCreatingOrder, setIsCreatingOrder] = useState(false)
   const [order, setOrder] = useState<OrderResult>()
+  const [selectedIdx, setSelectedIdx] = useState<number>()
+  const [openModal, setOpenModal] = useState(false)
 
   const { smDown } = useSizes()
 
   const handleSubmit = async () => {
+    if (!selectedIdx) return
+
     setIsCreatingOrder(true)
 
     const rawResult = await fetch('/api/pay-membership', {
       method: 'POST',
       body: JSON.stringify({
         buyer_email: email,
-        fiat_price: 1,
-        return_url: `http:localhost:3000/membership-paid?fullname=${fullname}&email=${email}`,
-        item_description: `New member join payment request \n
-          Name: ${fullname} \n
-          Email: ${email}`
+        fiat_price: plans[selectedIdx || 0].cost,
+        return_url: `http:localhost:3000/membership-paid?fullname=${fullname}&email=${email}&plan=${selectedIdx}`,
+        item_description: `New member join payment request. Name: ${fullname}. Email: ${email}`
       })
     })
 
@@ -50,47 +63,143 @@ const Pay: NextPage = () => {
   }
 
   return (
-    <Box
-      display='flex'
-      flexDirection='column'
-      justifyContent='center'
-      alignItems='center'
-      height='90vh'
-      width={smDown ? '90%' : '450px'}
-      margin='auto'
-    >
-      <Typography></Typography>
-      <TextField
-        onChange={event => setFullname(event.target.value)}
-        placeholder='Your full name'
-        fullWidth
-        variant='outlined'
-      />
-      <br />
-      <TextField
-        onChange={event => setEmail(event.target.value)}
-        placeholder='Your email'
-        fullWidth
-        variant='outlined'
-      />
-      <br />
-      {order && order.status === 'CREATED' ? (
-        <Button
-          href={order.order.link}
-          style={{ backgroundColor: 'green', color: 'white' }}
+    <>
+      <Box
+        display='flex'
+        flexDirection='column'
+        justifyContent='center'
+        alignItems='center'
+        width='100%'
+        my={10}
+      >
+        <Typography variant='h1'>Planes de membresía</Typography>
+        <hr />
+        <Box
+          width='95%'
+          marginBottom={8}
+          display='flex'
+          flexDirection='row'
+          justifyContent='center'
+          flexWrap='wrap'
         >
-          Continue
-        </Button>
-      ) : (
-        <Button
-          variant='outlined'
-          disabled={!fullname || !email || isCreatingOrder}
-          onClick={handleSubmit}
+          {plans.map((p, index) => (
+            <Card
+              style={{
+                width: 360,
+                margin: 5,
+                padding: 5,
+                border: `1px solid ${index === selectedIdx ? '#ff5a30' : 'transparent'
+                  }`
+              }}
+              key={index}
+            >
+              <Typography align='center' variant='h4'>
+                {p.title}
+              </Typography>
+              <Typography align='center'>${p.cost}</Typography>
+              <Divider />
+              <Box
+                height={245}
+                display='flex'
+                flexDirection='column'
+                justifyContent='space-between'
+              >
+                <List>
+                  {p.items.slice(0, 3).map((item, idx) => (
+                    <div key={idx}>
+                      <ListItem style={{ padding: '5px 16px' }}>
+                        <Typography variant='subtitle2'> {item}</Typography>
+                      </ListItem>
+                      {/* <Divider /> */}
+                    </div>
+                  ))}
+                </List>
+                <Box
+                  display='flex'
+                  width='100%'
+                  justifyContent='space-evenly'
+                  alignContent='center'
+                  alignItems='center'
+                >
+                  <Button
+                    variant='outlined'
+                    style={{
+                      backgroundColor:
+                        index === selectedIdx ? 'transparent' : '#ff5a30',
+                      color: index === selectedIdx ? 'black' : 'white',
+                      fontWeight: 'bold'
+                    }}
+                    onClick={() => setSelectedIdx(index)}
+                  >
+                    {index === selectedIdx ? 'Seleccionado' : 'Seleccionar'}
+                  </Button>
+                  {p.items.length > 3 ? (
+                    <Typography
+                      onClick={() => {
+                        setSelectedIdx(index)
+                        setOpenModal(true)
+                      }}
+                    >
+                      Ver más
+                    </Typography>
+                  ) : null}
+                </Box>
+              </Box>
+            </Card>
+          ))}
+        </Box>
+        <Box
+          display='flex'
+          flexDirection='column'
+          width={smDown ? '90%' : '450px'}
         >
-          {isCreatingOrder ? 'Creating Order...' : 'Start Payment order'}
-        </Button>
-      )}
-    </Box>
+          <Typography variant='h3' align='center'>
+            Ingresa tus datos
+          </Typography>
+          <hr />
+          <TextField
+            onChange={event => setFullname(event.target.value)}
+            placeholder='Nombre completo'
+            fullWidth
+            variant='outlined'
+          />
+          <br />
+          <TextField
+            onChange={event => setEmail(event.target.value)}
+            placeholder='Correo electrónico'
+            fullWidth
+            variant='outlined'
+          />
+          <br />
+          {selectedIdx ? (
+            <Typography align='center' color='secondary' variant='caption'>
+              Total a pagar: ${plans[selectedIdx].cost}
+            </Typography>
+          ) : null}
+          {order && order.status === 'CREATED' ? (
+            <Button
+              href={order.order.link}
+              style={{ backgroundColor: 'green', color: 'white' }}
+            >
+              Continuar
+            </Button>
+          ) : (
+            <Button
+              variant='outlined'
+              disabled={!fullname || !email || isCreatingOrder || !selectedIdx}
+              onClick={handleSubmit}
+            >
+              {isCreatingOrder ? 'Creando orden...' : 'Crear Orden de Pago'}
+            </Button>
+          )}
+        </Box>
+      </Box>
+      <ShowMoreModal
+        index={selectedIdx || 0}
+        open={openModal}
+        handleClose={() => setOpenModal(false)}
+      />
+    </>
   )
 }
 

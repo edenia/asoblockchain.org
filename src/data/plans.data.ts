@@ -64,14 +64,16 @@ export const plans = [
     items: [
       'Se brinda acceso a eventos de la organización a precio de descuento, con voz (pero sin voto en la toma de decisiones).',
       'Acceso individual al chat de Asoblockchain CR en whatsApp.',
+      "Networking"
     ]
   },
   {
     id: 6,
-    cost: 0,
+    cost: 10,
     title: 'Donación para desarrollo',
     items: [
       'Si desea apoyar nuestros esfuerzos y asegurarse de que podamos informar, apoyar, defender y educar en Blockchain, haga una donación hoy.',
+      'Las donaciones podrán ser usadas para desarrollo, planeación de eventos, entre otros'
     ]
   },
 ]
