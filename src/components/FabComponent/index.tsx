@@ -12,9 +12,7 @@ const FabComponent: React.FC = () => {
   const { t } = useTranslation('common')
 
   return (
-    <Link
-      href='/pay'
-    >
+    <Link href='/pay'>
       <Fab
         variant={xsDown ? 'circular' : 'extended'}
         size='medium'

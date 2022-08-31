@@ -14,12 +14,12 @@ const MembershipPaid: NextPage = () => {
       display='flex'
       flexDirection='column'
       justifyContent='center'
-      alignItems="center"
+      alignItems='center'
     >
       <Typography color='secondary' align='center' variant='h1'>
         Membresía pagada
       </Typography>
-      <List style={{ width: '80%', maxWidth: "643px" }}>
+      <List style={{ width: '80%', maxWidth: '643px' }}>
         <ListItem>
           <Typography align='left' variant='h6'>
             <strong>Orden:</strong> {cpl_id}
@@ -35,15 +35,13 @@ const MembershipPaid: NextPage = () => {
             <strong>Correo:</strong> {email || ''}
           </Typography>
         </ListItem>
-        {
-          plan ? (
-            <ListItem>
-              <Typography align='left' variant='h6'>
-                <strong>Plan:</strong> {plans[Number(plan)].title}
-              </Typography>
-            </ListItem>
-          ) : null
-        }
+        {plan ? (
+          <ListItem>
+            <Typography align='left' variant='h6'>
+              <strong>Plan:</strong> {plans[Number(plan)].title}
+            </Typography>
+          </ListItem>
+        ) : null}
       </List>
     </Box>
   )

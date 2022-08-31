@@ -88,8 +88,9 @@ const Pay: NextPage = () => {
                 width: 360,
                 margin: 5,
                 padding: 5,
-                border: `1px solid ${index === selectedIdx ? '#ff5a30' : 'transparent'
-                  }`
+                border: `1px solid ${
+                  index === selectedIdx ? '#ff5a30' : 'transparent'
+                }`
               }}
               key={index}
             >

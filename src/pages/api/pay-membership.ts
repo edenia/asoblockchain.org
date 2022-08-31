@@ -1,13 +1,13 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import fetch from 'node-fetch'
 
-import { addresses } from './addresses.data';
+import { addresses } from './addresses.data'
 
 const createOrder = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const body = JSON.parse(req.body)
 
-    const btc_address = addresses[Math.floor(Math.random() * addresses.length)];
+    const btc_address = addresses[Math.floor(Math.random() * addresses.length)]
 
     const createOrderBody = {
       item_description: body.item_description,
@@ -18,7 +18,9 @@ const createOrder = async (req: NextApiRequest, res: NextApiResponse) => {
       return_url: body.return_url
     }
 
-    const b = Buffer.from(`${process.env.PAYMENT_LINK_USERNAME}:${process.env.PAYMENT_LINK_API_KEY}`);
+    const b = Buffer.from(
+      `${process.env.PAYMENT_LINK_USERNAME}:${process.env.PAYMENT_LINK_API_KEY}`
+    )
     const encoded = b.toString('base64')
 
     const response = await fetch(

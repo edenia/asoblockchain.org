@@ -1,5 +1,12 @@
 import React from 'react'
-import { Dialog, DialogContent, Divider, List, ListItem, Typography } from '@material-ui/core'
+import {
+  Dialog,
+  DialogContent,
+  Divider,
+  List,
+  ListItem,
+  Typography
+} from '@material-ui/core'
 import { plans } from 'data/plans.data'
 
 type ShowMoreModalType = {
@@ -9,9 +16,7 @@ type ShowMoreModalType = {
 }
 
 const ShowMoreModal = ({ index, open, handleClose }: ShowMoreModalType) => (
-  <Dialog
-    open={open}
-    onClose={handleClose}>
+  <Dialog open={open} onClose={handleClose}>
     <DialogContent>
       <List>
         {plans[index].items.map((item, idx) => (

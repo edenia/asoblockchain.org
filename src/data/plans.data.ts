@@ -11,7 +11,7 @@ export const plans = [
       'Anuncios con costo especial en el sitio web de ASOBLOCKCHAIN.',
       'Apoyo y asesoramiento en las relaciones intersectoriales, principalmente con el sector público.',
       'Descuento de un 15% en actividades organizadas por ASOBLOCKCHAIN y un 7.5% de descuento para familiares de primer grado de consanguinidad.',
-      'Acceso para 5 personas de la empresa al chat de Asoblockchain CR en whatsApp.',
+      'Acceso para 5 personas de la empresa al chat de Asoblockchain CR en whatsApp.'
     ]
   },
   {
@@ -26,17 +26,16 @@ export const plans = [
       'Anuncios con costo especial en el sitio web de ASOBLOCKCHAIN.',
       'Apoyo y asesoramiento en las relaciones intersectoriales, principalmente con el sector público.',
       'Descuento de un 15% en actividades organizadas por ASOBLOCKCHAIN y un 7.5% de descuento para familiares de primer grado de consanguinidad.',
-      'Acceso para 5 personas de la empresa al chat de Asoblockchain CR en whatsApp.',
-
+      'Acceso para 5 personas de la empresa al chat de Asoblockchain CR en whatsApp.'
     ]
   },
   {
     id: 3,
     cost: 1200,
-    title: "Empresa de mas de 31 empleados",
+    title: 'Empresa de mas de 31 empleados',
     items: [
-      "Se brinda acceso a eventos de la organización, voz y voto en la toma de decisiones.",
-      "Acceso a información sobre oportunidades en el área de BLOCKCHAIN en Costa Rica.",
+      'Se brinda acceso a eventos de la organización, voz y voto en la toma de decisiones.',
+      'Acceso a información sobre oportunidades en el área de BLOCKCHAIN en Costa Rica.',
       'Asesoría para aprovechar oportunidades en el área BLOCKCHAIN.',
       'Networking.',
       'Anuncios con costo especial en el sitio web de ASOBLOCKCHAIN.',
@@ -54,7 +53,7 @@ export const plans = [
       'Acceso a información sobre oportunidades en el área de BLOCKCHAIN en Costa Rica.',
       'Asesoría para aprovechar oportunidades en el área BLOCKCHAIN.',
       'Networking.',
-      'Acceso individual al chat de Asoblockchain CR en whatsApp.',
+      'Acceso individual al chat de Asoblockchain CR en whatsApp.'
     ]
   },
   {
@@ -64,7 +63,7 @@ export const plans = [
     items: [
       'Se brinda acceso a eventos de la organización a precio de descuento, con voz (pero sin voto en la toma de decisiones).',
       'Acceso individual al chat de Asoblockchain CR en whatsApp.',
-      "Networking"
+      'Networking'
     ]
   },
   {
@@ -75,5 +74,5 @@ export const plans = [
       'Si desea apoyar nuestros esfuerzos y asegurarse de que podamos informar, apoyar, defender y educar en Blockchain, haga una donación hoy.',
       'Las donaciones podrán ser usadas para desarrollo, planeación de eventos, entre otros'
     ]
-  },
+  }
 ]
