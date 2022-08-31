@@ -52,7 +52,7 @@ const Pay: NextPage = () => {
       body: JSON.stringify({
         buyer_email: email,
         fiat_price: plans[selectedIdx || 0].cost,
-        return_url: `http:localhost:3000/membership-paid?fullname=${fullname}&email=${email}&plan=${selectedIdx}`,
+        return_url: `https://asoblockchain.org/membership-paid?fullname=${fullname}&email=${email}&plan=${selectedIdx}`,
         item_description: `New member join payment request. Name: ${fullname}. Email: ${email}`
       })
     })
