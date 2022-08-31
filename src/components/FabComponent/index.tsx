@@ -13,8 +13,6 @@ const FabComponent: React.FC = () => {
 
   return (
     <Link
-      // target='_blank'
-      // href='https://btcnode2.crservers.com/apps/47egazbG6mVHUypcAfMVV67gQSQp/pos'
       href='/pay'
     >
       <Fab
