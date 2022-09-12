@@ -37,13 +37,13 @@ const Pay: NextPage = () => {
   const [email, setEmail] = useState<string>()
   const [isCreatingOrder, setIsCreatingOrder] = useState(false)
   const [order, setOrder] = useState<OrderResult>()
-  const [selectedIdx, setSelectedIdx] = useState<number>()
+  const [selectedIdx, setSelectedIdx] = useState<number>(0)
   const [openModal, setOpenModal] = useState(false)
 
   const { smDown } = useSizes()
 
   const handleSubmit = async () => {
-    if (!selectedIdx) return
+    if (selectedIdx === undefined) return
 
     setIsCreatingOrder(true)
 
@@ -88,9 +88,8 @@ const Pay: NextPage = () => {
                 width: 360,
                 margin: 5,
                 padding: 5,
-                border: `1px solid ${
-                  index === selectedIdx ? '#ff5a30' : 'transparent'
-                }`
+                border: `1px solid ${index === selectedIdx ? '#ff5a30' : 'transparent'
+                  }`
               }}
               key={index}
             >
@@ -111,7 +110,6 @@ const Pay: NextPage = () => {
                       <ListItem style={{ padding: '5px 16px' }}>
                         <Typography variant='subtitle2'> {item}</Typography>
                       </ListItem>
-                      {/* <Divider /> */}
                     </div>
                   ))}
                 </List>
@@ -172,7 +170,7 @@ const Pay: NextPage = () => {
             variant='outlined'
           />
           <br />
-          {selectedIdx ? (
+          {selectedIdx !== undefined ? (
             <Typography align='center' color='secondary' variant='caption'>
               Total a pagar: ${plans[selectedIdx].cost}
             </Typography>
@@ -187,7 +185,7 @@ const Pay: NextPage = () => {
           ) : (
             <Button
               variant='outlined'
-              disabled={!fullname || !email || isCreatingOrder || !selectedIdx}
+              disabled={!fullname || !email || isCreatingOrder || selectedIdx === undefined}
               onClick={handleSubmit}
             >
               {isCreatingOrder ? 'Creando orden...' : 'Crear Orden de Pago'}
