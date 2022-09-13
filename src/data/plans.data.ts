@@ -4,7 +4,7 @@ export const plans = [
     cost: 400,
     title: 'Empresa de 1 a 15 empleados',
     items: [
-      'Se brinda acceso a eventos de la organización, voz y voto en la toma de decisiones',
+      'Se brinda acceso a eventos de la organización, voz y voto en la toma de decisiones.',
       'Acceso a información sobre oportunidades en el área de BLOCKCHAIN en Costa Rica.',
       'Asesoría para aprovechar oportunidades en el área BLOCKCHAIN.',
       'Networking.',
@@ -63,7 +63,7 @@ export const plans = [
     items: [
       'Se brinda acceso a eventos de la organización a precio de descuento, con voz (pero sin voto en la toma de decisiones).',
       'Acceso individual al chat de Asoblockchain CR en whatsApp.',
-      'Networking'
+      'Networking.'
     ]
   },
   {
@@ -72,7 +72,7 @@ export const plans = [
     title: 'Donación para desarrollo',
     items: [
       'Si desea apoyar nuestros esfuerzos y asegurarse de que podamos informar, apoyar, defender y educar en Blockchain, haga una donación hoy.',
-      'Las donaciones podrán ser usadas para desarrollo, planeación de eventos, entre otros'
+      'Las donaciones podrán ser usadas para desarrollo, planeación de eventos, entre otros.'
     ]
   }
 ]
