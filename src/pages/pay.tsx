@@ -1,4 +1,4 @@
-import { NextPage } from 'next'
+import { GetStaticProps, NextPage } from 'next'
 import {
   Box,
   Button,
@@ -13,6 +13,9 @@ import { useState } from 'react'
 import { useSizes } from 'hooks'
 import { plans } from 'data/plans.data'
 import ShowMoreModal from 'components/ShowMoreModal'
+import { useTranslation } from 'next-i18next'
+import { routeUtils } from 'utils'
+import i18nUtils from 'utils/i18n'
 
 type OrderResult = {
   status: string
@@ -33,6 +36,7 @@ type OrderResult = {
 }
 
 const Pay: NextPage = () => {
+  const { t } = useTranslation()
   const [fullname, setFullname] = useState<string>()
   const [email, setEmail] = useState<string>()
   const [isCreatingOrder, setIsCreatingOrder] = useState(false)
@@ -57,6 +61,7 @@ const Pay: NextPage = () => {
       })
     })
 
+
     const orderResult = await rawResult.json()
     setOrder(orderResult)
     setIsCreatingOrder(false)
@@ -72,7 +77,7 @@ const Pay: NextPage = () => {
         width='100%'
         my={10}
       >
-        <Typography variant='h1'>Planes de membresía</Typography>
+        <Typography variant='h1'>{t('membershipPlans')}</Typography>
         <hr />
         <Box
           width='95%'
@@ -94,7 +99,7 @@ const Pay: NextPage = () => {
               key={index}
             >
               <Typography align='center' variant='h4'>
-                {p.title}
+                {t(p.title)}
               </Typography>
               <Typography align='center'>${p.cost}</Typography>
               <Divider />
@@ -108,7 +113,7 @@ const Pay: NextPage = () => {
                   {p.items.slice(0, 3).map((item, idx) => (
                     <div key={idx}>
                       <ListItem style={{ padding: '5px 16px' }}>
-                        <Typography variant='subtitle2'> {item}</Typography>
+                        <Typography variant='subtitle2'> {t(item)}</Typography>
                       </ListItem>
                     </div>
                   ))}
@@ -130,7 +135,7 @@ const Pay: NextPage = () => {
                     }}
                     onClick={() => setSelectedIdx(index)}
                   >
-                    {index === selectedIdx ? 'Seleccionado' : 'Seleccionar'}
+                    {index === selectedIdx ? t('selected') : t('select')}
                   </Button>
                   {p.items.length > 3 ? (
                     <Typography
@@ -139,7 +144,7 @@ const Pay: NextPage = () => {
                         setOpenModal(true)
                       }}
                     >
-                      Ver más
+                      {t('seeMore')}
                     </Typography>
                   ) : null}
                 </Box>
@@ -153,26 +158,26 @@ const Pay: NextPage = () => {
           width={smDown ? '90%' : '450px'}
         >
           <Typography variant='h3' align='center'>
-            Ingresa tus datos
+            {t('addYourData')}
           </Typography>
           <hr />
           <TextField
             onChange={event => setFullname(event.target.value)}
-            placeholder='Nombre completo'
+            placeholder={t('fullName')}
             fullWidth
             variant='outlined'
           />
           <br />
           <TextField
             onChange={event => setEmail(event.target.value)}
-            placeholder='Correo electrónico'
+            placeholder={t('email')}
             fullWidth
             variant='outlined'
           />
           <br />
           {selectedIdx !== undefined ? (
             <Typography align='center' color='secondary' variant='caption'>
-              Total a pagar: ${plans[selectedIdx].cost}
+              {t('totalToPay')}: ${plans[selectedIdx].cost}
             </Typography>
           ) : null}
           {order && order.status === 'CREATED' ? (
@@ -180,7 +185,7 @@ const Pay: NextPage = () => {
               href={order.order.link}
               style={{ backgroundColor: 'green', color: 'white' }}
             >
-              Continuar
+              {t('continue')}
             </Button>
           ) : (
             <Button
@@ -188,7 +193,7 @@ const Pay: NextPage = () => {
               disabled={!fullname || !email || isCreatingOrder || selectedIdx === undefined}
               onClick={handleSubmit}
             >
-              {isCreatingOrder ? 'Creando orden...' : 'Crear Orden de Pago'}
+              {isCreatingOrder ? t('creatingOrder') : t('createOrder')}
             </Button>
           )}
         </Box>
@@ -203,3 +208,14 @@ const Pay: NextPage = () => {
 }
 
 export default Pay
+
+export const getStaticProps: GetStaticProps = async context => {
+  const locale = routeUtils.getAsString(context.locale)
+  const translations = await i18nUtils.getServerSideTranslations(locale)
+
+  return {
+    props: {
+      ...translations
+    }
+  }
+}

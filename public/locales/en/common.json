@@ -67,7 +67,6 @@
   "sentSuccessfully": "Thank you for contacting Asoblockchain. We will reply to you as soon as possible",
   "name": "Name",
   "telephone": "Telephone",
-  "email": "Email",
   "message": "Message",
   "submit": "Submit",
   "business": "Business",
@@ -147,5 +146,19 @@
   "item10": "Access to the organization's events is provided at a discounted rate, with a voice (but no vote in decision-making).",
   "plan6Title": "Donation for development",
   "item11": "If you would like to support our efforts and ensure that we can inform, support, advocate and educate on Blockchain, donate today.",
-  "item12": "Donations may be used for development, event planning, among others."
+  "item12": "Donations may be used for development, event planning, among others.",
+  "membershipPlans": "Membership Plans",
+  "select": "Select",
+  "selected": "Selected",
+  "seeMore": "See more",
+  "addYourData": "Add Your Data",
+  "fullName": "Fullname",
+  "email": "Email",
+  "totalToPay": "Total to pay",
+  "continue": "Continue",
+  "creatingOrder": "Creating Order",
+  "createOrder": "Create Payment Order",
+  "membershipPaid": "Membership Paid",
+  "order": "Order",
+  "plan": "Plan"
 }
