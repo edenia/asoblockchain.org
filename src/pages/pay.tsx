@@ -61,7 +61,6 @@ const Pay: NextPage = () => {
       })
     })
 
-
     const orderResult = await rawResult.json()
     setOrder(orderResult)
     setIsCreatingOrder(false)
@@ -93,8 +92,9 @@ const Pay: NextPage = () => {
                 width: 360,
                 margin: 5,
                 padding: 5,
-                border: `1px solid ${index === selectedIdx ? '#ff5a30' : 'transparent'
-                  }`
+                border: `1px solid ${
+                  index === selectedIdx ? '#ff5a30' : 'transparent'
+                }`
               }}
               key={index}
             >
@@ -190,7 +190,12 @@ const Pay: NextPage = () => {
           ) : (
             <Button
               variant='outlined'
-              disabled={!fullname || !email || isCreatingOrder || selectedIdx === undefined}
+              disabled={
+                !fullname ||
+                !email ||
+                isCreatingOrder ||
+                selectedIdx === undefined
+              }
               onClick={handleSubmit}
             >
               {isCreatingOrder ? t('creatingOrder') : t('createOrder')}

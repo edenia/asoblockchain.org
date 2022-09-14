@@ -11,7 +11,7 @@ const createOrder = async (req: NextApiRequest, res: NextApiResponse) => {
 
     const createOrderBody = {
       item_description: body.item_description,
-      brand_name: "Asoblockchain.org",
+      brand_name: 'Asoblockchain.org',
       fiat_price: body.fiat_price,
       fiat_currency_code: 'USD',
       btc_address,

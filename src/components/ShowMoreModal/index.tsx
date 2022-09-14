@@ -19,7 +19,12 @@ type ShowMoreModalType = {
   handleClose: () => void
 }
 
-const ShowMoreModal = ({ index, open, handleClose, ...props }: ShowMoreModalType) => {
+const ShowMoreModal = ({
+  index,
+  open,
+  handleClose,
+  ...props
+}: ShowMoreModalType) => {
   const { t } = useTranslation()
 
   return (
@@ -41,4 +46,3 @@ const ShowMoreModal = ({ index, open, handleClose, ...props }: ShowMoreModalType
 }
 
 export default ShowMoreModal
-
