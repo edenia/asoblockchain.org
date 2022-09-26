@@ -42,6 +42,8 @@ jobs:
           GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
           NEXT_PUBLIC_HUBSPOT_CONTACT_EN_FORM: ${{ secrets.NEXT_PUBLIC_HUBSPOT_CONTACT_EN_FORM }}
           NEXT_PUBLIC_HUBSPOT_CONTACT_ES_FORM: ${{ secrets.NEXT_PUBLIC_HUBSPOT_CONTACT_ES_FORM }}
+          PAYMENT_LINK_API_KEY: ${{ secrets.PAYMENT_LINK_API_KEY }}
+          PAYMENT_LINK_USERNAME: ${{ secrets.PAYMENT_LINK_USERNAME }}
           LATEST_TAG: latest-dev
           RELEASE_TAG: ${{ steps.tag.outputs.tag }}
           VERSION: ${{ steps.tag.outputs.tag }}
