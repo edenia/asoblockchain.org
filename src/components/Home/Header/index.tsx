@@ -76,9 +76,11 @@ const Header: React.FC = () => {
             fullScreen={xsDown}
             content={<FormComponent />}
           />
-            <a href='https://www.eventbrite.com.mx/e/foro-ticoblockchain-2022-tickets-444390262237' textAlign='center'>
+          <p textAlign='center'>
+            <a href='https://www.eventbrite.com.mx/e/foro-ticoblockchain-2022-tickets-444390262237'>
               <img src='/images/image.png' alt='TicoBlockchain Event' />
             </a>
+          </p>
         </Grid>
       </Box>
     </Box>
