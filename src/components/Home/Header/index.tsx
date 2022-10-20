@@ -77,7 +77,7 @@ const Header: React.FC = () => {
             content={<FormComponent />}
           />
           <a href='https://www.eventbrite.com.mx/e/foro-ticoblockchain-2022-tickets-444390262237'>
-            <img src='/images/members/image.png' />
+            <img src='/images/image.png' />
           </a>
         </Grid>
       </Box>
