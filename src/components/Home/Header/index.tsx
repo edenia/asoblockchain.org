@@ -2,7 +2,6 @@ import { Box, Grid, Typography } from '@material-ui/core'
 import { useTranslation } from 'next-i18next'
 import { useState } from 'react'
 import Image from 'next/image'
-
 import asoblokchainLogo from '/public/logos/asoblokchain-white-logo.svg'
 import { BaseButton, BaseDialog, FormComponent } from 'components'
 import bgImage from '/public/images/background-image.jpg'
@@ -38,6 +37,7 @@ const Header: React.FC = () => {
             <Box marginY={8} px={mdDown ? 2 : 0}>
               <Image src={asoblokchainLogo} alt='Asoblokchain Logo' />
             </Box>
+
             <Typography color='textSecondary' variant='h5' component='div'>
               <Box marginY={8} px={mdDown ? 2 : 55}>
                 {t('homeHeaderSubtitleOne')}
