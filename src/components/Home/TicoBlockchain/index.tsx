@@ -23,7 +23,11 @@ const TicoBlockchain: React.FC = () => {
               passHref
               href='https://www.eventbrite.com.mx/e/foro-ticoblockchain-2022-tickets-444390262237'
             >
-              <a target='_blank' rel='noopener noreferrer'>
+              <a
+                href='ticoblockchain'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
                 <Image
                   className={classes.banner}
                   width={399}
