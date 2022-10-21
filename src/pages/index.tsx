@@ -15,6 +15,7 @@ import {
 } from 'components'
 import { routeUtils } from 'utils'
 import i18nUtils from 'utils/i18n'
+import TicoBlockchain from 'components/Home/TicoBlockchain'
 
 const Home: NextPage = () => {
   const { t } = useTranslation('common')
@@ -27,6 +28,7 @@ const Home: NextPage = () => {
       />
       <FabComponent />
       <Header />
+      <TicoBlockchain />
       <InformingEducation />
       <JoinAssociation />
       <AssociationMembers />
