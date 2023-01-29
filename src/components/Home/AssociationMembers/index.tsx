@@ -66,20 +66,6 @@ const imagesMembers = [
     occupation: 'voval3Ocupation'
   },
   {
-    photo: flaviaPhoto,
-    link: 'https://www.linkedin.com/in/flavialoeb/',
-    name: 'Flavia Loeb',
-    position: 'vocal4',
-    occupation: 'vocal4Ocupation'
-  },
-  {
-    photo: nancyPhoto,
-    link: 'https://www.linkedin.com/in/nancy-quiros-b3736b141/',
-    name: 'Nancy Quirós',
-    position: 'vocal5',
-    occupation: 'vocal5Ocupation'
-  },
-  {
     photo: nicolasPhoto,
     name: 'Nicolás Sulima',
     position: 'prosecutor',

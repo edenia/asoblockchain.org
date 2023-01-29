@@ -95,10 +95,10 @@ const FormComponent: React.FC = () => {
                 {t('associatedSecondPoint')}
               </Typography>
               <Typography variant='caption' display='block'>
-                -{t('networkingBetweenBusinessmen')}
+                - {t('networkingBetweenBusinessmen')}
               </Typography>
               <Typography variant='caption' display='block'>
-                -{t('accessAsoblockchainChat')}
+                - {t('accessAsoblockchainChat')}
               </Typography>
               <Typography variant='caption' display='block'>
                 <Box fontWeight='bold'>{t('affiliate')}</Box>
@@ -107,7 +107,7 @@ const FormComponent: React.FC = () => {
                 {t('affiliateFirstPoint')}
               </Typography>
               <Typography variant='caption' display='block'>
-                -{t('individualAccessAsoblockchainChat')}
+                - {t('individualAccessAsoblockchainChat')}
               </Typography>
             </Box>
             <Box pt={4} pb={1}>
@@ -120,7 +120,7 @@ const FormComponent: React.FC = () => {
                 <Field
                   type='radio'
                   name='personalMembershipCategory'
-                  value='Asociado con Derecho de Voz y Voto - Costo Anual: $150'
+                  value='Asociado con Derecho de Voz y Voto - Costo Anual: US$150'
                 />
                 {t('associateVoiceVotingRights')}
               </Typography>
@@ -128,7 +128,7 @@ const FormComponent: React.FC = () => {
                 <Field
                   type='radio'
                   name='personalMembershipCategory'
-                  value='Afiliado - Costo Anual: $50'
+                  value='Afiliado - Costo Anual: US$50'
                 />
                 {t('affiliateAnnualCost')}
               </Typography>
@@ -220,7 +220,7 @@ const FormComponent: React.FC = () => {
                 - {t('accessInformationAboutOpportunitiesBLOCKCHAIN')}
               </Typography>
               <Typography variant='caption' display='block'>
-                -{t('networkingBetweenBusinessmen')}
+                - {t('networkingBetweenBusinessmen')}
               </Typography>
               <Typography variant='caption' display='block'>
                 - {t('specialCostASOBLOCKCHAINWebsite')}

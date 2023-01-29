@@ -30,9 +30,9 @@ const TicoBlockchain: React.FC = () => {
               >
                 <Image
                   className={classes.banner}
-                  width={399}
-                  height={599}
-                  src='/images/tico-blockchain.png'
+                  width={509}
+                  height={645}
+                  src='/images/alerta.jpg'
                   alt='TicoBlockchain Event'
                 />
               </a>

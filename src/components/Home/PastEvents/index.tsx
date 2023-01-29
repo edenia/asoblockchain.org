@@ -17,6 +17,12 @@ const contents = [
     title: 'ticoblockchain2021',
     subTitle: 'ticoblockchain2021Des',
     link: 'https://ticoblockchain.cr/Landing'
+  },
+  {
+    id: 2,
+    title: 'ticoblockchain2022',
+    subTitle: 'ticoblockchain2022Des',
+    link: 'https://www.youtube.com/@ticoblockchain1804'
   }
 ]
 

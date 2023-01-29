@@ -72,8 +72,8 @@
       "type": "DROPDOWN",
       "id": "778273237",
       "options": [
-        { "label": "Asociado con Derecho de Voz y Voto - Costo Anual: $150" },
-        { "label": "Afiliado - Costo Anual: $50" }
+        { "label": "Asociado con Derecho de Voz y Voto - Costo Anual: US$150" },
+        { "label": "Afiliado - Costo Anual: US$50" }
       ],
       "required": false
     },
